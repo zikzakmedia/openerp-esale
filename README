@@ -1,0 +1,110 @@
+==OpenERP e-sale. Zoook==
+
+Zoook e-commerce tool is a module for OpenERP and Django. e-commerce 100% python.
+Integrated features OpenERP into esale shop (product, sale, stock, price list, ...).  Not need mapping line or syncronization... configure your esale portal and go to drink some coffe or beer.
+
+Zoook is e-commerce OpenERP. Categories and products are syncronize OpenERP to Django because if you OpenERP is off connection your e-commerce is avaible (search engines). Also, a lot of communication is catalog search (users or search enginyes). It's this feature categories, products and images sync OpenERP to Django.
+
+Only Partners, address, price (price list), stock and sale (promotions, delivery, etc) connecting Django to OpenERP in real time. For example, sale order is created at OpenERP and don't need sync and errors.
+
+Zoook is multiwebsite shop. Configure one or more Django App and connecting witch your OpenERP Sale Shop.
+
+ATENTION:
+Read first about Django. Django doc is the best documentation project: https://docs.djangoproject.com/en/1.3/
+Remember: Please, don't send us emails about Django configuration or errors about your Django configuration. 
+
+===Features===
+
+==Licence==
+
+AGPL-3 http://www.gnu.org/licenses/agpl.html
+
+==Product==
+
+- Simple Product
+- Virtual Product
+- Grouped Product (need install nan_product_pack module)
+- Variant Product (need install product_variant_multi)
+
+===Requeriments===
+
+- OOOP (our develop because include more functionalities) https://github.com/zikzakmedia/ooop (this library provides connection to OpenERP Server and it's available extra features (pyro connection, pagination and order filters)
+- XML-RPC: xmlrpclib
+- PyRO 3 (optional, but recommended). http://www.xs4all.nl/~irmen/pyro3/
+- Paramiko http://www.lag.net/paramiko/
+- Recaptcha http://pypi.python.org/packages/source/r/recaptcha-client/
+
+==OpenERP==
+
+- OpenERP 6.0.x server
+- Zoook Module (review depencies zoook openerp module)
+
+=== Dependencies modules ===
+- account_payment_extension
+- base
+- base_vat
+- delivery
+- django
+- poweremail
+- product_m2mcategories
+- product_images_olbs
+- product_attributes
+- sale_payment
+- sale_promotions
+
+==Django==
+
+- Django 1.3
+- django-transmeta
+- django-locale
+- inplaceeditform
+- maintenancemode
+- south
+- piston
+
+===HOW TO===
+
+==Install==
+=Install OpenERP module=
+Copy zoook module and dependencies in openerp-server/modules. Run OpenERP server, reload list of modules and install Zoook module
+
+=Django App=
+1. In static dir, create symbolic link at inplaceeditform library:
+static$ ln -s /usr/local/lib/python2.6/dist-packages/django_inplaceedit-0.69-py2.6.egg/inplaceeditform/media/ inplaceeditform
+2. Add in config.py your configuration (database, OpenERP connection, sale, ....)
+3. All files sync dir, are execute permisions: 775
+4. Add anguages in settings.py. This languages are same available in Sale Shop (OpenERP)
+5. Create tables: python manage.py syncdb
+6. Important! Run configuration.py. Add new values site django (extra site fields)
+7. Run Server: python manage.py runserver
+
+==Configuration==
+=OpenERP=
+1. Sale/Administration/Sales. Configure your Sale Shop and paramiko connection (ssh)
+2. Add Countries to Check Vat. This option is requiered because is same countries avalaible shop.
+3. Sale Order or Invoices sequence not use / (for example, SO/001). URL navigator get order number and / it's a path url and broken.
+
+=Django=
+1. Create a module name "catalog.right". This module is requiered in default template.
+
+==Utilization==
+Sales, partners, ... are creating in real time e-sale to OpenERP. Only nedd sync categories and products.
+Go to sale shop OpenERP for sync. Remember Django Sync dir need execute permisions.
+Also, remember see OpenERP logs and Django logs
+
+==Template==
+=Modules =
+Add {% module [position]%} templates for load modules
+
+==Active Payments==
+Default configuration not available payments active. How to active payments?
+
+1. Go to OpenERP Sale->Shop. In Payment tab, add payments active in this shop
+2. Edit settings.py. Add payment APP available (see comment app example)
+3. Edit payment/urlsPayment.py. Add urls payment type available (see comment urls example)
+4. Edit config.py if you payment type need configuration. There are some examples configuration params Sermepa and Paypal
+
+Paypal or Servired payments, need install in your server django-paypal and django-sermepa.
+
+==Catalog Admin==
+Super Users are available access to Catalog Admin. This section is only check catalog database sync OpenERP -> Django. Create your catalog in OpenERP
