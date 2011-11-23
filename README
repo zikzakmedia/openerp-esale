@@ -57,10 +57,11 @@ AGPL-3 http://www.gnu.org/licenses/agpl.html
 - Django 1.3
 - django-transmeta
 - django-locale
-- inplaceeditform
-- maintenancemode
-- south
-- piston
+- django-inplaceeditform
+- django-maintenancemode
+- django-south
+- django-piston
+- django-pagination
 
 ===HOW TO===
 
