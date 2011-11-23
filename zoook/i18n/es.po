@@ -1,0 +1,912 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* zoook
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.2\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-11-23 09:25+0000\n"
+"PO-Revision-Date: 2011-11-23 10:29+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: zoook
+#: selection:zoook.sale.shop.payment.type,picking_policy:0
+msgid "Partial Delivery"
+msgstr "Envio parcial"
+
+#. module: zoook
+#: field:sale.shop,zoook_last_export_products:0
+msgid "Last Export Products"
+msgstr "Últimos productos exportados"
+
+#. module: zoook
+#: field:product.category,metatitle:0
+#: field:product.template,metatitle:0
+msgid "Title"
+msgstr "Título"
+
+#. module: zoook
+#: sql_constraint:res.country:0
+msgid "The name of the country must be unique !"
+msgstr "¡El nombre del país debe ser único!"
+
+#. module: zoook
+#: sql_constraint:res.country:0
+msgid "The code of the country must be unique !"
+msgstr "¡El código del país debe ser único!"
+
+#. module: zoook
+#: field:product.category,available_sort_by:0
+msgid "Available Product Listing (Sort By)"
+msgstr "Productos disponibles listado (Ordenación por)"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_zoook_connect
+msgid "ZoooK Connect"
+msgstr "Conexión ZoooK"
+
+#. module: zoook
+#: field:sale.shop,zoook_last_export_categories:0
+msgid "Last Export Categories"
+msgstr "Últimas categorías exportadas"
+
+#. module: zoook
+#: view:res.partner:0
+msgid "Whistlist"
+msgstr "Lista de deseos"
+
+#. module: zoook
+#: field:product.category,default_sort_by:0
+msgid "Default Product Listing Sort (Sort By)"
+msgstr "Ordenación productos por defecto (Ordenación por)"
+
+#. module: zoook
+#: view:product.product:0
+#: view:product.template:0
+msgid "Products Cross-sells"
+msgstr "Ventas cruzadas"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "SSH Connection"
+msgstr "Conexión SSH"
+
+#. module: zoook
+#: field:sale.shop,zoook_root_category_id:0
+msgid "Root product Category"
+msgstr "Categoría raiz del producto"
+
+#. module: zoook
+#: field:sale.shop,zoook_last_export_images:0
+msgid "Last Export Images"
+msgstr "Últimas imágenes exportadas"
+
+#. module: zoook
+#: code:addons/zoook/wizard/wizard_create_user.py:130
+#: code:addons/zoook/wizard/wizard_reset_user.py:68
+#, python-format
+msgid "Error: Sale Shop not active"
+msgstr "Error: No hay ninguna tienda activa"
+
+#. module: zoook
+#: field:product.category,slug:0
+#: field:product.template,slug:0
+msgid "Slug"
+msgstr "Slug"
+
+#. module: zoook
+#: view:zoook.reset.user.wizard:0
+msgid "Reset"
+msgstr "Reiniciar"
+
+#. module: zoook
+#: field:sale.shop,zoook_basepath:0
+msgid "Base path"
+msgstr "Ruta base (path)"
+
+#. module: zoook
+#: model:ir.actions.act_window,name:zoook.action_reset_user_django
+#: view:zoook.reset.user.wizard:0
+msgid "Reset User"
+msgstr "Reiniciar usuario"
+
+#. module: zoook
+#: field:product.template,metakeyword:0
+msgid "Keyword"
+msgstr "Palabra clave"
+
+#. module: zoook
+#: selection:zoook.sale.shop.payment.type,order_policy:0
+msgid "Invoice from the Packing"
+msgstr "Facturar desde albarán"
+
+#. module: zoook
+#: code:addons/zoook/wizard/wizard_create_user.py:106
+#, python-format
+msgid "This address there are not email. Please add new email for this address"
+msgstr "Esta dirección no contiene ningún correo electrónico. Insertar uno."
+
+#. module: zoook
+#: code:addons/zoook/sale.py:91
+#, python-format
+msgid "Error!"
+msgstr "¡Error!"
+
+#. module: zoook
+#: selection:zoook.sale.shop.payment.type,order_policy:0
+msgid "Payment Before Delivery"
+msgstr "Pago antes del envío"
+
+#. module: zoook
+#: field:zoook.sale.shop.payment.type,order_policy:0
+msgid "Shipping Policy"
+msgstr "Política de facturación"
+
+#. module: zoook
+#: view:product.product:0
+#: view:product.template:0
+msgid "Products Up-sells"
+msgstr "Ventas sugeridas"
+
+#. module: zoook
+#: model:ir.actions.act_window,name:zoook.action_create_user_django
+#: view:res.partner:0
+#: view:zoook.create.user.wizard:0
+msgid "Create User"
+msgstr "Crear usuario"
+
+#. module: zoook
+#: field:zoook.sale.shop.payment.type,shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_product_images
+msgid "Products Image gallery"
+msgstr "Galería de productos"
+
+#. module: zoook
+#: constraint:product.category:0
+msgid "Error ! You can not create recursive categories."
+msgstr "¡Error! No puede crear categorías recursivas."
+
+#. module: zoook
+#: field:sale.shop,zoook_shop:0
+msgid "OpenERP e-Sale"
+msgstr "OpenERP e-Sale"
+
+#. module: zoook
+#: code:addons/zoook/product.py:279
+#, python-format
+msgid "Not Price List available Partner or Shop."
+msgstr "No hay listas de tarifa disponibles en la empresa o en la tienda"
+
+#. module: zoook
+#: view:zoook.reset.user.wizard:0
+msgid "Are you sure to reset this user?"
+msgstr "¿Esta seguro de reiniciar este usuario?"
+
+#. module: zoook
+#: field:sale.shop,email_sale_order:0
+msgid "Email Sale Order"
+msgstr "Plantilla pedido de venta"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: zoook
+#: field:sale.shop,zoook_payment_types:0
+#: view:zoook.sale.shop.payment.type:0
+#: field:zoook.sale.shop.payment.type,payment_type_id:0
+msgid "Payment Type"
+msgstr "Tipo de pago"
+
+#. module: zoook
+#: help:sale.shop,zoook_ssh_key:0
+msgid "Path ssh key localhost"
+msgstr "Ruta clave ssh del servidor"
+
+#. module: zoook
+#: field:zoook.sale.shop.payment.type,confirm:0
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: zoook
+#: view:zoook.create.user.wizard:0
+msgid "Create"
+msgstr "Crear"
+
+#. module: zoook
+#: field:product.template,product_upsells_ids:0
+msgid "Up-sells"
+msgstr "Ventas sugeridas"
+
+#. module: zoook
+#: selection:zoook.sale.shop.payment.type,invoice_quantity:0
+msgid "Shipped Quantities"
+msgstr "Cantidades enviadas"
+
+#. module: zoook
+#: help:sale.shop,email_sale_order:0
+msgid "Email Template Sale Order"
+msgstr "Plantilla de correo del pedido de venta"
+
+#. module: zoook
+#: field:zoook.create.user.wizard,email:0
+#: field:zoook.create.user.wizard,email_create_user:0
+#: field:zoook.reset.user.wizard,email_reset_user:0
+msgid "Email"
+msgstr "Correo electrónico"
+
+#. module: zoook
+#: field:sale.shop,zoook_username:0
+#: field:zoook.create.user.wizard,username:0
+#: field:zoook.reset.user.wizard,username:0
+msgid "Username"
+msgstr "Nombre  de usuario"
+
+#. module: zoook
+#: code:addons/zoook/sale.py:87
+#, python-format
+msgid "Ok!"
+msgstr "Aceptar"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_zoook_sale_shop_payment_type
+msgid "Zoook Sale Shop Payment Type"
+msgstr "Tipo de pago de la tienda"
+
+#. module: zoook
+#: selection:sale.order,payment_state:0
+msgid "Checking"
+msgstr "Comprobante"
+
+#. module: zoook
+#: selection:zoook.sale.shop.payment.type,invoice_quantity:0
+msgid "Ordered Quantities"
+msgstr "Cantidades ordenadas"
+
+#. module: zoook
+#: help:product.template,zoook_status:0
+msgid "If check this, e-sale product are available and shop it"
+msgstr "Si se activa, el  producto se encuentra disponible en la tienda on-line y se puede comprar"
+
+#. module: zoook
+#: field:product.template,visibility:0
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#. module: zoook
+#: view:product.category:0
+msgid "Sorting method"
+msgstr "Método de ordenación"
+
+#. module: zoook
+#: selection:product.template,visibility:0
+msgid "Catalog"
+msgstr "Catálogo"
+
+#. module: zoook
+#: field:product.template,product_related_ids:0
+msgid "Related Products"
+msgstr "Productos relacionados"
+
+#. module: zoook
+#: field:product.category,fslug:0
+msgid "Full Slug"
+msgstr "Slug completo"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: zoook
+#: help:sale.shop,zoook_last_export_products:0
+msgid "If you publish new products related another products and this products are not available in your e-sale, you need two exports (first publish products and after related products)"
+msgstr "Si publica nuevos productos y estos están relacionados con productos que no estén disponibles en su tienda, necesitará hacer dos exportaciones (la primera, con los productos maestros y después productos relacionados)"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "Export Products"
+msgstr "Exporta productos"
+
+#. module: zoook
+#: help:zoook.reset.user.wizard,email_reset_user:0
+msgid "Template Email Reset User"
+msgstr "Plantilla de correo electrónico reiniciar usuario"
+
+#. module: zoook
+#: selection:zoook.sale.shop.payment.type,order_policy:0
+msgid "Invoice on Order After Delivery"
+msgstr "Facturación del pedido después del envío"
+
+#. module: zoook
+#: selection:product.template,visibility:0
+msgid "None"
+msgstr "Ninguno"
+
+#. module: zoook
+#: selection:zoook.sale.shop.payment.type,picking_policy:0
+msgid "Complete Delivery"
+msgstr "Envío completo"
+
+#. module: zoook
+#: help:zoook.sale.shop.payment.type,sequence:0
+msgid "Gives the sequence order when displaying a list of payments."
+msgstr "Ordenación para listar los tipos de pago"
+
+#. module: zoook
+#: view:product.product:0
+#: view:product.template:0
+msgid "Products Related"
+msgstr "Productos relacionados"
+
+#. module: zoook
+#: code:addons/zoook/wizard/wizard_create_user.py:103
+#, python-format
+msgid "This Django user exist."
+msgstr "Este usuario de Django existe."
+
+#. module: zoook
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡Referencia del pedido debe ser única!"
+
+#. module: zoook
+#: field:product.images,exclude:0
+msgid "Exclude"
+msgstr "Excluir"
+
+#. module: zoook
+#: view:res.partner:0
+msgid "Reset User (new password create)"
+msgstr "Reiniciar usuario (se creará una nueva contraseña)"
+
+#. module: zoook
+#: selection:zoook.create.user.wizard,state:0
+#: selection:zoook.reset.user.wizard,state:0
+msgid "First"
+msgstr "Primero"
+
+#. module: zoook
+#: help:zoook.create.user.wizard,email_create_user:0
+msgid "Template Email Create User"
+msgstr "Plantilla de creación de usuario"
+
+#. module: zoook
+#: field:zoook.create.user.wizard,last_name:0
+msgid "Last Name"
+msgstr "Apellidos"
+
+#. module: zoook
+#: selection:zoook.sale.shop.payment.type,order_policy:0
+msgid "Shipping & Manual Invoice"
+msgstr "Factura manual"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_sale_shop
+msgid "Sales Shop"
+msgstr "Tienda"
+
+#. module: zoook
+#: field:sale.order,payment_state:0
+msgid "Payment State"
+msgstr "Estado de pago"
+
+#. module: zoook
+#: field:zoook.create.user.wizard,result:0
+#: field:zoook.reset.user.wizard,result:0
+msgid "Result"
+msgstr "Resultado"
+
+#. module: zoook
+#: field:product.template,attributes_group_id:0
+msgid "Attributes Group"
+msgstr "Grupo de atributos"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "Before to add new language, your e-sale are available this language? Contact your webmaster to active first this language in your e-sale"
+msgstr "Antes de añadir una nueva lengua, esta lengua esta disponible en la tienda virtual? Contacte primero con su webmaster para añadir primero esta lengua en la tienda virtual."
+
+#. module: zoook
+#: field:sale.shop,zoook_automatic_export:0
+msgid "Automatic Export"
+msgstr "Exportación automática"
+
+#. module: zoook
+#: help:product.template,zoook_saleshop_ids:0
+msgid "Select yours Sale Shops available this product"
+msgstr "Seleccione sus tiendas para que este producto esté disponible"
+
+#. module: zoook
+#: field:res.country,vat_check:0
+msgid "Vat Check"
+msgstr "Comprobación CIF/NIF"
+
+#. module: zoook
+#: code:addons/zoook/sale.py:447
+#, python-format
+msgid "Order %s change status: Done"
+msgstr "Pedido de venta %s ha cambiado el estado: Realizado"
+
+#. module: zoook
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr "Error: UOM por defecto y UOM de compra deben ser de la misma categoría."
+
+#. module: zoook
+#: view:sale.shop:0
+#: field:sale.shop,zoook_langs:0
+msgid "Languages"
+msgstr "Lenguas"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_res_country
+#: view:sale.shop:0
+#: field:sale.shop,vat_country_ids:0
+msgid "Country"
+msgstr "País"
+
+#. module: zoook
+#: selection:sale.order,payment_state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: zoook
+#: code:addons/zoook/wizard/wizard_create_user.py:144
+#: code:addons/zoook/wizard/wizard_reset_user.py:82
+#, python-format
+msgid "Sale Shop: %s Username: %s. %s"
+msgstr "Tienda: %s Nombre de usuario: %s. %s"
+
+#. module: zoook
+#: code:addons/zoook/product.py:186
+#: code:addons/zoook/product.py:187
+#: code:addons/zoook/product.py:317
+#, python-format
+msgid "-copy"
+msgstr "-copia"
+
+#. module: zoook
+#: field:product.category,status:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: zoook
+#: field:zoook.sale.shop.payment.type,picking_policy:0
+msgid "Packing Policy"
+msgstr "Política de envío"
+
+#. module: zoook
+#: field:res.partner,product_whistlist_ids:0
+msgid "Whislist"
+msgstr "Lista de deseos"
+
+#. module: zoook
+#: sql_constraint:product.category:0
+#: sql_constraint:product.template:0
+msgid "Slug must be unique"
+msgstr "Slug debe ser único"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_zoook_create_user_wizard
+msgid "zoook.create.user.wizard"
+msgstr "zoook.create.user.wizard"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "Export Images"
+msgstr "Exportar imágenes"
+
+#. module: zoook
+#: field:product.template,zoook_status:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: zoook
+#: field:product.template,product_crosssells_ids:0
+msgid "Cross-sells"
+msgstr "Ventas cruzadas"
+
+#. module: zoook
+#: view:product.product:0
+msgid "e-Sale"
+msgstr "e-Sale"
+
+#. module: zoook
+#: selection:product.template,visibility:0
+msgid "Search"
+msgstr "Búsqueda"
+
+#. module: zoook
+#: view:product.category:0
+msgid "e-Sale Information"
+msgstr "Información e-Sale"
+
+#. module: zoook
+#: field:product.images,base_image:0
+msgid "Base Image"
+msgstr "Imagen base"
+
+#. module: zoook
+#: code:addons/zoook/sale.py:91
+#, python-format
+msgid "Error connection to server."
+msgstr "Error en la conexión con el servidor."
+
+#. module: zoook
+#: code:addons/zoook/sale.py:87
+#, python-format
+msgid "Connection to server are successfully."
+msgstr "La conexión con el servidor se ha realizado correctamente."
+
+#. module: zoook
+#: field:product.template,zoook_exportable:0
+msgid "Export to e-sale?"
+msgstr "¿Exportar tienda on-line?"
+
+#. module: zoook
+#: field:product.template,zoook_saleshop_ids:0
+msgid "Websites"
+msgstr "Websites"
+
+#. module: zoook
+#: view:product.product:0
+#: view:product.template:0
+msgid "SEO"
+msgstr "SEO"
+
+#. module: zoook
+#: view:product.product:0
+#: view:product.template:0
+#: field:product.template,shortdescription:0
+msgid "Short Description"
+msgstr "Descripción corta"
+
+#. module: zoook
+#: view:product.category:0
+msgid "Display Settings"
+msgstr "Mostrar configuración"
+
+#. module: zoook
+#: help:sale.shop,zoook_basepath:0
+msgid "Path of Django App. Ex: /var/www/zoook"
+msgstr "Ruta de Django App. Ex: /var/www/zoook"
+
+#. module: zoook
+#: help:product.template,zoook_exportable:0
+msgid "If check export e-sale, this product are available in your e-sale. If you need not publish this product (despublish), unmark Active field in e-sale tab"
+msgstr "Si selecciona \"Exportar a tienda on-line\", este producto estará disponible a las tiendas web. Si necesita despublicar este producto, desmarque el campo \"Activo\" de la pestaña e-sale."
+
+#. module: zoook
+#: field:delivery.carrier,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: zoook
+#: help:product.category,slug:0
+msgid "Atention! If you change slug, you need change manually all full slug childreen categories"
+msgstr "Atención! Si cambia el slug, necesita cambiar manualmente el campo de full slug a todas las categorías hijas. Esta acción es delicada."
+
+#. module: zoook
+#: code:addons/zoook/sale.py:443
+#, python-format
+msgid "Order Payment: %s"
+msgstr "Pago pedido de venta: %s"
+
+#. module: zoook
+#: field:zoook.sale.shop.payment.type,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: zoook
+#: field:zoook.create.user.wizard,state:0
+#: field:zoook.reset.user.wizard,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: zoook
+#: view:product.product:0
+#: view:product.template:0
+msgid "General"
+msgstr "General"
+
+#. module: zoook
+#: view:product.category:0
+msgid "General Information"
+msgstr "Información General"
+
+#. module: zoook
+#: selection:sale.order,payment_state:0
+#: selection:zoook.create.user.wizard,state:0
+#: selection:zoook.reset.user.wizard,state:0
+msgid "Done"
+msgstr "Hecho"
+
+#. module: zoook
+#: selection:sale.order,payment_state:0
+#: view:zoook.create.user.wizard:0
+#: view:zoook.reset.user.wizard:0
+msgid "Cancel"
+msgstr "Cancela"
+
+#. module: zoook
+#: view:zoook.create.user.wizard:0
+#: view:zoook.reset.user.wizard:0
+msgid "Close"
+msgstr "Cierra"
+
+#. module: zoook
+#: field:product.category,metakeyword:0
+msgid "Meta Keyword"
+msgstr "Meta Keyword"
+
+#. module: zoook
+#: selection:product.category,available_sort_by:0
+#: selection:product.category,default_sort_by:0
+msgid "Use Config Settings"
+msgstr "Utiliza configuración global"
+
+#. module: zoook
+#: selection:product.category,available_sort_by:0
+#: selection:product.category,default_sort_by:0
+msgid "Best Value"
+msgstr "El mejor valor"
+
+#. module: zoook
+#: field:zoook.create.user.wizard,first_name:0
+msgid "First Name"
+msgstr "Nombre"
+
+#. module: zoook
+#: field:sale.shop,zoook_ssh_key:0
+msgid "Ssh Key"
+msgstr "Claves SSH"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "Global Configuration"
+msgstr "Configuraciones globales"
+
+#. module: zoook
+#: field:product.category,recursive_childen_ids:0
+msgid "All Child Categories"
+msgstr "Todas las categorías hijas"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: zoook
+#: view:product.category:0
+#: field:product.category,description:0
+#: field:product.template,metadescription:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: zoook
+#: model:ir.module.module,shortdesc:zoook.module_meta_information
+msgid "ZoooK - OpenERP e-sale"
+msgstr "OpenERP e-sale"
+
+#. module: zoook
+#: selection:product.category,available_sort_by:0
+#: selection:product.category,default_sort_by:0
+msgid "Price"
+msgstr "Precio"
+
+#. module: zoook
+#: field:zoook.sale.shop.payment.type,app_payment:0
+msgid "App Payment"
+msgstr "Aplicación de pago"
+
+#. module: zoook
+#: help:zoook.sale.shop.payment.type,app_payment:0
+msgid "Name App Payment module (example, paypal, servired, cash_on_delivery,...)"
+msgstr "Nombre de la aplicación de pago (ejemplo: paypal, servired, cash_on_delivery,...)"
+
+#. module: zoook
+#: code:addons/zoook/product.py:150
+#: code:addons/zoook/product.py:170
+#: code:addons/zoook/product.py:231
+#: code:addons/zoook/product.py:240
+#, python-format
+msgid "Alert"
+msgstr "Alerta"
+
+#. module: zoook
+#: view:sale.shop:0
+#: field:sale.shop,zoook_delivery_ids:0
+msgid "Delivery"
+msgstr "Envío"
+
+#. module: zoook
+#: code:addons/zoook/product.py:150
+#: code:addons/zoook/product.py:170
+#: code:addons/zoook/product.py:231
+#: code:addons/zoook/product.py:240
+#, python-format
+msgid "This Slug exists. Choose another slug"
+msgstr "Este slug ya existe. Utilice otro."
+
+#. module: zoook
+#: view:zoook.create.user.wizard:0
+msgid "Are you sure to create a new user?"
+msgstr "¿Esta seguro de crear un nuevo usuario?"
+
+#. module: zoook
+#: field:zoook.create.user.wizard,partner_address_id:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: zoook
+#: help:sale.shop,zoook_tax_include:0
+msgid "Show B2B price list with taxes included"
+msgstr "Mostrar B2B lista de precio con los impuestos incluidos"
+
+#. module: zoook
+#: field:sale.shop,zoook_password:0
+#: field:zoook.create.user.wizard,password:0
+#: field:zoook.reset.user.wizard,password:0
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "Payment"
+msgstr "Pago"
+
+#. module: zoook
+#: field:sale.shop,zoook_tax_include:0
+msgid "Taxes included"
+msgstr "Impuestos incluidos"
+
+#. module: zoook
+#: field:product.product,cartdescription:0
+msgid "Cart Description"
+msgstr "Cesta de la compra"
+
+#. module: zoook
+#: selection:product.category,available_sort_by:0
+#: selection:product.category,default_sort_by:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: zoook
+#: field:zoook.sale.shop.payment.type,invoice_quantity:0
+msgid "Invoice on"
+msgstr "Facturar"
+
+#. module: zoook
+#: field:sale.shop,zoook_ip:0
+msgid "IP"
+msgstr "IP"
+
+#. module: zoook
+#: help:zoook.sale.shop.payment.type,confirm:0
+msgid "Confirm order. Sale Order change state draft to done, and generate picking and/or invoice automatlly"
+msgstr "Confirmar pedido. El pedido cambiará del estado borrador a realizado, y realizará el albarán y/o la factura automáticamente"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "Export Categories"
+msgstr "Exportar categorías"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "OpenERP e-sale"
+msgstr "OpenERP e-sale"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_delivery_carrier
+msgid "Carrier"
+msgstr "Mensajero"
+
+#. module: zoook
+#: field:sale.shop,zoook_key:0
+msgid "Ssh key"
+msgstr "Clave SSH"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "Test Connection"
+msgstr "Test de conexión"
+
+#. module: zoook
+#: view:product.product:0
+#: view:product.template:0
+msgid "Website"
+msgstr "Website"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_zoook_reset_user_wizard
+msgid "zoook.reset.user.wizard"
+msgstr "zoook.reset.user.wizard"
+
+#. module: zoook
+#: field:product.category,metadescription:0
+msgid "Meta Description"
+msgstr "Meta descripción"
+
+#. module: zoook
+#: selection:product.template,visibility:0
+msgid "All"
+msgstr "Todo"
+
+#. module: zoook
+#: model:ir.module.module,description:zoook.module_meta_information
+msgid ""
+"\n"
+"    e-commerce management 100% integration by OpenERP.\n"
+"    This module management yours stores. e-sale ecommerce need APP Django\n"
+"    Doc, code, Blueprints and bugs: https://launchpad.net/zoook\n"
+"    "
+msgstr ""
+"\n"
+"    Gestión de e-commerce integrada 100% en OpenERP.\n"
+"    Este modulo gestiona sus tiendas. e-sale ecommerce necesita la aplicación Django\n"
+"    Documentación, código, mejoras y errores: https://launchpad.net/zoook\n"
+"    "
+
+#. module: zoook
+#: view:product.category:0
+msgid "Meta Information"
+msgstr "Meta información"
+
+#. module: zoook
+#: view:sale.shop:0
+msgid "Actions"
+msgstr "Acciones"
+
+#. module: zoook
+#: view:product.template:0
+#: view:res.partner:0
+msgid "e-sale"
+msgstr "e-sale"
+
+#. module: zoook
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN inválido"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_res_partner
+#: field:zoook.reset.user.wizard,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: zoook
+#: field:sale.shop,zoook_port:0
+msgid "Port"
+msgstr "Puerto"
+
+#~ msgid "Zoook"
+#~ msgstr "Zoook"
+#~ msgid "Zoook Shop"
+#~ msgstr "Tienda Zoook"
+#~ msgid "Payment type"
+#~ msgstr "Tipo de pago"
+#~ msgid "Neither the partner nor the shop have a price list set by default."
+#~ msgstr "Ninguna empresa de la tienda tiene una tarifa de venta por defecto."
+

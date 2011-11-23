@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="product_category_form_view_zoook">
+            <field name="name">product.category.form_view_zoook</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="/form/field[@name='sequence']" position="after">
+                    <group colspan="4" col="4">
+                        <separator string="e-Sale Information" colspan="4" />
+                        <notebook colspan="4">
+                            <page string="General Information">
+                                <group cols="2" colspan="4">
+                                    <group col="2" colspan="1">
+                                        <separator string="Meta Information" colspan="2" />
+                                        <field name="metatitle" colspan="2" />
+                                        <field name="metakeyword" colspan="2" />
+                                        <field name="metadescription" colspan="2" />
+                                        <field name="slug" colspan="2" attrs="{'required':[('status','==',True)]}"/>
+                                        <field name="fslug" colspan="2"/>
+                                    </group>
+                                    <group col="1" colspan="1">
+                                        <separator string="Description" />
+                                        <field name="description" colspan="1" nolabel="1" />
+                                        <group col="4" colspan="1">
+                                            <field name="status" colspan="1" />
+                                        </group>
+                                    </group>
+                                </group>
+
+                            </page>
+                            <page string="Display Settings">
+                                <separator string="Sorting method" colspan="4" />
+                                <field name="available_sort_by" />
+                                <field name="default_sort_by" />
+                            </page>
+                        </notebook>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_category_form_view_zoook2" model="ir.ui.view">
+            <field name="name">product.category.form_view_zoook2</field>
+            <field name="model">product.category</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/field[@name='name']" position="replace">
+                    <field name="name" on_change="onchange_name(name, slug)"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_category_form_view_zoook3" model="ir.ui.view">
+            <field name="name">product.category.form_view_zoook3</field>
+            <field name="model">product.category</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/field[@name='sequence']" position="replace">
+                    <field name="sequence"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_category_list_view_zoook1" model="ir.ui.view">
+            <field name="name">product.category.list_view_zoook1</field>
+            <field name="model">product.category</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_category_list_view"/>
+            <field name="arch" type="xml">
+                <field name="complete_name" position="after">
+                    <field name="sequence"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="product_product_form_view_zoook1" model="ir.ui.view">
+            <field name="name">product.normal.form_zoook1</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/form/group/group/field[@name='purchase_ok']" position="after">
+                        <field name="zoook_exportable" select="2"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="product_product_form_view_zoook2" model="ir.ui.view">
+            <field name="name">product.normal.form_zoook2</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/group/group/field[@name='name']" position="replace">
+                    <field name="name" on_change="onchange_name(name, slug)"/>
+                </xpath>
+            </field>
+        </record>
+                
+        <record id="product_template_form_view_zoook3" model="ir.ui.view">
+            <field name="name">product.normal.form_zoook3</field>
+            <field name="model">product.template</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="e-sale">
+                        <notebook>
+                            <page string="General">
+                                <field name="visibility"/>
+                                <field name="zoook_status"/>
+                                <separator string="Short Description" colspan="4" />
+                                <field name="shortdescription" colspan="4" nolabel="1"/>
+                            </page>
+                            <page string="SEO">
+                                <field name="slug" colspan="4"/>
+                                <field name="metadescription" colspan="4"/>
+                                <field name="metakeyword" colspan="4"/>
+                                <field name="metatitle" colspan="4"/>
+                            </page>
+                            <page string="Products Related">
+                                <field name="product_related_ids" colspan="4" nolabel="1" domain="[('zoook_exportable','=',True)]"/>
+                            </page>
+                            <page string="Products Up-sells">
+                                <field name="product_upsells_ids" colspan="4" nolabel="1" domain="[('zoook_exportable','=',True)]"/>
+                            </page>
+                            <page string="Products Cross-sells">
+                                <field name="product_crosssells_ids" colspan="4" nolabel="1" domain="[('zoook_exportable','=',True)]"/>
+                            </page>
+                            <page string="Website">
+                                <field name="zoook_saleshop_ids" domain="[('zoook_shop','=',True)]" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="product_template_form_view_zoook4" model="ir.ui.view">
+            <field name="name">product.normal.form_zoook4</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="e-Sale" attrs="{'invisible':[('zoook_exportable','==',False)]}">
+                        <notebook>
+                            <page string="General">
+                                <field name="visibility" attrs="{'required':[('zoook_exportable','==',True)]}"/>
+                                <field name="zoook_sequence"/>
+                                <field name="zoook_status"/>
+                                <field name="cartdescription"/>
+                                <separator string="Short Description" colspan="4" />
+                                <field name="shortdescription" colspan="4" nolabel="1"/>
+                            </page>
+                            <page string="SEO">
+                                <field name="slug" colspan="4" attrs="{'required':[('zoook_exportable','==',True)]}"/>
+                                <field name="metadescription" colspan="4" attrs="{'required':[('zoook_exportable','==',True)]}"/>
+                                <field name="metakeyword" colspan="4"/>
+                                <field name="metatitle" colspan="4"/>
+                            </page>
+                            <page string="Products Related">
+                                <field name="product_related_ids" colspan="4" nolabel="1" domain="[('zoook_exportable','=',True)]"/>
+                            </page>
+                            <page string="Products Up-sells">
+                                <field name="product_upsells_ids" colspan="4" nolabel="1" domain="[('zoook_exportable','=',True)]"/>
+                            </page>
+                            <page string="Products Cross-sells">
+                                <field name="product_crosssells_ids" colspan="4" nolabel="1" domain="[('zoook_exportable','=',True)]"/>
+                            </page>
+                            <page string="Website">
+                                <field name="zoook_saleshop_ids" domain="[('zoook_shop','=',True)]" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="product_product_form_view_zoook5" model="ir.ui.view">
+            <field name="name">product.normal.form_zoook5</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/form/group/group/field[@name='default_code']" position="replace">
+                        <field name="default_code" attrs="{'required':[('zoook_exportable','==',True)]}"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <record id="view_zoook_payment_type_form" model="ir.ui.view">
+        <field name="name">zoook.payment.type.form</field>
+        <field name="model">payment.type</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account_payment_extension.view_payment_type_form" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="esale_payment" />
+                <field name="esale_module" />
+            </field>
+        </field>
+    </record>
+</data>
+</openerp>

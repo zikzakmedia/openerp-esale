@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="zoook_create_user_wizard" model="ir.ui.view">
+            <field name="name">zoook.create.user.wizard.form</field>
+            <field name="model">zoook.create.user.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <form string="Create User">
+                <group col="4" colspan="4" attrs="{'invisible':[('state','=','done')]}">
+                    <label string="Are you sure to create a new user?" colspan="4"/>
+                    <field name="partner_address_id"/><newline/>
+                    <field name="email_create_user" groups="base.group_extended"/>
+                </group>
+                <group col="4" colspan="4" attrs="{'invisible':[('state','=','first')]}">
+                    <field name="result"/><newline/>
+                    <field name="username"/><newline/>
+                    <field name="password"/><newline/>
+                    <field name="email"/><newline/>
+                    <field name="last_name"/><newline/>
+                    <field name="first_name"/><newline/>
+                </group>
+                <group col="2" colspan="4">
+                    <field name="state" invisible="1" />
+                    <button string="Cancel" special="cancel" icon="gtk-cancel" states="first" />
+                    <button string="Create" name="create_user" type="object" icon="gtk-ok" states="first" />
+                    <button string="Close" special="cancel" icon="gtk-ok" states="done" />
+                </group>
+            </form>
+            </field>
+        </record>
+        
+        <record id="action_create_user_django" model="ir.actions.act_window">
+            <field name="name">Create User</field>
+            <field name="res_model">zoook.create.user.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="zoook_create_user_wizard"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</openerp>

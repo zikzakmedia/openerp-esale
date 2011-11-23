@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="zoook_view_shop_form1">
+            <field name="name">zoook_view_shop_form1</field>
+            <field name="model">sale.shop</field>
+            <field name="inherit_id" ref="sale.view_shop_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after" >
+                    <field name="zoook_shop" />
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="zoook_view_shop_form2">
+            <field name="name">zoook_view_shop_form2</field>
+            <field name="model">sale.shop</field>
+            <field name="inherit_id" ref="sale.view_shop_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form position="inside" >
+                    <group colspan="4" attrs="{'invisible':[('zoook_shop','!=', True)]}">
+                        <separator string="OpenERP e-sale" colspan="4" />
+                        <notebook colspan="4">
+                            <page string="Actions">
+                                <group col="3" colspan="4">
+                                    <group col="1" colspan="1">
+                                        <button name="zoook_export_categories" string="Export Categories" colspan="1" type="object"/>
+                                        <button name="zoook_export_products" string="Export Products" colspan="1" type="object"/>
+                                        <button name="zoook_export_images" string="Export Images" colspan="1" type="object"/>
+                                        <button name="zoook_export_conf" string="Global Configuration" colspan="1" type="object"/>
+                                    </group>
+                                    <group col="2" colspan="2">
+                                        <field name="zoook_last_export_categories" />
+                                        <field name="zoook_last_export_products" />
+                                        <field name="zoook_last_export_images" />
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Configuration">
+                                <group col="4" colspan="4">
+                                    <field name="zoook_root_category_id" attrs="{'required':[('zoook_shop','=', True)]}"/>
+                                    <field name="zoook_automatic_export" />
+                                    <field name="zoook_tax_include" />
+                                    <field name="email_sale_order" attrs="{'required':[('zoook_shop','=', True)]}"/>
+                                </group>
+                            </page>
+                            <page string="Languages">
+                                <group col="4" colspan="4">
+                                    <label string="Before to add new language, your e-sale are available this language? Contact your webmaster to active first this language in your e-sale" colspan="4"/>
+                                    <field name="zoook_langs" colspan="4" nolabel="1" />
+                                </group>
+                            </page>
+                            <page string="Delivery">
+                                <group col="4" colspan="4">
+                                    <field name="zoook_delivery_ids" colspan="4" nolabel="1" />
+                                </group>
+                            </page>
+                            <page string="Payment">
+                                <group col="4" colspan="4">
+                                    <field name="zoook_payment_types" colspan="4" nolabel="1" />
+                                </group>
+                            </page>
+                            <page string="Country">
+                                <group col="4" colspan="4">
+                                    <field name="vat_country_ids" colspan="4" nolabel="1" />
+                                </group>
+                            </page>
+                            <page string="SSH Connection">
+                                <group col="4" colspan="4">
+                                    <field name="zoook_ip" attrs="{'required':[('zoook_shop','=', True)]}"/>
+                                    <field name="zoook_port" attrs="{'required':[('zoook_shop','=', True)]}"/>
+                                    <field name="zoook_username" attrs="{'required':[('zoook_shop','=', True)]}"/>
+                                    <field name="zoook_password" attrs="{'required':[('zoook_shop','=', True)]}" password="True"/>
+                                    <field name="zoook_basepath" attrs="{'required':[('zoook_shop','=', True)]}"/>
+                                    <newline/>
+                                    <field name="zoook_key"/>
+                                    <field name="zoook_ssh_key" attrs="{'required':[('zoook_key','=', True)]}"/>
+                                    <group colspan="4" col="4">
+                                        <button name="test_connection" string="Test Connection" type="object" colspan="4" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_zoook_sale_shop_payment_type_form">
+            <field name="name">zoook_sale_shop_payment_type_form</field>
+            <field name="model">zoook.sale.shop.payment.type</field>
+            <field name="type">form</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+            <form string="Payment Type">
+                <field name="payment_type_id"/>
+                <field name="order_policy"/>
+                <field name="picking_policy"/>
+                <field name="invoice_quantity"/>
+                <field name="app_payment"/>
+                <field name="confirm"/>
+            </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_zoook_sale_shop_payment_type_tree">
+            <field name="name">zoook_sale_shop_payment_type_tree</field>
+            <field name="model">zoook.sale.shop.payment.type</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <tree string="Payment Type">
+                    <field name="payment_type_id"/>
+                    <field name="app_payment"/>
+                    <field name="order_policy"/>
+                    <field name="picking_policy"/>
+                    <field name="invoice_quantity"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="zoook_view_sale_order_form1">
+            <field name="name">zoook_view_sale_order_form1</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_payment.view_sale_paytype_sale_order_form_tp" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="payment_type" position="after" >
+                    <field name="payment_state" />
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

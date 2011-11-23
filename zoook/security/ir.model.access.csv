@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_zoook_sale_shop_payment_type","zoook.sale.shop.payment.type","model_zoook_sale_shop_payment_type","base.group_sale_salesman",1,0,0,0
+"access_zoook_sale_shop_payment_type","zoook.sale.shop.payment.type","model_zoook_sale_shop_payment_type","base.group_sale_manager",1,1,1,1
+"access_base_external_mapping","base_external_mapping.base_external_mapping","base_external_mapping.model_base_external_mapping","base.group_sale_manager",1,1,1,0
+"access_base_external_mapping_line","base_external_mapping.base_external_mapping_line","base_external_mapping.model_base_external_mapping_line","base.group_sale_manager",1,1,1,0

@@ -1,0 +1,532 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <data noupdate='1'>
+<!--Country-->
+        <record model='base.external.mapping' id='dj01'>
+            <field name='name'>zoook.res.country</field>
+            <field name='model_id' search="[('model','=','res.country')]" model='ir.model'/>
+            <field name='state'>done</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlc01'>
+            <field name='mapping_id' ref='zoook.dj01'/>
+            <field name='field_id' search="[('model_id','=','res.country'),('name','=','name')]" model='ir.model.fields'/>
+            <field name='external_field'>name</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlc02'>
+            <field name='mapping_id' ref='zoook.dj01'/>
+            <field name='field_id' search="[('model_id','=','res.country'),('name','=','code')]" model='ir.model.fields'/>
+            <field name='external_field'>code</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+<!--State-->
+        <record model='base.external.mapping' id='dj02'>
+            <field name='name'>zoook.res.country.state</field>
+            <field name='model_id' search="[('model','=','res.country.state')]" model='ir.model'/>
+            <field name='state'>done</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djls01'>
+            <field name='mapping_id' ref='zoook.dj02'/>
+            <field name='field_id' search="[('model_id','=','res.country.state'),('name','=','name')]" model='ir.model.fields'/>
+            <field name='external_field'>name</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djls02'>
+            <field name='mapping_id' ref='zoook.dj02'/>
+            <field name='field_id' search="[('model_id','=','res.country.state'),('name','=','code')]" model='ir.model.fields'/>
+            <field name='external_field'>code</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djls03'>
+            <field name='mapping_id' ref='zoook.dj02'/>
+            <field name='field_id' search="[('model_id','=','res.country.state'),('name','=','country_id')]" model='ir.model.fields'/>
+            <field name='external_field'>country_id</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+<!--Category-->
+        <record model='base.external.mapping' id='dj03'>
+            <field name='name'>zoook.product.category</field>
+            <field name='model_id' search="[('model','=','product.category')]" model='ir.model'/>
+            <field name='state'>done</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc01'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','name')]" model='ir.model.fields'/>
+            <field name='external_field'>name</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc02'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','slug')]" model='ir.model.fields'/>
+            <field name='external_field'>slug</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc03'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','description')]" model='ir.model.fields'/>
+            <field name='external_field'>description</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc04'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','parent_id')]" model='ir.model.fields'/>
+            <field name='external_field'>parent_id</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc05'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','metadescription')]" model='ir.model.fields'/>
+            <field name='external_field'>metadescription</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc06'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','metakeyword')]" model='ir.model.fields'/>
+            <field name='external_field'>metakeyword</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc07'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','metatitle')]" model='ir.model.fields'/>
+            <field name='external_field'>metatitle</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc08'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','status')]" model='ir.model.fields'/>
+            <field name='external_field'>status</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc09'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','default_sort_by')]" model='ir.model.fields'/>
+            <field name='external_field'>default_sort_by</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc10'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','available_sort_by')]" model='ir.model.fields'/>
+            <field name='external_field'>available_sort_by</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc11'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','sequence')]" model='ir.model.fields'/>
+            <field name='external_field'>sequence</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpc12'>
+            <field name='mapping_id' ref='zoook.dj03'/>
+            <field name='field_id' search="[('model_id','=','product.category'),('name','=','fslug')]" model='ir.model.fields'/>
+            <field name='external_field'>fslug</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+<!--Product Template-->
+        <record model='base.external.mapping' id='dj04'>
+            <field name='name'>zoook.product.template</field>
+            <field name='model_id' search="[('model','=','product.template')]" model='ir.model'/>
+            <field name='state'>done</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt01'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','name')]" model='ir.model.fields'/>
+            <field name='external_field'>name</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt02'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','zoook_status')]" model='ir.model.fields'/>
+            <field name='external_field'>status</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+        
+        <record model='base.external.mapping.line' id='djlpt04'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','visibility')]" model='ir.model.fields'/>
+            <field name='external_field'>visibility</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt05'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','slug')]" model='ir.model.fields'/>
+            <field name='external_field'>slug</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt07'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','shortdescription')]" model='ir.model.fields'/>
+            <field name='external_field'>shortdescription</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt08'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','description_sale')]" model='ir.model.fields'/>
+            <field name='external_field'>description</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt09'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','metadescription')]" model='ir.model.fields'/>
+            <field name='external_field'>metadescription</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt10'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','metakeyword')]" model='ir.model.fields'/>
+            <field name='external_field'>metakeyword</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt11'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','metatitle')]" model='ir.model.fields'/>
+            <field name='external_field'>metatitle</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='translate'>1</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt12'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','product_related_ids')]" model='ir.model.fields'/>
+            <field name='external_field'>related</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt13'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','product_upsells_ids')]" model='ir.model.fields'/>
+            <field name='external_field'>upsells</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt14'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','product_crosssells_ids')]" model='ir.model.fields'/>
+            <field name='external_field'>crosssells</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt15'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','categ_ids')]" model='ir.model.fields'/>
+            <field name='external_field'>categ</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt16'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','uom_id')]" model='ir.model.fields'/>
+            <field name='external_field'>uom</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt17'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','uos_id')]" model='ir.model.fields'/>
+            <field name='external_field'>uos</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt18'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','volume')]" model='ir.model.fields'/>
+            <field name='external_field'>volume</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt19'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','warranty')]" model='ir.model.fields'/>
+            <field name='external_field'>warranty</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt20'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','weight')]" model='ir.model.fields'/>
+            <field name='external_field'>weight</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt21'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','weight_net')]" model='ir.model.fields'/>
+            <field name='external_field'>weight_net</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpt22'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','zoook_sequence')]" model='ir.model.fields'/>
+            <field name='external_field'>sequence</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+<!--Product-->
+        <record model='base.external.mapping' id='dj05'>
+            <field name='name'>zoook.product.product</field>
+            <field name='model_id' search="[('model','=','product.product')]" model='ir.model'/>
+            <field name='state'>done</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpp01'>
+            <field name='mapping_id' ref='zoook.dj05'/>
+            <field name='field_id' search="[('model_id','=','product.product'),('name','=','code')]" model='ir.model.fields'/>
+            <field name='external_field'>code</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpp02'>
+            <field name='mapping_id' ref='zoook.dj05'/>
+            <field name='field_id' search="[('model_id','=','product.product'),('name','=','product_tmpl_id')]" model='ir.model.fields'/>
+            <field name='external_field'>product_tmpl_id</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpp03'>
+            <field name='mapping_id' ref='zoook.dj05'/>
+            <field name='field_id' search="[('model_id','=','product.product'),('name','=','active')]" model='ir.model.fields'/>
+            <field name='external_field'>active</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpp04'>
+            <field name='mapping_id' ref='zoook.dj05'/>
+            <field name='field_id' search="[('model_id','=','product.product'),('name','=','ean13')]" model='ir.model.fields'/>
+            <field name='external_field'>ean13</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpp06'>
+            <field name='mapping_id' ref='zoook.dj05'/>
+            <field name='field_id' search="[('model_id','=','product.product'),('name','=','price')]" model='ir.model.fields'/>
+            <field name='external_field'>price</field>
+            <field name='type'>out</field>
+            <field name='external_type'>float</field>
+            <field name='out_function'>price = 0.0
+quantity = 1
+decimal = self.pool.get('decimal.precision').precision_get(cr, uid, 'Sale Price')
+if context['shop'] and context['product_id']:
+    shop = self.pool.get('sale.shop').browse(cr, uid, context['shop'])
+    if shop.pricelist_id:
+        pricelist = shop.pricelist_id.id
+    else: #if shop not have pricelist (not field requiered, search pricelist public
+        pricelist = self.pool.get('product.pricelist').search(cr, uid, [('type','=','sale'),('active','=',True)])
+        if len(pricelist) > 0:
+            pricelist = pricelist[0]
+
+if pricelist and shop.zoook_tax_include:
+    product = self.pool.get('product.product').browse(cr, uid, context['product_id'])
+    price = self.pool.get('product.pricelist').price_get(cr, uid, [pricelist], product.id, 1.0)[pricelist]
+    price = self.pool.get('account.tax').compute_all(cr, uid, product.product_tmpl_id.taxes_id, price, quantity, address_id=None, product=product.product_tmpl_id, partner=None)
+    price = price['total_included']
+
+if pricelist and not shop.zoook_tax_include:
+    price = self.pool.get('product.pricelist').price_get(cr, uid, [pricelist], context['product_id'], 1.0)[pricelist]
+
+price = '%.*f' % (decimal, price)
+value = price</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpp07'>
+            <field name='mapping_id' ref='zoook.dj05'/>
+            <field name='field_id' search="[('model_id','=','product.product'),('name','=','attribute_group_id')]" model='ir.model.fields'/>
+            <field name='external_field'>attribute_group</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='out_function'>value = ''
+if context['product_id']:
+    product = self.pool.get('product.product').browse(cr, uid, context['product_id'])
+    if product.attribute_group_id.code:
+        value = product.attribute_group_id.code</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpp08'>
+            <field name='mapping_id' ref='zoook.dj05'/>
+            <field name='field_id' search="[('model_id','=','product.product'),('name','=','cartdescription')]" model='ir.model.fields'/>
+            <field name='external_field'>cartdescription</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+            <field name='translate'>1</field>
+        </record>
+
+<!--Product Images-->
+        <record model='base.external.mapping' id='dj07'>
+            <field name='name'>zoook.product.images</field>
+            <field name='model_id' search="[('model','=','product.images')]" model='ir.model'/>
+            <field name='state'>done</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpi01'>
+            <field name='mapping_id' ref='zoook.dj07'/>
+            <field name='field_id' search="[('model_id','=','product.images'),('name','=','name')]" model='ir.model.fields'/>
+            <field name='external_field'>name</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpi02'>
+            <field name='mapping_id' ref='zoook.dj07'/>
+            <field name='field_id' search="[('model_id','=','product.images'),('name','=','filename')]" model='ir.model.fields'/>
+            <field name='external_field'>filename</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpi03'>
+            <field name='mapping_id' ref='zoook.dj07'/>
+            <field name='field_id' search="[('model_id','=','product.images'),('name','=','product_id')]" model='ir.model.fields'/>
+            <field name='external_field'>product_id</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpi04'>
+            <field name='mapping_id' ref='zoook.dj07'/>
+            <field name='field_id' search="[('model_id','=','product.images'),('name','=','base_image')]" model='ir.model.fields'/>
+            <field name='external_field'>base_image</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+        <record model='base.external.mapping.line' id='djlpi05'>
+            <field name='mapping_id' ref='zoook.dj07'/>
+            <field name='field_id' search="[('model_id','=','product.images'),('name','=','exclude')]" model='ir.model.fields'/>
+            <field name='external_field'>exclude</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
+    </data>
+</openerp>
