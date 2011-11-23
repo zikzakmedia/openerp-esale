@@ -69,20 +69,21 @@ AGPL-3 http://www.gnu.org/licenses/agpl.html
 Copy zoook module and dependencies in openerp-server/modules. Run OpenERP server, reload list of modules and install Zoook module
 
 =Django App=
-1. In static dir, create symbolic link at inplaceeditform library:
-static$ ln -s /usr/local/lib/python2.6/dist-packages/django_inplaceedit-0.69-py2.6.egg/inplaceeditform/media/ inplaceeditform
-2. Add in config.py your configuration (database, OpenERP connection, sale, ....)
-3. All files sync dir, are execute permisions: 775
-4. Add anguages in settings.py. This languages are same available in Sale Shop (OpenERP)
-5. Create tables: python manage.py syncdb
-6. Important! Run configuration.py. Add new values site django (extra site fields)
-7. Run Server: python manage.py runserver
+1. Create symbolic link at inplaceeditform library in static dir:
+static$ ln -s /usr/local/lib/python2.6/dist-packages/django_inplaceedit-0.XX-py2.6.egg/inplaceeditform/media/ inplaceeditform
+2. Edit config.py (database, OpenERP connection, sale ID, ....)
+3. check py files in sync dir need execute permisions
+4. Create tables: python manage.py syncdb
+5. Important! Run configuration.py. Add new values site django (extra site fields)
+6. Run Server: python manage.py runserver
+7. Check documentation about migrations app (south)
 
 ==Configuration==
 =OpenERP=
 1. Sale/Administration/Sales. Configure your Sale Shop and paramiko connection (ssh)
-2. Add Countries to Check Vat. This option is requiered because is same countries avalaible shop.
-3. Sale Order or Invoices sequence not use / (for example, SO/001). URL navigator get order number and / it's a path url and broken.
+2. Add Countries. This countries are availables in select address and check vat.
+3. Add Languages. Add same languages at Django
+4. Sale Order or Invoices sequence not use / (for example, SO/001). URL navigator get order number and / it's a path url and broken.
 
 =Django=
 1. Create a module name "catalog.right". This module is requiered in default template.
