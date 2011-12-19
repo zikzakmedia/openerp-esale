@@ -321,6 +321,8 @@
             <field name='type'>out</field>
             <field name='external_type'>str</field>
             <field name='active'>1</field>
+            <field name='out_function'>product = self.pool.get('product.template').browse(cr, uid, ids[0])
+value = product.uom_id.name</field>
         </record>
 
         <record model='base.external.mapping.line' id='djlpt17'>
@@ -330,6 +332,8 @@
             <field name='type'>out</field>
             <field name='external_type'>str</field>
             <field name='active'>1</field>
+            <field name='out_function'>product = self.pool.get('product.template').browse(cr, uid, ids[0])
+value = product.uom_id.name</field>
         </record>
 
         <record model='base.external.mapping.line' id='djlpt18'>

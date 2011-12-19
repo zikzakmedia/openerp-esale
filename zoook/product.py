@@ -224,7 +224,6 @@ class product_template(osv.osv):
     }
 
     def create(self, cr, uid, vals, context=None):
-        print vals
         if 'slug' in vals and vals['slug']:
             print vals['slug']
             #Set user's current lang.
