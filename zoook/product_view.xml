@@ -86,7 +86,7 @@
             <field name="arch" type="xml">
                 <data>
                     <xpath expr="/form/group/group/field[@name='purchase_ok']" position="after">
-                        <field name="zoook_exportable" select="2"/>
+                        <field name="zoook_exportable" select="2" attrs="{'invisible':[('zoook_exportable','==',True)]}"/>
                     </xpath>
                 </data>
             </field>
