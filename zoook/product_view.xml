@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <!-- Product Category-->
         <record id="product_category_form_zoook" model="ir.ui.view">
             <field name="name">product.category.form.zoook</field>
             <field name="model">product.category</field>
@@ -59,6 +60,7 @@
             </field>
         </record>
 
+        <!-- Product Template-->
         <record id="product_template_form_zoook" model="ir.ui.view">
             <field name="name">product.template.form.zoook</field>
             <field name="model">product.template</field>
@@ -109,6 +111,23 @@
                         </notebook>
                     </page>
                 </notebook>
+            </field>
+        </record>
+
+        <!-- Product Product-->
+       <record model="ir.ui.view" id="vproduct_product_search_zoook" >
+            <field name="name">product.product.search.zoook</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/search/group[@string='Extended Filters...']" position="after">
+                    <newline/>
+                    <group expand="0" string="e-Sale Filters..." groups="base.group_extended">
+                        <field name="zoook_exportable"/>
+                        <field name="zoook_status"/>
+                        <field name="visibility"/>
+                    </group>
+                </xpath>
             </field>
         </record>
 
