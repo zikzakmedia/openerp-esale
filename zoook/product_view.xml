@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record model="ir.ui.view" id="product_category_form_view_zoook">
-            <field name="name">product.category.form_view_zoook</field>
+        <record id="product_category_form_zoook" model="ir.ui.view">
+            <field name="name">product.category.form.zoook</field>
             <field name="model">product.category</field>
             <field name="inherit_id" ref="product.product_category_form_view" />
             <field name="type">form</field>
@@ -29,7 +29,6 @@
                                         </group>
                                     </group>
                                 </group>
-
                             </page>
                             <page string="Display Settings">
                                 <separator string="Sorting method" colspan="4" />
@@ -39,35 +38,17 @@
                         </notebook>
                     </group>
                 </xpath>
-            </field>
-        </record>
-
-        <record id="product_category_form_view_zoook2" model="ir.ui.view">
-            <field name="name">product.category.form_view_zoook2</field>
-            <field name="model">product.category</field>
-            <field name="type">form</field>
-            <field name="inherit_id" ref="product.product_category_form_view"/>
-            <field name="arch" type="xml">
                 <xpath expr="/form/field[@name='name']" position="replace">
                     <field name="name" on_change="onchange_name(name, slug)"/>
                 </xpath>
-            </field>
-        </record>
-
-        <record id="product_category_form_view_zoook3" model="ir.ui.view">
-            <field name="name">product.category.form_view_zoook3</field>
-            <field name="model">product.category</field>
-            <field name="type">form</field>
-            <field name="inherit_id" ref="product.product_category_form_view"/>
-            <field name="arch" type="xml">
                 <xpath expr="/form/field[@name='sequence']" position="replace">
                     <field name="sequence"/>
                 </xpath>
             </field>
         </record>
 
-        <record id="product_category_list_view_zoook1" model="ir.ui.view">
-            <field name="name">product.category.list_view_zoook1</field>
+        <record id="product_category_list_zoook" model="ir.ui.view">
+            <field name="name">product.category.list.zoook</field>
             <field name="model">product.category</field>
             <field name="type">form</field>
             <field name="inherit_id" ref="product.product_category_list_view"/>
@@ -78,40 +59,28 @@
             </field>
         </record>
 
-        <record id="product_product_form_view_zoook1" model="ir.ui.view">
-            <field name="name">product.normal.form_zoook1</field>
-            <field name="model">product.product</field>
-            <field name="inherit_id" ref="product.product_normal_form_view" />
+        <record id="product_template_form_zoook" model="ir.ui.view">
+            <field name="name">product.template.form.zoook</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="/form/group/group/field[@name='purchase_ok']" position="after">
-                        <field name="zoook_exportable" select="2" attrs="{'invisible':[('zoook_exportable','==',True)]}"/>
+                    <xpath expr="/form/group/field[@name='purchase_ok']" position="after">
+                        <field name="zoook_exportable" attrs="{'invisible':[('zoook_exportable','==',True)]}"/>
                     </xpath>
                 </data>
             </field>
         </record>
 
-        <record id="product_product_form_view_zoook2" model="ir.ui.view">
-            <field name="name">product.normal.form_zoook2</field>
-            <field name="model">product.product</field>
-            <field name="type">form</field>
-            <field name="inherit_id" ref="product.product_normal_form_view"/>
-            <field name="arch" type="xml">
-                <xpath expr="/form/group/group/field[@name='name']" position="replace">
-                    <field name="name" on_change="onchange_name(name, slug)"/>
-                </xpath>
-            </field>
-        </record>
-                
-        <record id="product_template_form_view_zoook3" model="ir.ui.view">
-            <field name="name">product.normal.form_zoook3</field>
+        <record id="product_template_zoook_tab" model="ir.ui.view">
+            <field name="name">product.template.zoook.tab</field>
             <field name="model">product.template</field>
             <field name="type">form</field>
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
                 <notebook position="inside">
-                    <page string="e-sale">
+                    <page string="e-sale" attrs="{'invisible':[('zoook_exportable','==',False)]}">
                         <notebook>
                             <page string="General">
                                 <field name="visibility"/>
@@ -143,8 +112,28 @@
             </field>
         </record>
 
-        <record id="product_template_form_view_zoook4" model="ir.ui.view">
-            <field name="name">product.normal.form_zoook4</field>
+        <record id="product_product_form_zoook" model="ir.ui.view">
+            <field name="name">product.product.form.zoook</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/form/group/group/field[@name='purchase_ok']" position="after">
+                        <field name="zoook_exportable" attrs="{'invisible':[('zoook_exportable','==',True)]}"/>
+                    </xpath>
+                    <xpath expr="/form/group/group/field[@name='name']" position="replace">
+                        <field name="name" on_change="onchange_name(name, slug)"/>
+                    </xpath>
+                    <xpath expr="/form/group/group/field[@name='default_code']" position="replace">
+                        <field name="default_code" attrs="{'required':[('zoook_exportable','==',True)]}"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="product_product_form_zoook_page" model="ir.ui.view">
+            <field name="name">product.product.form_zoook.page</field>
             <field name="model">product.product</field>
             <field name="type">form</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>
@@ -181,20 +170,6 @@
                         </notebook>
                     </page>
                 </notebook>
-            </field>
-        </record>
-
-        <record id="product_product_form_view_zoook5" model="ir.ui.view">
-            <field name="name">product.normal.form_zoook5</field>
-            <field name="model">product.product</field>
-            <field name="inherit_id" ref="product.product_normal_form_view" />
-            <field name="type">form</field>
-            <field name="arch" type="xml">
-                <data>
-                    <xpath expr="/form/group/group/field[@name='default_code']" position="replace">
-                        <field name="default_code" attrs="{'required':[('zoook_exportable','==',True)]}"/>
-                    </xpath>
-                </data>
             </field>
         </record>
 
