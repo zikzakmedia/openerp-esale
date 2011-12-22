@@ -167,7 +167,7 @@
         <record model='base.external.mapping.line' id='djlpc11'>
             <field name='mapping_id' ref='zoook.dj03'/>
             <field name='field_id' search="[('model_id','=','product.category'),('name','=','sequence')]" model='ir.model.fields'/>
-            <field name='external_field'>sequence</field>
+            <field name='external_field'>position</field>
             <field name='type'>out</field>
             <field name='external_type'>int</field>
             <field name='active'>1</field>

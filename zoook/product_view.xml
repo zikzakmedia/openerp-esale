@@ -115,7 +115,7 @@
         </record>
 
         <!-- Product Product-->
-       <record model="ir.ui.view" id="vproduct_product_search_zoook" >
+       <record model="ir.ui.view" id="product_product_search_zoook" >
             <field name="name">product.product.search.zoook</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_search_form_view"/>
