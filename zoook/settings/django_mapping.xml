@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <openerp>
-    <data noupdate='1'>
+    <data noupdate="1">
 <!--Country-->
         <record model='base.external.mapping' id='dj01'>
             <field name='name'>zoook.res.country</field>
@@ -446,7 +446,7 @@ price = '%.*f' % (decimal, price)
 value = price</field>
             <field name='active'>1</field>
         </record>
-
+        <!--
         <record model='base.external.mapping.line' id='djlpp07'>
             <field name='mapping_id' ref='zoook.dj05'/>
             <field name='field_id' search="[('model_id','=','product.product'),('name','=','attribute_group_id')]" model='ir.model.fields'/>
@@ -460,7 +460,7 @@ if context['product_id']:
         value = product.attribute_group_id.code</field>
             <field name='active'>1</field>
         </record>
-
+        -->
         <record model='base.external.mapping.line' id='djlpp08'>
             <field name='mapping_id' ref='zoook.dj05'/>
             <field name='field_id' search="[('model_id','=','product.product'),('name','=','cartdescription')]" model='ir.model.fields'/>
