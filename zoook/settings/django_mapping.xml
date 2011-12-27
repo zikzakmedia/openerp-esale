@@ -366,7 +366,7 @@ value = product.uom_id.name</field>
         <record model='base.external.mapping.line' id='djlpt22'>
             <field name='mapping_id' ref='zoook.dj04'/>
             <field name='field_id' search="[('model_id','=','product.template'),('name','=','zoook_sequence')]" model='ir.model.fields'/>
-            <field name='external_field'>sequence</field>
+            <field name='external_field'>position</field>
             <field name='type'>out</field>
             <field name='external_type'>int</field>
             <field name='active'>1</field>
