@@ -471,6 +471,7 @@ class zoook_sale_shop_payment_type(osv.osv):
         'app_payment': fields.char('App Payment', size=255, required=True, help='Name App Payment module (example, paypal, servired, cash_on_delivery,...)'),
         'confirm': fields.boolean('Confirm', help="Confirm order. Sale Order change state draft to done, and generate picking and/or invoice automatlly"),
         'sequence': fields.integer('Sequence', help="Gives the sequence order when displaying a list of payments."),
+        'virtual': fields.boolean('Virtual', help="Virtual payment. Example: Paypal"),
      }
 
 zoook_sale_shop_payment_type()

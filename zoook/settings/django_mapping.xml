@@ -155,15 +155,6 @@
             <field name='active'>1</field>
         </record>
 
-        <record model='base.external.mapping.line' id='djlpc10'>
-            <field name='mapping_id' ref='zoook.dj03'/>
-            <field name='field_id' search="[('model_id','=','product.category'),('name','=','available_sort_by')]" model='ir.model.fields'/>
-            <field name='external_field'>available_sort_by</field>
-            <field name='type'>out</field>
-            <field name='external_type'>str</field>
-            <field name='active'>1</field>
-        </record>
-
         <record model='base.external.mapping.line' id='djlpc11'>
             <field name='mapping_id' ref='zoook.dj03'/>
             <field name='field_id' search="[('model_id','=','product.category'),('name','=','sequence')]" model='ir.model.fields'/>

@@ -102,6 +102,7 @@
                 <field name="invoice_quantity"/>
                 <field name="app_payment"/>
                 <field name="confirm"/>
+                <field name="virtual"/>
             </form>
             </field>
         </record>
@@ -119,6 +120,7 @@
                     <field name="picking_policy"/>
                     <field name="invoice_quantity"/>
                     <field name="sequence"/>
+                    <field name="virtual"/>
                 </tree>
             </field>
         </record>

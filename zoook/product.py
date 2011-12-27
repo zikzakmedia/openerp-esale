@@ -41,7 +41,7 @@ def slugify(value):
 
 class product_category(osv.osv):
     _inherit = "product.category"
-    
+
     def collect_children(self, category, children=None):
         if children is None:
             children = []
@@ -51,7 +51,7 @@ class product_category(osv.osv):
             self.collect_children(child, children)
 
         return children
-    
+
     def _get_recursive_cat_children_ids(self, cr, uid, ids, name, args, context=None):
         res = {}
         for category in self.browse(cr, uid, ids):
@@ -74,15 +74,8 @@ class product_category(osv.osv):
         'metakeyword': fields.text('Meta Keyword', translate=True),
         'metatitle': fields.char('Title', size=256, translate=True),
         'status': fields.boolean('Status'),
-        'available_sort_by': fields.selection([
-                    ('default', 'Use Config Settings'),
-                    ('position', 'Best Value'),
-                    ('name', 'Name'),
-                    ('price', 'Price')
-                    ], 'Available Product Listing (Sort By)'),
         'default_sort_by': fields.selection([
-                    ('default', 'Use Config Settings'),
-                    ('position', 'Best Value'),
+                    ('position', 'Position'),
                     ('name', 'Name'),
                     ('price', 'Price')
                     ], 'Default Product Listing Sort (Sort By)'),
@@ -94,8 +87,7 @@ class product_category(osv.osv):
 
     _defaults = {
         'status': True,
-        'available_sort_by': lambda *a: 'default',
-        'default_sort_by': lambda *a: 'default',
+        'default_sort_by': lambda *a: 'position',
     }
 
     def set_fslug(self, cr, uid, ids, context=None):
@@ -123,7 +115,7 @@ class product_category(osv.osv):
             parent_slug = "/".join(result)
 
         return parent_slug
-    
+
     def check_slug_exist(self, cr, uid, ids, slug, context=None):
         """Check if there are another category same slug
         Slug is identificator unique
@@ -188,7 +180,7 @@ class product_category(osv.osv):
             })
 
         return super(product_category, self).copy(cr, uid, id, default, context)
-    
+
 product_category()
 
 class product_template(osv.osv):
@@ -205,7 +197,6 @@ class product_template(osv.osv):
         'zoook_exportable':fields.boolean('Export to e-sale?', change_default=True, help="If check export e-sale, this product are available in your e-sale. If you need not publish this product (despublish), unmark Active field in e-sale tab"),
         'zoook_status':fields.boolean('Active', help="If check this, e-sale product are available and shop it"),
         'zoook_saleshop_ids': fields.many2many('sale.shop', 'zoook_sale_shop_rel', 'product_tmp_id', 'sale_shop_id', 'Websites', help='Select yours Sale Shops available this product'),
-        'attributes_group_id': fields.many2one('product.attributes.group', 'Attributes Group'),
         'visibility': fields.selection([('all','All'),('search','Search'),('catalog','Catalog'),('none','None')], 'Visibility'),
         'slug': fields.char('Slug', size=256, translate=True),
         'shortdescription': fields.text('Short Description', translate=True),
@@ -224,6 +215,8 @@ class product_template(osv.osv):
     }
 
     def create(self, cr, uid, vals, context=None):
+        if context is None:
+            context = {}
         if 'slug' in vals and vals['slug']:
             print vals['slug']
             #Set user's current lang.
