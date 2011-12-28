@@ -449,6 +449,18 @@ class sale_order(osv.osv):
 
         return True
 
+    def sale_order_payment_cancel(self, cr, uid, order):
+        """
+        Cancel Sale Order Webservices
+        """
+
+        try:
+            LOGGER.notifyChannel("Sale Order", netsvc.LOG_INFO,_("Order %s change status: Cancel") % (order))
+            netsvc.LocalService("workflow").trg_validate(uid, 'sale.order', order, 'cancel', cr)
+            return True
+        except:
+            return False
+
 sale_order()
 
 class zoook_sale_shop_payment_type(osv.osv):
