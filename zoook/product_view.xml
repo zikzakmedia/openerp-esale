@@ -55,6 +55,8 @@
             <field name="arch" type="xml">
                 <field name="complete_name" position="after">
                     <field name="sequence"/>
+                    <field name="slug"/>
+                    <field name="fslug"/>
                 </field>
             </field>
         </record>

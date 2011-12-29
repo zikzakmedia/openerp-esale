@@ -95,8 +95,9 @@ class product_category(osv.osv):
         Delete first parent category (root category)
         :return string
         """
-        if not len(ids):
-            return []
+        if not isinstance(ids,list):
+            ids = [ids]
+
         reads = self.read(cr, uid, ids, ['slug','parent_id'], context=context)
         result = []
         parent_slug = ''
@@ -121,8 +122,11 @@ class product_category(osv.osv):
         Slug is identificator unique
         :return True or False
         """
-        #~ context['lang'] = self.pool.get('res.users').browse(cr, uid, uid).context_lang
-        categories = self.pool.get('product.category').search(cr, uid, [('slug','=',slug),('id','not in',ids)], context=context)
+
+        if not isinstance(ids,list):
+            ids = [ids]
+        categories = self.pool.get('product.category').search(cr, uid, [('slug','=',slug),('id','not in',ids)])
+
         if len(categories)>0:
             return True
         else:
@@ -156,16 +160,17 @@ class product_category(osv.osv):
         """Slug is unique. Validate
         fslug recalculated
         """
+
         if 'slug' in vals:
             check_slug = self.check_slug_exist(cr, uid, ids, vals['slug'], context)
             if check_slug:
                 raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
+            else:
+                vals['fslug'] = "%s/" % (vals['slug'])
+                parent_slug  = self.set_fslug(cr, uid, ids, context)
 
-            vals['fslug'] = "%s/" % (vals['slug'])
-            parent_slug  = self.set_fslug(cr, uid, ids, context)
-
-            if parent_slug:
-                vals['fslug'] = "%s/%s/" % (parent_slug, vals['slug'])
+                if parent_slug:
+                    vals['fslug'] = "%s/%s/" % (parent_slug, vals['slug'])
 
         return super(product_category, self).write(cr, uid, ids, vals, context=context)
 
@@ -218,7 +223,6 @@ class product_template(osv.osv):
         if context is None:
             context = {}
         if 'slug' in vals and vals['slug']:
-            print vals['slug']
             #Set user's current lang.
             context['lang'] = self.pool.get('res.users').browse(cr, uid, uid).context_lang
             products = self.pool.get('product.template').search(cr, uid, [('slug','=',vals['slug'])], context=context)

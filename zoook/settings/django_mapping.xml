@@ -523,5 +523,14 @@ if context['product_id']:
             <field name='active'>1</field>
         </record>
 
+        <record model='base.external.mapping.line' id='djlpi06'>
+            <field name='mapping_id' ref='zoook.dj07'/>
+            <field name='field_id' search="[('model_id','=','product.images'),('name','=','thumb_image')]" model='ir.model.fields'/>
+            <field name='external_field'>thumb_image</field>
+            <field name='type'>out</field>
+            <field name='external_type'>int</field>
+            <field name='active'>1</field>
+        </record>
+
     </data>
 </openerp>

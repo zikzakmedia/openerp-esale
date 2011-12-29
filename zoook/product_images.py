@@ -30,11 +30,13 @@ class product_images(osv.osv):
 
     _columns = {
         'base_image':fields.boolean('Base Image'),
+        'thumb_image':fields.boolean('Thumb Image'),
         'exclude':fields.boolean('Exclude'),
     }
 
     _defaults = {
         'base_image':lambda * a:True,
+        'thumb_image':lambda * a:True,
         'exclude':lambda * a:False
     }
 
