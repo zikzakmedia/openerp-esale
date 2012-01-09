@@ -228,6 +228,10 @@ class product_template(osv.osv):
             products = self.pool.get('product.template').search(cr, uid, [('slug','=',vals['slug'])], context=context)
             if len(products) > 0:
                 raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
+
+            slug = slugify(unicode(vals['slug'],'UTF-8'))
+            vals['slug'] = slug
+
         return super(product_template, self).create(cr, uid, vals, context=context)
 
     def write(self, cr, uid, ids, vals, context=None):
@@ -237,6 +241,9 @@ class product_template(osv.osv):
             products = self.pool.get('product.template').search(cr, uid, [('slug','=',vals['slug']),('id','not in',ids)], context=context)
             if len(products) > 0:
                 raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
+
+            slug = slugify(unicode(vals['slug'],'UTF-8'))
+            vals['slug'] = slug
 
         return super(product_template, self).write(cr, uid, ids, vals, context=context)
 
