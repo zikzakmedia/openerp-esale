@@ -223,33 +223,51 @@ class product_template(osv.osv):
         if context is None:
             context = {}
         if 'slug' in vals and vals['slug']:
-            #Set user's current lang.
-            context['lang'] = self.pool.get('res.users').browse(cr, uid, uid).context_lang
-            products = self.pool.get('product.template').search(cr, uid, [('slug','=',vals['slug'])], context=context)
-            if len(products) > 0:
-                raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
+            if vals.get('zoook_exportable', False):
+                #Set user's current lang.
+                context['lang'] = self.pool.get('res.users').browse(cr, uid, uid).context_lang
+                products = self.pool.get('product.template').search(cr, uid, [('slug','=',vals['slug'])], context=context)
+                if len(products) > 0:
+                    raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
 
-            slug = slugify(unicode(vals['slug'],'UTF-8'))
-            vals['slug'] = slug
+                slug = slugify(unicode(vals['slug'],'UTF-8'))
+                vals['slug'] = slug
 
         return super(product_template, self).create(cr, uid, vals, context=context)
 
     def write(self, cr, uid, ids, vals, context=None):
-        if 'slug' in vals and vals['slug']:
-            #Set user's current lang.
-            #~ context['lang'] = self.pool.get('res.users').browse(cr, uid, uid).context_lang
-            products = self.pool.get('product.template').search(cr, uid, [('slug','=',vals['slug']),('id','not in',ids)], context=context)
-            if len(products) > 0:
-                raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
+        """Check slug if exists"""
 
-            slug = slugify(unicode(vals['slug'],'UTF-8'))
-            vals['slug'] = slug
+        result = True
 
-        return super(product_template, self).write(cr, uid, ids, vals, context=context)
+        for id in ids:
+            check_slug = False
 
-    _sql_constraints = [
-        ('uniq_slug', 'unique(slug)', "Slug must be unique"),
-    ]
+            if vals.get('slug', False):
+                check_slug = True
+                slug = vals['slug']
+
+            if vals.get('zoook_exportable', False):
+                check_slug = True
+                if 'slug' in vals:
+                    slug =  vals['slug']
+                else:
+                    prod_template = self.pool.get('product.template').browse(cr, uid, id, context)
+                    slug = prod_template.slug
+
+            if check_slug:
+                #Set user's current lang.
+                #~ context['lang'] = self.pool.get('res.users').browse(cr, uid, uid).context_lang
+                products = self.pool.get('product.template').search(cr, uid, [('slug','=',slug),('id','!=',id)], context=context)
+                if len(products) > 0:
+                    raise osv.except_osv(_("Alert"), _("Slug %s exists. Choose another slug" % (slug)))
+
+                slug = slugify(unicode(str(slug),'UTF-8'))
+                vals['slug'] = slug
+
+            result = result and super(product_template, self).write(cr, uid, ids, vals, context=context)
+
+        return result
 
 product_template()
 
