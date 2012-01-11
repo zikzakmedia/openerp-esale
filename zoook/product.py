@@ -239,6 +239,8 @@ class product_template(osv.osv):
         """Check slug if exists"""
 
         result = True
+        if not isinstance(ids, list):
+            ids = [ids]
 
         for id in ids:
             check_slug = False
@@ -265,7 +267,7 @@ class product_template(osv.osv):
                 slug = slugify(unicode(str(slug),'UTF-8'))
                 vals['slug'] = slug
 
-            result = result and super(product_template, self).write(cr, uid, ids, vals, context=context)
+            result = result and super(product_template, self).write(cr, uid, [id], vals, context=context)
 
         return result
 
