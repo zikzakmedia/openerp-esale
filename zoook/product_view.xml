@@ -33,7 +33,7 @@
                             </page>
                             <page string="Display Settings">
                                 <separator string="Sorting method" colspan="4" />
-                                <field name="default_sort_by" />
+                                <field name="default_sort_by" attrs="{'required':[('status','==',True)]}"/>
                             </page>
                         </notebook>
                     </group>

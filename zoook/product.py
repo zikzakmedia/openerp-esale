@@ -125,6 +125,7 @@ class product_category(osv.osv):
 
         if not isinstance(ids,list):
             ids = [ids]
+
         categories = self.pool.get('product.category').search(cr, uid, [('slug','=',slug),('id','not in',ids)])
 
         if len(categories)>0:
@@ -177,14 +178,26 @@ class product_category(osv.osv):
     def copy(self, cr, uid, id, default={}, context=None):
         """Slug and fslug are unique. Add -copy
         """
-        prod_category = self.read(cr, uid, id, ['slug'], context=context)
-        if prod_category['slug'] and prod_category['fslug']:
-            default.update({
-                'slug': prod_category['slug']+ _('-copy'),
-                'fslug': prod_category['fslug']+ _('-copy'),
-            })
 
-        return super(product_category, self).copy(cr, uid, id, default, context)
+        category = self.browse(cr, uid, id, context=context)
+        if not default:
+            default = {}
+
+        if category.slug:
+            default = default.copy()
+            slug = category.slug
+            while self.search(cr, uid, [('slug','=',slug)]):
+                slug += '-copy'
+            default['slug'] = slug
+
+            #rewrite full slug
+            full_slug = category.fslug.split('/')
+            del full_slug[-1] #delete /
+            del full_slug[-1] #delete last item
+            full_slug.append(slug)
+            default['fslug'] = "/".join(full_slug)+'/'
+
+        return super(product_category, self).copy(cr, uid, id, default, context=context)
 
 product_category()
 
@@ -229,8 +242,10 @@ class product_template(osv.osv):
                 products = self.pool.get('product.template').search(cr, uid, [('slug','=',vals['slug'])], context=context)
                 if len(products) > 0:
                     raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
-
-                slug = slugify(unicode(vals['slug'],'UTF-8'))
+                slug = vals['slug']
+                if not isinstance(slug, unicode):
+                    slug = unicode(slug,'UTF-8')
+                slug = slugify(slug)
                 vals['slug'] = slug
 
         return super(product_template, self).create(cr, uid, vals, context=context)
