@@ -43,6 +43,7 @@
         "poweremail",
         "product_m2mcategories",
         "product_images_olbs",
+        "sale_margin",
         "sale_payment",
         "sale_promotions",
     ],

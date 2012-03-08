@@ -105,6 +105,10 @@ class create_user_wizard(osv.osv_memory):
         if not partner_address.email:
             result = _('This address there are not email. Please add new email for this address')
 
+        useremail = self.pool.get('res.partner').search(cr, uid, [('dj_email','=',partner_address.email)])
+        if len(useremail):
+            result = _('This email exist another user. Use another email/address')
+
         if not result:
             #First Name / Last Name
             if partner_address.name:

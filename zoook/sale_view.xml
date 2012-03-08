@@ -27,10 +27,10 @@
                             <page string="Actions">
                                 <group col="3" colspan="4">
                                     <group col="1" colspan="1">
-                                        <button name="zoook_export_categories" string="Export Categories" colspan="1" type="object"/>
-                                        <button name="zoook_export_products" string="Export Products" colspan="1" type="object"/>
-                                        <button name="zoook_export_images" string="Export Images" colspan="1" type="object"/>
-                                        <button name="zoook_export_conf" string="Global Configuration" colspan="1" type="object"/>
+                                        <button name="zoook_export_categories" string="Export Categories" colspan="1" type="object" confirm="Are you sure to continue? See logs e-server process"/>
+                                        <button name="zoook_export_products" string="Export Products" colspan="1" type="object" confirm="Are you sure to continue? See logs e-server process"/>
+                                        <button name="zoook_export_images" string="Export Images" colspan="1" type="object" confirm="Are you sure to continue? See logs e-server process"/>
+                                        <button name="zoook_export_conf" string="Global Configuration" colspan="1" type="object" confirm="Are you sure to continue? See logs e-server process"/>
                                     </group>
                                     <group col="2" colspan="2">
                                         <field name="zoook_last_export_categories" />

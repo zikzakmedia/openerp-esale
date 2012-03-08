@@ -67,7 +67,6 @@ class sale_shop(osv.osv):
         """
         
         res = {}
-        logger = netsvc.Logger()
 
         for sale in self.browse(cr, uid, ids):
             values = {
@@ -83,11 +82,11 @@ class sale_shop(osv.osv):
             test = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
             if test == 'success':
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Connection to server is successfull.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Connection to server is successfull.")
                 raise osv.except_osv(_('Ok!'), _('Connection to server are successfully.'))
                 return True
             else:
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
                 raise osv.except_osv(_('Error!'), _('Error connection to server.'))
                 return False
 
@@ -114,7 +113,6 @@ class sale_shop(osv.osv):
         """
 
         res = {}
-        logger = netsvc.Logger()
 
         for sale in self.browse(cr, uid, ids):
             values = {
@@ -130,10 +128,10 @@ class sale_shop(osv.osv):
             conf = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
             if conf:
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Conf Export Running.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Conf Export Running.")
                 return True
             else:
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
                 return False
 
     def dj_export_countries(self, cr, uid, ids, context=None):
@@ -168,7 +166,6 @@ class sale_shop(osv.osv):
         """
 
         res = {}
-        logger = netsvc.Logger()
 
         for sale in self.browse(cr, uid, ids):
             values = {
@@ -184,10 +181,10 @@ class sale_shop(osv.osv):
             product = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
             if product:
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Product Export Running.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Product Export Running.")
                 return True
             else:
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
                 return False
 
     def dj_export_products(self, cr, uid, ids, context=None):
@@ -231,7 +228,6 @@ class sale_shop(osv.osv):
         """
 
         res = {}
-        logger = netsvc.Logger()
 
         for sale in self.browse(cr, uid, ids):
             values = {
@@ -247,10 +243,10 @@ class sale_shop(osv.osv):
             category = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
             if category:
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Category Export Running.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Category Export Running.")
                 return True
             else:
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
                 return False
 
     def dj_export_categories(self, cr, uid, ids, context=None):
@@ -279,7 +275,6 @@ class sale_shop(osv.osv):
         """
 
         res = {}
-        logger = netsvc.Logger()
 
         for sale in self.browse(cr, uid, ids):
             values = {
@@ -295,10 +290,10 @@ class sale_shop(osv.osv):
             image = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
             if image:
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Image Export Running.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Image Export Running.")
                 return True
             else:
-                logger.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
                 return False
 
     def dj_export_images(self, cr, uid, ids, context=None):
@@ -311,7 +306,10 @@ class sale_shop(osv.osv):
             image_ids = []
             last_exported_time = shop.zoook_last_export_images
 
-            image_ids = self.pool.get('product.images').search(cr, uid, [])
+            product_tmps = self.pool.get('product.template').search(cr, uid, [('zoook_exportable','=',True),('zoook_saleshop_ids','in',shop.id)])
+            products = self.pool.get('product.product').search(cr, uid, [('product_tmpl_id','in',product_tmps)])
+
+            image_ids = self.pool.get('product.images').search(cr, uid, [('product_id','in',products)])
 
             for image in self.pool.get('product.images').perm_read(cr, uid, image_ids):
                 if last_exported_time < image['create_date'][:19] or (image['write_date'] and last_exported_time < image['write_date'][:19]):
@@ -384,10 +382,15 @@ class sale_order(osv.osv):
         carrier_obj = self.pool.get('delivery.carrier')
 
         order = order_obj.browse(cr, uid, order_id)
-        carriers = carrier_obj.search(cr, uid, [('active','=',True)])
+
+        carriers = order.shop_id.zoook_delivery_ids #carriers from sale shop
+        if not len(carriers)>0:
+            return delivery
 
         for carrier in carriers:
-            grid_id = carrier_obj.grid_get(cr, uid, [carrier], order.partner_shipping_id.id)
+            if not carrier.active:
+                continue
+            grid_id = carrier_obj.grid_get(cr, uid, [carrier.id], order.partner_shipping_id.id)
             if grid_id:
                 grid = grid_obj.browse(cr, uid, grid_id, context=context)
                 cost = grid_obj.get_price(cr, uid, grid.id, order, time.strftime('%Y-%m-%d'), context)
