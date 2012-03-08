@@ -337,7 +337,6 @@ class sale_shop(osv.osv):
             
         return True
 
-
     def zoook_export_images_thread(self, db_name, uid, sale, values, context=None):
         """Thread Export Images
         :sale: Sale Shop ID (int)
@@ -348,7 +347,7 @@ class sale_shop(osv.osv):
         db, pool = pooler.get_db_and_pool(db_name)
         cr = db.cursor()
 
-        image = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
+        image = self.pool.get('django.connect').ssh_command(cr, uid, sale, values, context)
 
         cr.commit()
         cr.close()
