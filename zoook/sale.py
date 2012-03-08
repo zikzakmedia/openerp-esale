@@ -29,6 +29,8 @@ from tools.translate import _
 import netsvc
 import time
 import tools
+import pooler
+import threading
 
 LOGGER = netsvc.Logger()
 
@@ -178,14 +180,33 @@ class sale_shop(osv.osv):
                 'basepath': sale.zoook_basepath,
             }
             context['command'] = 'sync/product.py'
-            product = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
-            if product:
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Product Export Running.")
-                return True
-            else:
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
-                return False
+            thread1 = threading.Thread(target=self.zoook_export_products_thread, args=(cr.dbname, uid, sale.id, values, context))
+            thread1.start()
+
+        return True
+
+    def zoook_export_products_thread(self, db_name, uid, sale, values, context=None):
+        """Thread Export Products
+        :sale: Sale Shop ID (int)
+        :values: Dicc
+        :context: Dicc
+        return True/False
+        """
+        db, pool = pooler.get_db_and_pool(db_name)
+        cr = db.cursor()
+
+        product = self.pool.get('django.connect').ssh_command(cr, uid, sale, values, context)
+
+        cr.commit()
+        cr.close()
+
+        if product:
+            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Product Export Running.")
+            return True
+        else:
+            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+            return False
 
     def dj_export_products(self, cr, uid, ids, context=None):
         """
@@ -219,6 +240,8 @@ class sale_shop(osv.osv):
 
             self.write(cr, uid, [shop.id], {'zoook_last_export_products': time.strftime('%Y-%m-%d %H:%M:%S')})
 
+            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Products: %s" % (products_shop) )
+
         return products_shop
 
     def zoook_export_categories(self, cr, uid, ids, context=None):
@@ -240,14 +263,33 @@ class sale_shop(osv.osv):
                 'basepath': sale.zoook_basepath,
             }
             context['command'] = 'sync/category.py'
-            category = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
-            if category:
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Category Export Running.")
-                return True
-            else:
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
-                return False
+            thread1 = threading.Thread(target=self.zoook_export_categories_thread, args=(cr.dbname, uid, sale.id, values, context))
+            thread1.start()
+
+        return True
+
+    def zoook_export_categories_thread(self, db_name, uid, sale, values, context=None):
+        """Thread Export Categories
+        :sale: Sale Shop ID (int)
+        :values: Dicc
+        :context: Dicc
+        return True/False
+        """
+        db, pool = pooler.get_db_and_pool(db_name)
+        cr = db.cursor()
+
+        category = self.pool.get('django.connect').ssh_command(cr, uid, sale, values, context)
+
+        cr.commit()
+        cr.close()
+
+        if category:
+            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Category Export Running.")
+            return True
+        else:
+            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+            return False
 
     def dj_export_categories(self, cr, uid, ids, context=None):
         """
@@ -265,6 +307,8 @@ class sale_shop(osv.osv):
                     categories.append(categ['id'])
 
             self.write(cr, uid, [shop.id], {'zoook_last_export_categories': time.strftime('%Y-%m-%d %H:%M:%S')})
+
+            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Categories: %s" % (categories) )
 
         return categories
 
@@ -287,14 +331,34 @@ class sale_shop(osv.osv):
                 'basepath': sale.zoook_basepath,
             }
             context['command'] = 'sync/image.py'
-            image = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
-            if image:
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Image Export Running.")
-                return True
-            else:
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
-                return False
+            thread1 = threading.Thread(target=self.zoook_export_images_thread, args=(cr.dbname, uid, sale.id, values, context))
+            thread1.start()
+            
+        return True
+
+
+    def zoook_export_images_thread(self, db_name, uid, sale, values, context=None):
+        """Thread Export Images
+        :sale: Sale Shop ID (int)
+        :values: Dicc
+        :context: Dicc
+        return True/False
+        """
+        db, pool = pooler.get_db_and_pool(db_name)
+        cr = db.cursor()
+
+        image = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
+
+        cr.commit()
+        cr.close()
+
+        if image:
+            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Image Export Running.")
+            return True
+        else:
+            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+            return False
 
     def dj_export_images(self, cr, uid, ids, context=None):
         """
@@ -315,7 +379,9 @@ class sale_shop(osv.osv):
                 if last_exported_time < image['create_date'][:19] or (image['write_date'] and last_exported_time < image['write_date'][:19]):
                     images.append(image['id'])
 
-        self.write(cr, uid, ids, {'zoook_last_export_images': time.strftime('%Y-%m-%d %H:%M:%S')})
+            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Images: %s" % (images) )
+
+            self.write(cr, uid, [shop.id], {'zoook_last_export_images': time.strftime('%Y-%m-%d %H:%M:%S')})
 
         return images
 
