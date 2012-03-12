@@ -199,6 +199,9 @@ class product_category(osv.osv):
 
         return super(product_category, self).copy(cr, uid, id, default, context=context)
 
+    def unlink(self, cr, uid, ids, context=None):
+        raise osv.except_osv(_("Alert"), _("To Unlink this category mark status is False"))
+
 product_category()
 
 class product_template(osv.osv):
@@ -212,6 +215,7 @@ class product_template(osv.osv):
         return {'value':value}
 
     _columns = {
+        'codes': fields.text('Codes'),
         'zoook_exportable':fields.boolean('Export to e-sale?', change_default=True, help="If check export e-sale, this product are available in your e-sale. If you need not publish this product (despublish), unmark Active field in e-sale tab"),
         'zoook_status':fields.boolean('Active', help="If check this, e-sale product are available and shop it"),
         'zoook_saleshop_ids': fields.many2many('sale.shop', 'zoook_sale_shop_rel', 'product_tmp_id', 'sale_shop_id', 'Websites', help='Select yours Sale Shops available this product'),
@@ -277,7 +281,7 @@ class product_template(osv.osv):
                 #~ context['lang'] = self.pool.get('res.users').browse(cr, uid, uid).context_lang
                 products = self.pool.get('product.template').search(cr, uid, [('slug','=',slug),('id','!=',id)], context=context)
                 if len(products) > 0:
-                    raise osv.except_osv(_("Alert"), _("Slug %s exists. Choose another slug" % (slug)))
+                    raise osv.except_osv(_("Alert"), _("Slug %s exists. Choose another slug") % (slug))
 
                 slug = slugify(unicode(str(slug),'UTF-8'))
                 vals['slug'] = slug
@@ -359,5 +363,8 @@ class product_product(osv.osv):
             })
 
         return super(product_product, self).copy(cr, uid, id, default, context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        raise osv.except_osv(_("Alert"), _("To Unlink this product mark status is False"))
 
 product_product()

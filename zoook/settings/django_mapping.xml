@@ -372,6 +372,17 @@ value = product.uom_id.name</field>
             <field name='active'>1</field>
         </record>
 
+        <record model='base.external.mapping.line' id='djlpt23'>
+            <field name='mapping_id' ref='zoook.dj04'/>
+            <field name='field_id' search="[('model_id','=','product.template'),('name','=','codes')]" model='ir.model.fields'/>
+            <field name='external_field'>codes</field>
+            <field name='type'>out</field>
+            <field name='external_type'>str</field>
+            <field name='active'>1</field>
+            <field name='out_function'>ids = self.pool.get('product.product').search(cr, uid, [('product_tmpl_id','=',ids[0])])
+value=  ','.join(prod.default_code for prod in self.pool.get('product.product').browse(cr, uid, ids))</field>
+        </record>
+
 <!--Product-->
         <record model='base.external.mapping' id='dj05'>
             <field name='name'>zoook.product.product</field>
