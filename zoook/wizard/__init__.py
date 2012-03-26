@@ -21,4 +21,5 @@
 ############################################################################################
 
 import wizard_create_user
+import wizard_product_product
 import wizard_reset_user

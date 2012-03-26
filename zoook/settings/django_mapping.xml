@@ -482,6 +482,35 @@ if context['product_id']:
             <field name='translate'>1</field>
         </record>
 
+        <record model='base.external.mapping.line' id='djlpp09'>
+            <field name='mapping_id' ref='zoook.dj05'/>
+            <field name='field_id' search="[('model_id','=','product.product'),('name','=','special_price')]" model='ir.model.fields'/>
+            <field name='external_field'>price_special</field>
+            <field name='type'>out</field>
+            <field name='external_type'>float</field>
+            <field name='out_function'>price = 0.0
+quantity = 1
+decimal = self.pool.get('decimal.precision').precision_get(cr, uid, 'Sale Price')
+
+if context['shop'] and context['product_id']:
+    shop = self.pool.get('sale.shop').browse(cr, uid, context['shop'])
+    product = self.pool.get('product.product').browse(cr, uid, context['product_id'])
+    price = product.special_price
+
+    if shop.zoook_tax_include:
+        price = self.pool.get('account.tax').compute_all(cr, uid, product.product_tmpl_id.taxes_id, price, quantity, address_id=None, product=product.product_tmpl_id, partner=None)
+        price = price['total_included']
+
+if price == 0.0:
+    price = ''
+else:
+    price = '%.*f' % (decimal, price)
+
+value = price</field>
+            <field name='active'>1</field>
+
+        </record>
+
 <!--Product Images-->
         <record model='base.external.mapping' id='dj07'>
             <field name='name'>zoook.product.images</field>

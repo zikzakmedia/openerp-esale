@@ -314,8 +314,13 @@ class product_product(osv.osv):
             partner_id = []
 
         logger = netsvc.Logger()
+    
+        product_obj = self.pool.get('product.product')
+        product_template_obj = self.pool.get('product.template')
+        sale_shop_obj = self.pool.get('sale.shop')
+        product_pricelist_obj = self.pool.get('product.pricelist')
 
-        shop = self.pool.get('sale.shop').browse(cr, uid, shop_id)
+        shop = sale_shop_obj.browse(cr, uid, shop_id)
 
         pricelist_id = self.pool.get('res.partner').browse(cr, uid, partner_id).property_product_pricelist.id
         if not pricelist_id:
@@ -324,7 +329,7 @@ class product_product(osv.osv):
                 logger.notifyChannel("Zoook", netsvc.LOG_WARNING, _("Not Price List available Partner or Shop."))
                 return False
 
-        pricelist = self.pool.get('product.pricelist').browse(cr, uid, pricelist_id)
+        pricelist = product_pricelist_obj.browse(cr, uid, pricelist_id)
 
         result = {}
 
@@ -335,14 +340,17 @@ class product_product(osv.osv):
                 #~ Product Taxes is computed by product.product, not product.template.
                 #~ Searh all product.product and get price less
                 products = []
-                prods = self.pool.get('product.product').search(cr, uid, [('product_tmpl_id','=',product['product_id'])])
-                for prod in prods:
-                    price = self.pool.get('product.pricelist').price_get(cr, uid, [pricelist_id], prod, 1.0)[pricelist_id]
-                    products.append({'product_id': prod, 'price': price})
+                prods = product_obj.search(cr, uid, [('product_tmpl_id','=',product['product_id'])])
+                for prod in product_obj.browse(cr, uid, prods):
+                    price = product_pricelist_obj.price_get(cr, uid, [pricelist_id], prod.id, 1.0)[pricelist_id]
+                    if shop.special_price: #if this sale shop available Special Price
+                        if prod.special_price != 0.0 and prod.special_price < price:
+                            price = prod.special_price
+                    products.append({'product_id': prod.id, 'price': price})
                 products = sorted(products, key=lambda k: k['price'])
 
                 if shop.zoook_tax_include:
-                    product_template = self.pool.get('product.template').browse(cr, uid, product['product_id'])
+                    product_template = product_template_obj.browse(cr, uid, product['product_id'])
                     price_compute_all = self.pool.get('account.tax').compute_all(cr, uid, product_template.taxes_id, products[0]['price'], product['quantity'], address_id=None, product=product_template, partner=None)
 
                     product_price = price_compute_all['total_included']

@@ -208,35 +208,48 @@ class sale_shop(osv.osv):
             LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
             return False
 
-    def dj_export_products(self, cr, uid, ids, context=None):
+    def dj_export_products(self, cr, uid, ids, prods=[], context=None):
         """
+        @param ids: Sale Shop IDs
+        @param prods: Product Template IDS
         Return list with dicc product.template ID and list product.product IDs
         [{'product_product': [8,9], 'product_template': 7}, {'product_product': [1], 'product_template': 1}]
         """
 
+        product_obj = self.pool.get('product.product')
+        product_template_obj = self.pool.get('product.template')
+
         products_shop = []
-        for shop in self.browse(cr, uid, ids):
-            last_exported_time = shop.zoook_last_export_products
-
-            product_tmps = self.pool.get('product.template').search(cr, uid, [('zoook_exportable','=',True),('zoook_saleshop_ids','in',shop.id)])
-
-            for product_tmp in self.pool.get('product.template').perm_read(cr, uid, product_tmps):
-                prods = False
-                # product.template create/modify > date exported last time
-                if last_exported_time < product_tmp['create_date'][:19] or (product_tmp['write_date'] and last_exported_time < product_tmp['write_date'][:19]):
-                    prods = True
-    
-                # product.product create/modify > date exported last time
-                products = self.pool.get('product.product').search(cr, uid, [('product_tmpl_id','=',product_tmp['id'])])
-                
+        if len(prods)>0: #sync products by wizard
+            for template in prods:
+                template_id = int(template)
+                products = product_obj.search(cr, uid, [('product_tmpl_id','=',template_id)])
                 product_product = []
-                for product in self.pool.get('product.product').perm_read(cr, uid, products):
-                    if last_exported_time < product['create_date'][:19] or (product['write_date'] and last_exported_time < product['write_date'][:19]):
+                for product in product_obj.browse(cr, uid, products):
+                    product_product.append(product.id)
+                products_shop.append({'product_template':template_id,'product_product':product_product})
+        else: #sync products by cront
+            for shop in self.browse(cr, uid, ids):
+                last_exported_time = shop.zoook_last_export_products
+                product_tmps = product_template_obj.search(cr, uid, [('zoook_exportable','=',True),('zoook_saleshop_ids','in',shop.id)])
+            
+                for product_tmp in product_template_obj.perm_read(cr, uid, product_tmps):
+                    prods = False
+                    # product.template create/modify > date exported last time
+                    if last_exported_time < product_tmp['create_date'][:19] or (product_tmp['write_date'] and last_exported_time < product_tmp['write_date'][:19]):
                         prods = True
-                        product_product.append(product['id'])
+        
+                    # product.product create/modify > date exported last time
+                    products = product_obj.search(cr, uid, [('product_tmpl_id','=',product_tmp['id'])])
+                    
+                    product_product = []
+                    for product in product_obj.perm_read(cr, uid, products):
+                        if last_exported_time < product['create_date'][:19] or (product['write_date'] and last_exported_time < product['write_date'][:19]):
+                            prods = True
+                            product_product.append(product['id'])
 
-                if prods:
-                    products_shop.append({'product_template':product_tmp['id'],'product_product':product_product})
+                    if prods:
+                        products_shop.append({'product_template':product_tmp['id'],'product_product':product_product})
 
             self.write(cr, uid, [shop.id], {'zoook_last_export_products': time.strftime('%Y-%m-%d %H:%M:%S')})
 
