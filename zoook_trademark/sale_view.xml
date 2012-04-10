@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_zoook_trademark_sale_shop_form">
+            <field name="name">zoook_trademark_sale_shop_form</field>
+            <field name="model">sale.shop</field>
+            <field name="inherit_id" ref="zoook.zoook_view_shop_form2" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/form/group/notebook/page[@string='Actions']/group/group/button[@name='zoook_export_images']" position="after">
+                        <button name="zoook_export_manufacturers" string="Export Manufacturers" colspan="1" type="object" confirm="Export Manufacturers. This operation is longer. Are you sure to continue? See logs server process"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>
