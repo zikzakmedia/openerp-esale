@@ -8,10 +8,9 @@
             <field name='field_id' search="[('model_id','=','product.template'),('name','=','manufacturer')]" model='ir.model.fields'/>
             <field name='external_field'>manufacturer</field>
             <field name='type'>out</field>
-            <field name='external_type'>str</field>
+            <field name='external_type'>int</field>
             <field name='active'>1</field>
-            <field name='out_function'>value = None
-product = self.pool.get('product.template').browse(cr, uid, ids[0])
+            <field name='out_function'>product = self.pool.get('product.template').browse(cr, uid, ids[0])
 if product.manufacturer.id:
     value = product.manufacturer.id</field>
         </record>
