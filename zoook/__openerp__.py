@@ -30,8 +30,7 @@
     "category" : "Generic Modules",
     "description": """
     e-commerce management 100% integration by OpenERP.
-    This module management yours stores. e-sale ecommerce need APP Django
-    Doc, code, Blueprints and bugs: https://launchpad.net/zoook
+    www.zikzakmedia.com/es/openerp-tiendas-virtuales
     """,
     "license" : "AGPL-3",
     "depends" : [
