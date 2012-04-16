@@ -485,6 +485,13 @@ class sale_order(osv.osv):
             self.write(cr, uid, [o.id], {'payment_state': 'cancel'})
         return super(sale_order, self).action_cancel(cr, uid, ids, context)
 
+    def action_cancel_draft(self, cr, uid, ids, *args):
+        """ Rewrite Payment State where draft"""
+
+        for o in self.browse(cr, uid, ids):
+            self.write(cr, uid, [o.id], {'payment_state': 'draft'})
+        return super(sale_order, self).action_cancel_draft(cr, uid, ids, *args)
+
     def action_wait(self, cr, uid, ids, *args):
         """ Rewrite Payment State where done"""
 

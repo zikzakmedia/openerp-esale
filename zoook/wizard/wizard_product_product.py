@@ -59,7 +59,11 @@ class zoook_sync_product_wizard(osv.osv_memory):
 
         product_ids = []
         for prod in self.pool.get('product.product').browse(cr, uid, data['active_ids']):
-            if prod.product_tmpl_id.zoook_exportable:
+            product_available_shops = []
+            for pshop in prod.product_tmpl_id.zoook_saleshop_ids:
+                product_available_shops.append(pshop.id)
+
+            if prod.product_tmpl_id.zoook_exportable and shop.id in product_available_shops:
                 product_ids.append(prod.product_tmpl_id.id)
 
         values = {
