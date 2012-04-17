@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- eSale Log -->
+       <record id="view_esale_log_search" model="ir.ui.view">
+            <field name="name">esale.log.search</field>
+            <field name="model">esale.log</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Log">
+                   <group col='15' colspan='4'>
+                        <field name="create" />
+                        <field name="sale_shop_id"/>
+                        <field name="model_id" />
+                        <field name="oerp_id" />
+                        <field name="status" />
+                   </group>
+               </search>
+            </field>
+        </record>
+
+        <record id="view_esale_log_tree" model="ir.ui.view">
+            <field name="name">esale.log</field>
+            <field name="model">esale.log</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+            <tree string="eSale Logs" colors="red:status=='error'">
+                <field name="create" />
+                <field name="sale_shop_id"/>
+                <field name="model_id" />
+                <field name="oerp_id" />
+                <field name="status" />
+                <field name="comment" />
+            </tree>
+            </field>
+        </record>
+
+        <record id="action_esale_log" model="ir.actions.act_window">
+            <field name="name">eSale Logs</field>
+            <field name="res_model">esale.log</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem action="action_esale_log" id="menu_esale_log" parent="sale.menu_action_shop_form" groups="base.group_extended" sequence="60"/>
+
+    </data>
+</openerp>

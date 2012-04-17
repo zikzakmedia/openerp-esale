@@ -61,6 +61,7 @@
         "product_view.xml",
         "product_images_view.xml",
         "sale_view.xml",
+        "esale_view.xml",
         "settings/zoook_data.xml",
     ],
     "active": False,

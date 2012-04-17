@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.2\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-03-26 13:37+0000\n"
-"PO-Revision-Date: 2012-03-26 15:41+0100\n"
+"POT-Creation-Date: 2012-04-17 08:34+0000\n"
+"PO-Revision-Date: 2012-04-17 11:33+0100\n"
 "Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,11 +27,6 @@ msgid "Partial Delivery"
 msgstr "Enviament parcial"
 
 #. module: zoook
-#: model:ir.model,name:zoook.model_zoook_sale_shop_payment_type
-msgid "Zoook Sale Shop Payment Type"
-msgstr "Tipus de pagament de la botiga"
-
-#. module: zoook
 #: field:sale.shop,zoook_last_export_products:0
 msgid "Last Export Products"
 msgstr "Últims productes exportats"
@@ -43,7 +38,7 @@ msgid "Title"
 msgstr "Títol"
 
 #. module: zoook
-#: code:addons/zoook/wizard/wizard_product_product.py:71
+#: code:addons/zoook/wizard/wizard_product_product.py:75
 #, python-format
 msgid "Not available some e-Sale Products to export"
 msgstr "Not available some e-Sale Products to export"
@@ -54,9 +49,22 @@ msgid "The code of the country must be unique !"
 msgstr "El codi del país ha de ser únic!"
 
 #. module: zoook
+#: field:zoook.sale.shop.payment.type,order_policy:0
+msgid "Shipping Policy"
+msgstr "Política de facturació"
+
+#. module: zoook
 #: view:product.product:0
 msgid "e-Sale Filters..."
 msgstr "e-Sale..."
+
+#. module: zoook
+#: view:esale.log:0
+#: model:ir.actions.act_window,name:zoook.action_esale_log
+#: model:ir.model,name:zoook.model_esale_log
+#: model:ir.ui.menu,name:zoook.menu_esale_log
+msgid "eSale Logs"
+msgstr "eSale Logs"
 
 #. module: zoook
 #: help:zoook.sale.shop.payment.type,virtual:0
@@ -72,6 +80,11 @@ msgstr "Are you sure to continue? See logs e-server process"
 #: sql_constraint:sale.order:0
 msgid "Order Reference must be unique !"
 msgstr "Referència de la comanda ha se ser única!"
+
+#. module: zoook
+#: field:esale.log,oerp_id:0
+msgid "OpenERP ID"
+msgstr "OpenERP ID"
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_zoook_connect
@@ -103,6 +116,11 @@ msgstr "Vendes creuades"
 #: view:sale.shop:0
 msgid "SSH Connection"
 msgstr "Connexió SSH"
+
+#. module: zoook
+#: field:esale.log,model_id:0
+msgid "OpenERP Model"
+msgstr "Model OpenERP"
 
 #. module: zoook
 #: field:sale.shop,zoook_root_category_id:0
@@ -177,9 +195,17 @@ msgid "Gives the sequence order when displaying category list."
 msgstr "Seqüència en la ordenació del llistat de categories."
 
 #. module: zoook
-#: field:zoook.sale.shop.payment.type,order_policy:0
-msgid "Shipping Policy"
-msgstr "Política de facturació"
+#: model:ir.module.module,description:zoook.module_meta_information
+msgid ""
+"\n"
+"    e-commerce management 100% integration by OpenERP.\n"
+"    www.zikzakmedia.com/es/openerp-tiendas-virtuales\n"
+"    "
+msgstr ""
+"\n"
+"    e-commerce management 100% integration by OpenERP.\n"
+"    www.zikzakmedia.com/es/openerp-tiendas-virtuales\n"
+"    "
 
 #. module: zoook
 #: selection:product.category,default_sort_by:0
@@ -227,6 +253,11 @@ msgid "Not Price List available Partner or Shop."
 msgstr "No hi ha tarifes de preus disponibles a l'empresa o a la botiga."
 
 #. module: zoook
+#: field:sale.order,payment_state:0
+msgid "Payment State"
+msgstr "Estat del pagament"
+
+#. module: zoook
 #: view:zoook.reset.user.wizard:0
 msgid "Are you sure to reset this user?"
 msgstr "Esteu segurs de reiniciar aquest usuari?"
@@ -264,6 +295,7 @@ msgid "Confirm"
 msgstr "Confirmar"
 
 #. module: zoook
+#: field:esale.log,create:0
 #: view:zoook.create.user.wizard:0
 msgid "Create"
 msgstr "Crear"
@@ -410,6 +442,11 @@ msgid "Complete Delivery"
 msgstr "Enviament complert"
 
 #. module: zoook
+#: view:esale.log:0
+msgid "Search Log"
+msgstr "Cerca Log"
+
+#. module: zoook
 #: help:zoook.sale.shop.payment.type,sequence:0
 msgid "Gives the sequence order when displaying a list of payments."
 msgstr "Ordenació pel llistat de pagaments"
@@ -444,6 +481,11 @@ msgid "First"
 msgstr "Primer"
 
 #. module: zoook
+#: field:esale.log,comment:0
+msgid "Comment"
+msgstr "Comentari"
+
+#. module: zoook
 #: model:ir.model,name:zoook.model_product_template
 msgid "Product Template"
 msgstr "Plantilla de producte"
@@ -459,12 +501,12 @@ msgid "Shipping & Manual Invoice"
 msgstr "Factura manual"
 
 #. module: zoook
-#: field:sale.order,payment_state:0
-msgid "Payment State"
-msgstr "Estat del pagament"
+#: field:esale.log,mgn_id:0
+msgid "Magento ID"
+msgstr "Magento ID"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:539
+#: code:addons/zoook/sale.py:546
 #, python-format
 msgid "Order %s change status: Cancel"
 msgstr "La comanda de venda %s ha canviat d'estat: Cancel·lat"
@@ -502,7 +544,7 @@ msgid "Are you sure to export this product?"
 msgstr "Esteu segurs d'exportar aquest producte?"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:528
+#: code:addons/zoook/sale.py:535
 #, python-format
 msgid "Order %s change status: Done"
 msgstr "La comanda de venda %s ha canviat d'estat: Realitzat"
@@ -511,6 +553,12 @@ msgstr "La comanda de venda %s ha canviat d'estat: Realitzat"
 #: constraint:product.template:0
 msgid "Error: The default UOM and the purchase UOM must be in the same category."
 msgstr "Error: UOM per defecte i UOM de compra han de ser de la mateixa categoria."
+
+#. module: zoook
+#: code:addons/zoook/esale.py:49
+#, python-format
+msgid "This Log is not allow to delete"
+msgstr "Aquest log no es permet eliminar"
 
 #. module: zoook
 #: view:sale.shop:0
@@ -548,6 +596,7 @@ msgid "This email exist another user. Use another email/address"
 msgstr "This email exist another user. Use another email/address"
 
 #. module: zoook
+#: field:esale.log,status:0
 #: field:product.category,status:0
 msgid "Status"
 msgstr "Estat"
@@ -665,6 +714,11 @@ msgid "Display Settings"
 msgstr "Mostrar configuració"
 
 #. module: zoook
+#: selection:esale.log,status:0
+msgid "Error"
+msgstr "Error"
+
+#. module: zoook
 #: help:sale.shop,zoook_basepath:0
 msgid "Path of Django App. Ex: /var/www/zoook"
 msgstr "Ruta de Django App. Ex: /var/www/zoook"
@@ -685,7 +739,7 @@ msgid "Atention! If you change slug, you need change manually all full slug chil
 msgstr "Atenció! Si canvia el slug, necessita canviar manualment la ruta completa de les categories filles"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:524
+#: code:addons/zoook/sale.py:531
 #, python-format
 msgid "Order Payment: %s"
 msgstr "Pagament de la comanda: %s"
@@ -715,6 +769,7 @@ msgid "General Information"
 msgstr "Informació General"
 
 #. module: zoook
+#: selection:esale.log,status:0
 #: selection:sale.order,payment_state:0
 #: selection:zoook.create.user.wizard,state:0
 #: selection:zoook.reset.user.wizard,state:0
@@ -723,6 +778,7 @@ msgid "Done"
 msgstr "Fet"
 
 #. module: zoook
+#: field:esale.log,sale_shop_id:0
 #: field:zoook.sync.product.wizard,zoook_sale_shop:0
 msgid "Sale Shop"
 msgstr "Botiga"
@@ -815,6 +871,7 @@ msgid "Name App Payment module (example, paypal, servired, cash_on_delivery,...)
 msgstr "Nom del App de pagament (exemple, paypal, servired, cash_on_delivery,...)"
 
 #. module: zoook
+#: code:addons/zoook/esale.py:49
 #: code:addons/zoook/product.py:147
 #: code:addons/zoook/product.py:168
 #: code:addons/zoook/product.py:203
@@ -969,19 +1026,9 @@ msgid "All"
 msgstr "Tot"
 
 #. module: zoook
-#: model:ir.module.module,description:zoook.module_meta_information
-msgid ""
-"\n"
-"    e-commerce management 100% integration by OpenERP.\n"
-"    This module management yours stores. e-sale ecommerce need APP Django\n"
-"    Doc, code, Blueprints and bugs: https://launchpad.net/zoook\n"
-"    "
-msgstr ""
-"\n"
-"    e-commerce management 100% integration by OpenERP.\n"
-"    This module management yours stores. e-sale ecommerce need APP Django\n"
-"    Doc, code, Blueprints and bugs: https://launchpad.net/zoook\n"
-"    "
+#: model:ir.model,name:zoook.model_zoook_sale_shop_payment_type
+msgid "Zoook Sale Shop Payment Type"
+msgstr "Tipus de pagament de la botiga"
 
 #. module: zoook
 #: view:product.category:0
@@ -1020,6 +1067,20 @@ msgstr "Empresa"
 msgid "Port"
 msgstr "Port"
 
+#~ msgid ""
+#~ "\n"
+#~ "    e-commerce management 100% integration by OpenERP.\n"
+#~ "    This module management yours stores. e-sale ecommerce need APP "
+#~ "Django\n"
+#~ "    Doc, code, Blueprints and bugs: https://launchpad.net/zoook\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ "    e-commerce management 100% integration by OpenERP.\n"
+#~ "    This module management yours stores. e-sale ecommerce need APP "
+#~ "Django\n"
+#~ "    Doc, code, Blueprints and bugs: https://launchpad.net/zoook\n"
+#~ "    "
 #~ msgid ""
 #~ "Slug %s exists. Choose another slug\" % (slug)))\n"
 #~ "\n"

@@ -8,9 +8,16 @@
             <field name="inherit_id" ref="product.product_category_form_view" />
             <field name="type">form</field>
             <field name="arch" type="xml">
+                <xpath expr="/form/field[@name='name']" position="replace">
+                    <field name="name" on_change="onchange_name(name, slug)"/>
+                </xpath>
+                <xpath expr="/form/field[@name='sequence']" position="replace">
+                    <field name="sequence"/>
+                </xpath>
                 <xpath expr="/form/field[@name='sequence']" position="after">
                     <group colspan="4" col="4">
                         <separator string="e-Sale Information" colspan="4" />
+                        <field name="zoook_exportable" attrs="{'invisible':[('zoook_exportable','==',True)]}"/>
                         <notebook colspan="4">
                             <page string="General Information">
                                 <group cols="2" colspan="4">
@@ -19,7 +26,7 @@
                                         <field name="metatitle" colspan="2" />
                                         <field name="metakeyword" colspan="2" />
                                         <field name="metadescription" colspan="2" />
-                                        <field name="slug" colspan="2" attrs="{'required':[('status','==',True)]}"/>
+                                        <field name="slug" colspan="2" attrs="{'required':[('zoook_exportable','==',True)]}"/>
                                         <field name="fslug" colspan="2"/>
                                     </group>
                                     <group col="1" colspan="1">
@@ -37,12 +44,6 @@
                             </page>
                         </notebook>
                     </group>
-                </xpath>
-                <xpath expr="/form/field[@name='name']" position="replace">
-                    <field name="name" on_change="onchange_name(name, slug)"/>
-                </xpath>
-                <xpath expr="/form/field[@name='sequence']" position="replace">
-                    <field name="sequence"/>
                 </xpath>
             </field>
         </record>

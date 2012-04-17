@@ -22,6 +22,7 @@
 #
 ##############################################################################
 
+import esale
 import partner
 import product
 import product_images

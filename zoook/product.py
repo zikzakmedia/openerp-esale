@@ -66,6 +66,7 @@ class product_category(osv.osv):
         return {'value':value}
 
     _columns = {
+        'zoook_exportable':fields.boolean('Export to e-sale?', change_default=True,),
         'recursive_childen_ids': fields.function(_get_recursive_cat_children_ids, method=True, type='one2many', relation="product.category", string='All Child Categories'),
         'slug': fields.char('Slug', size=128, translate=True,help='Atention! If you change slug, you need change manually all full slug childreen categories'),
         'fslug': fields.char('Full Slug', size=256, translate=True, readonly=True),
@@ -80,10 +81,6 @@ class product_category(osv.osv):
                     ('price', 'Price')
                     ], 'Default Product Listing Sort (Sort By)'),
     }
-
-    _sql_constraints = [
-        ('uniq_slug', 'unique(slug)', "Slug must be unique"),
-    ]
 
     _defaults = {
         'status': True,
@@ -117,21 +114,49 @@ class product_category(osv.osv):
 
         return parent_slug
 
-    def check_slug_exist(self, cr, uid, ids, slug, context=None):
+    def esale_parent_category(self, cr, uid, id):
+        """Get ID TOP Parent Category
+        :param id: int
+        :return id
+        """
+        top_id = False
+        parent_id = False
+
+        cat_parent_id = self.browse(cr, uid, id).parent_id
+        if cat_parent_id:
+            parent_id = cat_parent_id.id
+
+        while(parent_id):
+            top_id = parent_id
+            cat_parent_id = self.browse(cr, uid, top_id).parent_id
+            parent_id = cat_parent_id.id
+
+        return top_id
+
+    def check_slug_exist(self, cr, uid, ids, slug, parent, context=None):
         """Check if there are another category same slug
         Slug is identificator unique
+        :param ids: list
+        :param slug: str
+        :param parent: int
         :return True or False
         """
 
         if not isinstance(ids,list):
             ids = [ids]
 
-        categories = self.pool.get('product.category').search(cr, uid, [('slug','=',slug),('id','not in',ids)])
+        top_category = self.esale_parent_category(cr, uid, ids[0])
+        categories = self.pool.get('product.category').search(cr, uid, [('zoook_exportable','=',True),('slug','=',slug),('id','not in',ids)])
+
+        for cat in categories:
+            if top_category == self.esale_parent_category(cr, uid, cat):
+                return True
 
         if len(categories)>0:
             return True
         else:
             return False
+
 
     def create(self, cr, uid, vals, context=None):
         """Slug is unique. Validate
@@ -140,9 +165,10 @@ class product_category(osv.osv):
         if context is None:
             context = {}
 
-        if 'slug' in vals:
+        if 'slug' in vals and 'zoook_exportable' in vals == True:
             ids = None
-            check_slug = self.check_slug_exist(cr, uid, ids, vals['slug'], context)
+            parent = vals.get('parent_id',False)
+            check_slug = self.check_slug_exist(cr, uid, ids, vals['slug'], parent, context)
             if check_slug:
                 raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
 
@@ -152,8 +178,8 @@ class product_category(osv.osv):
             fslug = "%s/" % (vals['slug'])
             parent_slug  = self.set_fslug(cr, uid, [id], context)
             if parent_slug:
-                fslug = "%s/%s/" % (parent_slug, vals['slug'])
-            self.write(cr, uid, id, {'fslug':fslug})
+                vals['fslug'] = "%s/%s/" % (parent_slug, vals['slug'])
+            super(product_category, self).write(cr, uid, [id], vals, context=context)
 
         return id
 
@@ -161,17 +187,21 @@ class product_category(osv.osv):
         """Slug is unique. Validate
         fslug recalculated
         """
+        super(product_category, self).write(cr, uid, ids, vals, context=context)
+        
+        for cat in self.browse(cr, uid, ids):
+            if cat.zoook_exportable:
+                slug = vals.get('slug', False) or cat.slug
+                parent = vals.get('parent_id',False)
+                check_slug = self.check_slug_exist(cr, uid, [cat.id], slug, parent, context)
+                if check_slug:
+                    raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
+                else:
+                    vals['fslug'] = "%s/" % (slug)
+                    parent_slug  = self.set_fslug(cr, uid, ids, context)
 
-        if 'slug' in vals:
-            check_slug = self.check_slug_exist(cr, uid, ids, vals['slug'], context)
-            if check_slug:
-                raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
-            else:
-                vals['fslug'] = "%s/" % (vals['slug'])
-                parent_slug  = self.set_fslug(cr, uid, ids, context)
-
-                if parent_slug:
-                    vals['fslug'] = "%s/%s/" % (parent_slug, vals['slug'])
+                    if parent_slug:
+                        vals['fslug'] = "%s/%s/" % (parent_slug, slug)
 
         return super(product_category, self).write(cr, uid, ids, vals, context=context)
 

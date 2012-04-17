@@ -84,11 +84,11 @@ class sale_shop(osv.osv):
             test = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
             if test == 'success':
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Connection to server is successfull.")
+                LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Connection to server is successfull.")
                 raise osv.except_osv(_('Ok!'), _('Connection to server are successfully.'))
                 return True
             else:
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+                LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, "Error connection to server.")
                 raise osv.except_osv(_('Error!'), _('Error connection to server.'))
                 return False
 
@@ -130,10 +130,10 @@ class sale_shop(osv.osv):
             conf = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
 
             if conf:
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Conf Export Running.")
+                LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Conf Export Running.")
                 return True
             else:
-                LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+                LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, "Error connection to server.")
                 return False
 
     def dj_export_countries(self, cr, uid, ids, context=None):
@@ -202,10 +202,10 @@ class sale_shop(osv.osv):
         cr.close()
 
         if product:
-            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Product Export Running.")
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Product Export Running.")
             return True
         else:
-            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, "Error connection to server.")
             return False
 
     def dj_export_products(self, cr, uid, ids, prods=[], context=None):
@@ -253,7 +253,7 @@ class sale_shop(osv.osv):
 
             self.write(cr, uid, [shop.id], {'zoook_last_export_products': time.strftime('%Y-%m-%d %H:%M:%S')})
 
-            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Products: %s" % (products_shop) )
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Products: %s" % (products_shop) )
 
         return products_shop
 
@@ -298,30 +298,35 @@ class sale_shop(osv.osv):
         cr.close()
 
         if category:
-            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Category Export Running.")
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Category Export Running.")
             return True
         else:
-            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, "Error connection to server.")
             return False
 
     def dj_export_categories(self, cr, uid, ids, context=None):
         """
         Return list category IDs
         """
+        category_obj = self.pool.get('product.category')
 
         for shop in self.browse(cr, uid, ids):
             categories = []
             categ_ids = []
             last_exported_time = shop.zoook_last_export_categories
-            categ_ids = self.pool.get('product.category')._get_recursive_cat_children_ids(cr, uid, [shop.zoook_root_category_id.id], "", [], context)[shop.zoook_root_category_id.id]
+            categ_ids = category_obj._get_recursive_cat_children_ids(cr, uid, [shop.zoook_root_category_id.id], "", [], context)[shop.zoook_root_category_id.id]
 
             for categ in self.pool.get('product.category').perm_read(cr, uid, categ_ids):
                 if last_exported_time < categ['create_date'][:19] or (categ['write_date'] and last_exported_time < categ['write_date'][:19]):
-                    categories.append(categ['id'])
+                    category = category_obj.browse(cr, uid, categ['id'])
+                    if category.zoook_exportable:
+                        categories.append(categ['id'])
+                    else:
+                        LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, "Category %s is in tree category but not exportable. Not added" % (categ['id']) )
 
             self.write(cr, uid, [shop.id], {'zoook_last_export_categories': time.strftime('%Y-%m-%d %H:%M:%S')})
 
-            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Categories: %s" % (categories) )
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Categories: %s" % (categories) )
 
         return categories
 
@@ -366,10 +371,10 @@ class sale_shop(osv.osv):
         cr.close()
 
         if image:
-            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Image Export Running.")
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Image Export Running.")
             return True
         else:
-            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_ERROR, "Error connection to server.")
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, "Error connection to server.")
             return False
 
     def dj_export_images(self, cr, uid, ids, context=None):
@@ -391,7 +396,7 @@ class sale_shop(osv.osv):
                 if last_exported_time < image['create_date'][:19] or (image['write_date'] and last_exported_time < image['write_date'][:19]):
                     images.append(image['id'])
 
-            LOGGER.notifyChannel('ZoooK Connection', netsvc.LOG_INFO, "Images: %s" % (images) )
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Images: %s" % (images) )
 
             self.write(cr, uid, [shop.id], {'zoook_last_export_images': time.strftime('%Y-%m-%d %H:%M:%S')})
 
