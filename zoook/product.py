@@ -66,7 +66,7 @@ class product_category(osv.osv):
         return {'value':value}
 
     _columns = {
-        'zoook_exportable':fields.boolean('Export to e-sale?', change_default=True,),
+        'zoook_exportable':fields.boolean('Available e-sale', change_default=True,),
         'recursive_childen_ids': fields.function(_get_recursive_cat_children_ids, method=True, type='one2many', relation="product.category", string='All Child Categories'),
         'slug': fields.char('Slug', size=128, translate=True,help='Atention! If you change slug, you need change manually all full slug childreen categories'),
         'fslug': fields.char('Full Slug', size=256, translate=True, readonly=True),
@@ -246,7 +246,7 @@ class product_template(osv.osv):
 
     _columns = {
         'codes': fields.text('Codes'),
-        'zoook_exportable':fields.boolean('Export to e-sale?', change_default=True, help="If check export e-sale, this product are available in your e-sale. If you need not publish this product (despublish), unmark Active field in e-sale tab"),
+        'zoook_exportable':fields.boolean('Available e-sale', change_default=True, help="If check export e-sale, this product are available in your e-sale. If you need not publish this product (despublish), unmark Active field in e-sale tab"),
         'zoook_status':fields.boolean('Active', help="If check this, e-sale product are available and shop it"),
         'zoook_saleshop_ids': fields.many2many('sale.shop', 'zoook_sale_shop_rel', 'product_tmp_id', 'sale_shop_id', 'Websites', help='Select yours Sale Shops available this product'),
         'visibility': fields.selection([('all','All'),('search','Search'),('catalog','Catalog'),('none','None')], 'Visibility'),

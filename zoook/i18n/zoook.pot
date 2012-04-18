@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-04-17 08:34+0000\n"
-"PO-Revision-Date: 2012-04-17 08:34+0000\n"
+"POT-Creation-Date: 2012-04-17 14:14+0000\n"
+"PO-Revision-Date: 2012-04-17 14:14+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: zoook
-#: code:addons/zoook/product.py:203
+#: code:addons/zoook/product.py:233
 #, python-format
 msgid "To Unlink this category mark status is False"
 msgstr "To Unlink this category mark status is False"
@@ -128,9 +128,9 @@ msgid "Root product Category"
 msgstr "Root product Category"
 
 #. module: zoook
-#: field:sale.shop,zoook_last_export_images:0
-msgid "Last Export Images"
-msgstr "Last Export Images"
+#: field:product.images,base_image:0
+msgid "Base Image"
+msgstr "Base Image"
 
 #. module: zoook
 #: code:addons/zoook/wizard/wizard_create_user.py:134
@@ -245,7 +245,7 @@ msgid "Ok!"
 msgstr "Ok!"
 
 #. module: zoook
-#: code:addons/zoook/product.py:329
+#: code:addons/zoook/product.py:359
 #, python-format
 msgid "Not Price List available Partner or Shop."
 msgstr "Not Price List available Partner or Shop."
@@ -504,7 +504,7 @@ msgid "Magento ID"
 msgstr "Magento ID"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:546
+#: code:addons/zoook/sale.py:551
 #, python-format
 msgid "Order %s change status: Cancel"
 msgstr "Order %s change status: Cancel"
@@ -542,7 +542,7 @@ msgid "Are you sure to export this product?"
 msgstr "Are you sure to export this product?"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:535
+#: code:addons/zoook/sale.py:540
 #, python-format
 msgid "Order %s change status: Done"
 msgstr "Order %s change status: Done"
@@ -582,7 +582,7 @@ msgid "Sale Shop: %s Username: %s. %s"
 msgstr "Sale Shop: %s Username: %s. %s"
 
 #. module: zoook
-#: code:addons/zoook/product.py:370
+#: code:addons/zoook/product.py:400
 #, python-format
 msgid "-copy"
 msgstr "-copy"
@@ -610,7 +610,7 @@ msgid "Packing Policy"
 msgstr "Packing Policy"
 
 #. module: zoook
-#: code:addons/zoook/product.py:376
+#: code:addons/zoook/product.py:406
 #, python-format
 msgid "To Unlink this product mark status is False"
 msgstr "To Unlink this product mark status is False"
@@ -619,11 +619,6 @@ msgstr "To Unlink this product mark status is False"
 #: field:res.partner,product_whistlist_ids:0
 msgid "Whislist"
 msgstr "Whislist"
-
-#. module: zoook
-#: sql_constraint:product.category:0
-msgid "Slug must be unique"
-msgstr "Slug must be unique"
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_zoook_create_user_wizard
@@ -666,9 +661,9 @@ msgid "Thumb Image"
 msgstr "Thumb Image"
 
 #. module: zoook
-#: field:product.images,base_image:0
-msgid "Base Image"
-msgstr "Base Image"
+#: field:sale.shop,zoook_last_export_images:0
+msgid "Last Export Images"
+msgstr "Last Export Images"
 
 #. module: zoook
 #: code:addons/zoook/sale.py:92
@@ -683,9 +678,9 @@ msgid "Connection to server are successfully."
 msgstr "Connection to server are successfully."
 
 #. module: zoook
-#: field:product.template,zoook_exportable:0
-msgid "Export to e-sale?"
-msgstr "Export to e-sale?"
+#: model:ir.model,name:zoook.model_payment_type
+msgid "Payment type"
+msgstr "Payment type"
 
 #. module: zoook
 #: code:addons/zoook/wizard/wizard_product_product.py:54
@@ -737,7 +732,7 @@ msgid "Atention! If you change slug, you need change manually all full slug chil
 msgstr "Atention! If you change slug, you need change manually all full slug childreen categories"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:531
+#: code:addons/zoook/sale.py:536
 #, python-format
 msgid "Order Payment: %s"
 msgstr "Order Payment: %s"
@@ -870,12 +865,12 @@ msgstr "Name App Payment module (example, paypal, servired, cash_on_delivery,...
 
 #. module: zoook
 #: code:addons/zoook/esale.py:49
-#: code:addons/zoook/product.py:147
-#: code:addons/zoook/product.py:168
-#: code:addons/zoook/product.py:203
-#: code:addons/zoook/product.py:248
-#: code:addons/zoook/product.py:284
-#: code:addons/zoook/product.py:376
+#: code:addons/zoook/product.py:173
+#: code:addons/zoook/product.py:198
+#: code:addons/zoook/product.py:233
+#: code:addons/zoook/product.py:278
+#: code:addons/zoook/product.py:314
+#: code:addons/zoook/product.py:406
 #, python-format
 msgid "Alert"
 msgstr "Alert"
@@ -892,9 +887,9 @@ msgid "Template Email Create User"
 msgstr "Template Email Create User"
 
 #. module: zoook
-#: code:addons/zoook/product.py:147
-#: code:addons/zoook/product.py:168
-#: code:addons/zoook/product.py:248
+#: code:addons/zoook/product.py:173
+#: code:addons/zoook/product.py:198
+#: code:addons/zoook/product.py:278
 #, python-format
 msgid "This Slug exists. Choose another slug"
 msgstr "This Slug exists. Choose another slug"
@@ -967,9 +962,10 @@ msgid "OpenERP e-sale"
 msgstr "OpenERP e-sale"
 
 #. module: zoook
-#: model:ir.model,name:zoook.model_payment_type
-msgid "Payment type"
-msgstr "Payment type"
+#: field:product.category,zoook_exportable:0
+#: field:product.template,zoook_exportable:0
+msgid "Available e-sale"
+msgstr "Available e-sale"
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_delivery_carrier
@@ -992,7 +988,7 @@ msgid "Ssh key"
 msgstr "Ssh key"
 
 #. module: zoook
-#: code:addons/zoook/product.py:284
+#: code:addons/zoook/product.py:314
 #, python-format
 msgid "Slug %s exists. Choose another slug"
 msgstr "Slug %s exists. Choose another slug"
