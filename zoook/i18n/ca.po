@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.2\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-04-17 14:14+0000\n"
-"PO-Revision-Date: 2012-04-17 16:15+0100\n"
+"POT-Creation-Date: 2012-04-19 14:15+0000\n"
+"PO-Revision-Date: 2012-04-19 16:17+0100\n"
 "Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -247,7 +247,7 @@ msgid "Ok!"
 msgstr "Ok!"
 
 #. module: zoook
-#: code:addons/zoook/product.py:359
+#: code:addons/zoook/product.py:367
 #, python-format
 msgid "Not Price List available Partner or Shop."
 msgstr "No hi ha tarifes de preus disponibles a l'empresa o a la botiga."
@@ -271,6 +271,11 @@ msgstr "Plantilla comanda de venda"
 #: model:ir.model,name:zoook.model_sale_order
 msgid "Sales Order"
 msgstr "Comanda de venda"
+
+#. module: zoook
+#: help:product.template,metadescription:0
+msgid "Almost all search engines recommend it to be shorter than 155 characters of plain text"
+msgstr "En la majoria de cercadors recomanen que aquest text no més gran de 155 caràcters i en text pla."
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_sale_order_line
@@ -584,7 +589,7 @@ msgid "Sale Shop: %s Username: %s. %s"
 msgstr "Botiga: %s Nom d'usuari: %s. %s"
 
 #. module: zoook
-#: code:addons/zoook/product.py:400
+#: code:addons/zoook/product.py:408
 #, python-format
 msgid "-copy"
 msgstr "-copia"
@@ -612,7 +617,7 @@ msgid "Packing Policy"
 msgstr "Política d'enviament"
 
 #. module: zoook
-#: code:addons/zoook/product.py:406
+#: code:addons/zoook/product.py:414
 #, python-format
 msgid "To Unlink this product mark status is False"
 msgstr "Per eliminar aquest producte marqui l'estat a fals"
@@ -871,8 +876,8 @@ msgstr "Nom del App de pagament (exemple, paypal, servired, cash_on_delivery,...
 #: code:addons/zoook/product.py:198
 #: code:addons/zoook/product.py:233
 #: code:addons/zoook/product.py:278
-#: code:addons/zoook/product.py:314
-#: code:addons/zoook/product.py:406
+#: code:addons/zoook/product.py:318
+#: code:addons/zoook/product.py:414
 #, python-format
 msgid "Alert"
 msgstr "Alerta"
@@ -990,7 +995,7 @@ msgid "Ssh key"
 msgstr "Clau SSH"
 
 #. module: zoook
-#: code:addons/zoook/product.py:314
+#: code:addons/zoook/product.py:318
 #, python-format
 msgid "Slug %s exists. Choose another slug"
 msgstr "Aquest %s slug ja existeix. Utilitza un altre slug"

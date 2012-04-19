@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-04-17 14:14+0000\n"
-"PO-Revision-Date: 2012-04-17 14:14+0000\n"
+"POT-Creation-Date: 2012-04-19 14:15+0000\n"
+"PO-Revision-Date: 2012-04-19 14:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -245,7 +245,7 @@ msgid "Ok!"
 msgstr "Ok!"
 
 #. module: zoook
-#: code:addons/zoook/product.py:359
+#: code:addons/zoook/product.py:367
 #, python-format
 msgid "Not Price List available Partner or Shop."
 msgstr "Not Price List available Partner or Shop."
@@ -269,6 +269,11 @@ msgstr "Email Sale Order"
 #: model:ir.model,name:zoook.model_sale_order
 msgid "Sales Order"
 msgstr "Sales Order"
+
+#. module: zoook
+#: help:product.template,metadescription:0
+msgid "Almost all search engines recommend it to be shorter than 155 characters of plain text"
+msgstr "Almost all search engines recommend it to be shorter than 155 characters of plain text"
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_sale_order_line
@@ -582,7 +587,7 @@ msgid "Sale Shop: %s Username: %s. %s"
 msgstr "Sale Shop: %s Username: %s. %s"
 
 #. module: zoook
-#: code:addons/zoook/product.py:400
+#: code:addons/zoook/product.py:408
 #, python-format
 msgid "-copy"
 msgstr "-copy"
@@ -610,7 +615,7 @@ msgid "Packing Policy"
 msgstr "Packing Policy"
 
 #. module: zoook
-#: code:addons/zoook/product.py:406
+#: code:addons/zoook/product.py:414
 #, python-format
 msgid "To Unlink this product mark status is False"
 msgstr "To Unlink this product mark status is False"
@@ -869,8 +874,8 @@ msgstr "Name App Payment module (example, paypal, servired, cash_on_delivery,...
 #: code:addons/zoook/product.py:198
 #: code:addons/zoook/product.py:233
 #: code:addons/zoook/product.py:278
-#: code:addons/zoook/product.py:314
-#: code:addons/zoook/product.py:406
+#: code:addons/zoook/product.py:318
+#: code:addons/zoook/product.py:414
 #, python-format
 msgid "Alert"
 msgstr "Alert"
@@ -988,7 +993,7 @@ msgid "Ssh key"
 msgstr "Ssh key"
 
 #. module: zoook
-#: code:addons/zoook/product.py:314
+#: code:addons/zoook/product.py:318
 #, python-format
 msgid "Slug %s exists. Choose another slug"
 msgstr "Slug %s exists. Choose another slug"

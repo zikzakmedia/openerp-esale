@@ -71,7 +71,7 @@ class product_category(osv.osv):
         'slug': fields.char('Slug', size=128, translate=True,help='Atention! If you change slug, you need change manually all full slug childreen categories'),
         'fslug': fields.char('Full Slug', size=256, translate=True, readonly=True),
         'description': fields.text('Description', translate=True),
-        'metadescription': fields.text('Meta Description', translate=True),
+        'metadescription': fields.text('Meta Description', translate=True, help="Almost all search engines recommend it to be shorter than 155 characters of plain text"),
         'metakeyword': fields.text('Meta Keyword', translate=True),
         'metatitle': fields.char('Title', size=256, translate=True),
         'status': fields.boolean('Status'),
@@ -172,6 +172,10 @@ class product_category(osv.osv):
             if check_slug:
                 raise osv.except_osv(_("Alert"), _("This Slug exists. Choose another slug"))
 
+        if 'metadescription' in vals:
+            if len(vals['metadescription'])> 155:
+                vals['metadescription'] = "%s..." % (vals['metadescription'][:152])
+
         id = super(product_category, self).create(cr, uid, vals, context)
 
         if 'slug' in vals:
@@ -187,6 +191,10 @@ class product_category(osv.osv):
         """Slug is unique. Validate
         fslug recalculated
         """
+        if 'metadescription' in vals:
+            if len(vals['metadescription'])> 155:
+                vals['metadescription'] = "%s..." % (vals['metadescription'][:152])
+
         super(product_category, self).write(cr, uid, ids, vals, context=context)
         
         for cat in self.browse(cr, uid, ids):
@@ -252,7 +260,7 @@ class product_template(osv.osv):
         'visibility': fields.selection([('all','All'),('search','Search'),('catalog','Catalog'),('none','None')], 'Visibility'),
         'slug': fields.char('Slug', size=256, translate=True),
         'shortdescription': fields.text('Short Description', translate=True),
-        'metadescription': fields.text('Description', translate=True),
+        'metadescription': fields.text('Description', translate=True, help="Almost all search engines recommend it to be shorter than 155 characters of plain text"),
         'metakeyword': fields.text('Keyword', translate=True),
         'metatitle': fields.char('Title', size=256, translate=True),
         'product_related_ids': fields.many2many('product.template', 'product_template_related_rel', 'product_id', 'product_related_id','Related Products'),
@@ -281,6 +289,10 @@ class product_template(osv.osv):
                     slug = unicode(slug,'UTF-8')
                 slug = slugify(slug)
                 vals['slug'] = slug
+
+        if 'metadescription' in vals:
+            if len(vals['metadescription'])> 155:
+                vals['metadescription'] = "%s..." % (vals['metadescription'][:152])
 
         return super(product_template, self).create(cr, uid, vals, context=context)
 
@@ -315,6 +327,10 @@ class product_template(osv.osv):
 
                 slug = slugify(unicode(str(slug),'UTF-8'))
                 vals['slug'] = slug
+
+            if 'metadescription' in vals:
+                if len(vals['metadescription'])> 155:
+                    vals['metadescription'] = "%s..." % (vals['metadescription'][:152])
 
             result = result and super(product_template, self).write(cr, uid, [id], vals, context=context)
 
