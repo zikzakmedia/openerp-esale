@@ -291,8 +291,9 @@ class product_template(osv.osv):
                 vals['slug'] = slug
 
         if 'metadescription' in vals:
-            if len(vals['metadescription'])> 155:
-                vals['metadescription'] = "%s..." % (vals['metadescription'][:152])
+            metadescription = vals.get('magento_metadescription','')
+            if metadescription and len(metadescription)> 155:
+                vals['metadescription'] = "%s..." % (metadescription[:152])
 
         return super(product_template, self).create(cr, uid, vals, context=context)
 
@@ -329,8 +330,9 @@ class product_template(osv.osv):
                 vals['slug'] = slug
 
             if 'metadescription' in vals:
-                if len(vals['metadescription'])> 155:
-                    vals['metadescription'] = "%s..." % (vals['metadescription'][:152])
+                metadescription = vals.get('magento_metadescription','')
+                if metadescription and len(metadescription)> 155:
+                    vals['metadescription'] = "%s..." % (metadescription[:152])
 
             result = result and super(product_template, self).write(cr, uid, [id], vals, context=context)
 
