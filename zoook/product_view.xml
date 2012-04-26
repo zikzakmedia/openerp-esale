@@ -25,7 +25,7 @@
                                         <separator string="Meta Information" colspan="2" />
                                         <field name="metatitle" colspan="2" />
                                         <field name="metakeyword" colspan="2" />
-                                        <field name="metadescription" colspan="2" />
+                                        <field name="metadescription" colspan="2" attrs="{'required':[('zoook_exportable','==',True)]}"/>
                                         <field name="slug" colspan="2" attrs="{'required':[('zoook_exportable','==',True)]}"/>
                                         <field name="fslug" colspan="2"/>
                                     </group>
@@ -91,11 +91,11 @@
                                 <field name="visibility"/>
                                 <field name="zoook_status"/>
                                 <separator string="Short Description" colspan="4" />
-                                <field name="shortdescription" colspan="4" nolabel="1"/>
+                                <field name="shortdescription" colspan="4" nolabel="1" attrs="{'required':[('zoook_exportable','==',True)]}"/>
                             </page>
                             <page string="SEO">
                                 <field name="slug" colspan="4"/>
-                                <field name="metadescription" colspan="4"/>
+                                <field name="metadescription" colspan="4" attrs="{'required':[('zoook_exportable','==',True)]}"/>
                                 <field name="metakeyword" colspan="4"/>
                                 <field name="metatitle" colspan="4"/>
                             </page>
@@ -169,7 +169,7 @@
                                 <field name="zoook_status"/>
                                 <field name="cartdescription"/>
                                 <separator string="Short Description" colspan="4" />
-                                <field name="shortdescription" colspan="4" nolabel="1"/>
+                                <field name="shortdescription" colspan="4" nolabel="1" attrs="{'required':[('zoook_exportable','==',True)]}"/>
                             </page>
                             <page string="SEO">
                                 <field name="slug" colspan="4" attrs="{'required':[('zoook_exportable','==',True)]}"/>
