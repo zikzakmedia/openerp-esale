@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /static/
+Disallow: /manager/
+Disallow: /jsi18n/
+Disallow: /filemanager/
+Disallow: /inplaceeditform/
+Disallow: /cms/
+Disallow: /partner/
+Disallow: /sale/
+Disallow: /account/
+Disallow: /payment/

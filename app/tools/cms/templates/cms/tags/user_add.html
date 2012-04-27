@@ -1,0 +1,9 @@
+{% load i18n %}
+{% if values|length > 0 %}<div id="user-toolbar">
+    <div class="user-toolbar-page">
+        <ul class="user-add"> 
+            <li class="active"><span>{% trans "Add" %}</span></li>{% for value in values %}
+            <li><a href="{{value.url}}">{{value.string}}</a></li>
+        {% endfor %}</ul>
+    </div>
+</div>{% endif %}

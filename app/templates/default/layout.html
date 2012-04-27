@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ LANGUAGE_CODE }}-{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}-{{ LANGUAGE_CODE }}" dir="ltr" >
+{% load i18n %}{% get_current_language as LANGUAGE_CODE %}{% get_available_languages as LANGUAGES %}
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="{{ metakeywords }}" />
+    <meta name="description" content="{{ metadescription }}{% block metadescription %}{% endblock %}" />
+    <meta name="generator" content="OpenERP. Django Python Framework" />
+    <meta http-equiv="content-language" content="{{ LANGUAGE_CODE }}">
+    <title>{{ title }}{% block title %}{% endblock %}</title>
+    <link href="{{ LOCALE_URI }}/{% trans 'catalog' %}/rss/" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
+    <link href="{{ MEDIA_URL }}images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="{{ MEDIA_URL }}css/style.css" rel="stylesheet" type="text/css" media="screen">
+    <!--[if IE]>
+        <link href="{{ MEDIA_URL }}css/style_ie.css" rel="stylesheet" type="text/css" media="screen">
+    <![endif]-->
+    <link href="{{ MEDIA_URL }}css/print.css" rel="stylesheet" type="text/css" media="print">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/zoook.js"></script>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div id="loading-bar"><h1>{% trans "Loading..." %}</h1></div>
+{% load cms %}{% render_useradd %}
+<div id="esale" class="page">
+    <div class="header-container">
+        <h1 id="logo"><a href="{{ LOCALE_URI }}/"><img src="{{ MEDIA_URL }}images/logo.png" title="{% trans "Zoook - OpenERP e-sale" %}"/></a></h1>
+
+        {% load category %}{% render_horizontal_menu %}
+    </div>
+    {% block pathway %}{% endblock %}
+    <div id="page-wrap">
+        {% block content %}{% endblock %}
+    </div>
+    <div id="page-footer">
+        <ul id="page-footer-menu">{% load menubuilder %}{% menu main-menu %}{% for item in menuitems %}
+            <li class="page-footer-menu {{ item.css }}"><a href="{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a></li>
+        {% endfor %}</ul>
+        <p>{% trans 'Licence' %}: <strong>AGPL-3</strong>. {% trans 'Develop by' %} <a href="http://www.zikzakmedia.com" title="Zikzakmedia">Zikzakmedia</a></p>
+    </div>
+</div>  
+
+<script type="text/javascript">
+$(document).ready(function() {
+    mainmenu();
+    {% block jqueryload %}{% endblock %}
+    {% if user.is_authenticated %}$('.loading').click(function() {
+        var target = $(this).attr('href');
+        window.location = target;
+        $("#esale").css({ opacity: 0.3 })
+        $('#loading-bar').show();
+    return false
+    });
+    $('#productForm').submit(function() { 
+        $("#esale").css({ opacity: 0.3 })
+        $('#loading-bar').show();
+    });
+    {%endif%}
+});
+</script>
+
+{% if user.is_staff %}<script type="text/javascript">
+/* User Add Menu */
+//variable global para controles dropdown
+var menu = $("ul.user-add");
+
+//control de eventos
+$(this.document).ready(function(){
+	menu.mouseover(function(){
+		displayOptions($(this).find("li"));
+	});
+	menu.mouseout(function(){
+		hideOptions($(this));
+	});	
+})
+
+//funcion que MUESTRA todos los elementos del menu
+function displayOptions(e){
+	e.show();
+}
+//funcion que OCULTA los elementos del menu
+function hideOptions(e){
+	e.find("li").hide();
+	e.find("li.active").show();
+}
+/* End User Add Menu */
+</script>{% endif %}
+{% block buttom %}{% endblock %}
+</body>
+</html>

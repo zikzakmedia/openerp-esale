@@ -1,0 +1,712 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-13 20:56+0200\n"
+"PO-Revision-Date: 2012-04-16 09:57+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: models.py:45
+#: models.py:134
+#: models.py:401
+#: models.py:469
+#: views.py:45
+#: templates/catalog/form_list.html:6
+msgid "Name"
+msgstr "Nombre"
+
+#: models.py:46
+#: models.py:51
+#: models.py:404
+#: templates/catalog/compare.html:20
+#: templates/catalog/product.html:71
+#: templates/catalog/whistlist.html:25
+msgid "Description"
+msgstr "Descripción"
+
+#: models.py:47
+msgid "slug"
+msgstr "slug"
+
+#: models.py:47
+msgid "This is a unique identifier that allows your contents to display its detail view, ex 'how-can-i-contribute'"
+msgstr "Identificador único que permite a sus contenidos mostrar su vista de detalle, ej. 'como-puedo-ayudar'"
+
+#: models.py:48
+msgid "Full Slug"
+msgstr "Slug total"
+
+#: models.py:49
+msgid "Title"
+msgstr "Título"
+
+#: models.py:50
+msgid "Keyword"
+msgstr "Palabra clave"
+
+#: models.py:58
+msgid "Default Product Listing Sort (Sort By)"
+msgstr "Lista ordenada de productos por defecto (ordenar por)"
+
+#: models.py:59
+#: models.py:159
+#: templates/catalog/form_list.html:6
+msgid "Status"
+msgstr "Estado"
+
+#: models.py:61
+msgid "Sequence"
+msgstr "Secuencia"
+
+#: models.py:67
+msgid "category"
+msgstr "categoría"
+
+#: models.py:68
+msgid "categories"
+msgstr "categorías"
+
+#: models.py:133
+msgid "created on"
+msgstr "creado el"
+
+#: models.py:135
+msgid "Codes"
+msgstr "Códigos"
+
+#: models.py:135
+msgid "Separated by comma"
+msgstr "Separado por coma"
+
+#: models.py:137
+msgid "Short Description"
+msgstr "Descripción corta"
+
+#: models.py:138
+msgid "Sale Description"
+msgstr "Descripción de venta"
+
+#: models.py:139
+#: models.py:402
+msgid "Slug"
+msgstr "Slug"
+
+#: models.py:146
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#: models.py:147
+msgid "Meta Title"
+msgstr "Meta título"
+
+#: models.py:148
+msgid "Meta Description"
+msgstr "Meta descripción"
+
+#: models.py:149
+msgid "Meta Keyword"
+msgstr "Meta palabra clave"
+
+#: models.py:153
+msgid "Unit Of Measure"
+msgstr "Unidad de medida"
+
+#: models.py:154
+msgid "Unit of Sale"
+msgstr "Unidad de venta"
+
+#: models.py:155
+msgid "Volume"
+msgstr "Volumen"
+
+#: models.py:156
+msgid "Warranty (months)"
+msgstr "Garantía (meses)"
+
+#: models.py:157
+msgid "Gross weight"
+msgstr "Peso bruto"
+
+#: models.py:158
+msgid "Net weight"
+msgstr "Peso neto"
+
+#: models.py:160
+#: views.py:43
+#: templates/catalog/form_list.html:6
+msgid "Position"
+msgstr "Posición"
+
+#: models.py:161
+msgid "New"
+msgstr "Novedad"
+
+#: models.py:168
+msgid "template"
+msgstr "producto"
+
+#: models.py:169
+msgid "templates"
+msgstr "productos"
+
+#: models.py:254
+#: models.py:403
+#: models.py:472
+#: models.py:505
+#: templates/catalog/form_list.html:7
+msgid "Active"
+msgstr "Activo"
+
+#: models.py:255
+#: templates/catalog/type/simple.html:3
+#: templates/catalog/type/variants.html:3
+msgid "Code"
+msgstr "Código"
+
+#: models.py:256
+#: templates/catalog/type/simple.html:4
+#: templates/catalog/type/variants.html:4
+msgid "EAN13"
+msgstr "EAN13"
+
+#: models.py:257
+#: models.py:471
+#: views.py:44
+#: templates/catalog/compare.html:21
+#: templates/catalog/whistlist.html:26
+#: templates/catalog/tags/attribute_form.html:17
+msgid "Price"
+msgstr "Precio"
+
+#: models.py:258
+msgid "Special Price"
+msgstr "Precio especial"
+
+#: models.py:259
+msgid "Attribute Group"
+msgstr "Atributo"
+
+#: models.py:260
+#: models.py:502
+msgid "Cart Description"
+msgstr "Descripción carrito"
+
+#: models.py:266
+msgid "product"
+msgstr "producto"
+
+#: models.py:267
+msgid "products"
+msgstr "productos"
+
+#: models.py:325
+msgid "Image Title"
+msgstr "Título de la imagen"
+
+#: models.py:327
+msgid "File Location"
+msgstr "Ubicación de los archivos"
+
+#: models.py:328
+msgid "Base Image"
+msgstr "Imagen base"
+
+#: models.py:329
+msgid "Thumb Image"
+msgstr "Miniatura"
+
+#: models.py:330
+msgid "Exclude"
+msgstr "Excluye"
+
+#: models.py:336
+#: models.py:348
+msgid "image"
+msgstr "imagen"
+
+#: models.py:337
+msgid "images"
+msgstr "imágenes"
+
+#: models.py:348
+msgid "Check Documentation about size image"
+msgstr "Compruebe la documentación del tamaño de la imagen."
+
+#: models.py:349
+msgid "description"
+msgstr "Descripción"
+
+#: models.py:350
+#: models.py:368
+#: models.py:385
+msgid "status"
+msgstr "Estado"
+
+#: models.py:350
+#: models.py:368
+#: models.py:385
+msgid "Only items with their status set to 'Active' will be displayed."
+msgstr "Sólo los elementos con el estado activo se mostrarán."
+
+#: models.py:351
+#: models.py:369
+#: models.py:386
+#: models.py:504
+#: models.py:525
+msgid "order"
+msgstr "ordenación"
+
+#: models.py:355
+#: views.py:508
+msgid "Product Home"
+msgstr "Producto Inicio"
+
+#: models.py:356
+msgid "Products Home"
+msgstr "Productos Inicio"
+
+#: models.py:373
+#: views.py:615
+msgid "Product Recommended"
+msgstr "Producto recomendado"
+
+#: models.py:374
+msgid "Products Recommended"
+msgstr "Productos recomendados"
+
+#: models.py:390
+#: views.py:722
+msgid "Product Offer"
+msgstr "Producto oferta"
+
+#: models.py:391
+msgid "Products Offer"
+msgstr "Productos oferta"
+
+#: models.py:405
+msgid "Resize image. Check documentation about logo template"
+msgstr "Compruebe la documentación del tamaño de la imagen."
+
+#: models.py:409
+msgid "Manufacturer"
+msgstr "Fabricante"
+
+#: models.py:410
+#: templates/catalog/manufacturer.html:9
+#: templates/catalog/manufacturers.html:5
+msgid "Manufacturers"
+msgstr "Fabricantes"
+
+#: models.py:470
+#: views.py:75
+msgid "Categories"
+msgstr "Categorías"
+
+#: models.py:471
+msgid "Available Price Search"
+msgstr "Disponible buscador por precios"
+
+#: models.py:473
+msgid "Default"
+msgstr "Defecto"
+
+#: models.py:473
+msgid "Default Attribute Search Box. If you don't select some category, use this search box"
+msgstr "Defecto buscador de atributos. Si no selecciona ninguna categoría, se usará este buscador"
+
+#: models.py:477
+msgid "Attribute Search"
+msgstr "Buscador de atributo"
+
+#: models.py:478
+msgid "Attributes Search"
+msgstr "Buscador de atributos"
+
+#: models.py:509
+msgid "Attribute Search Item"
+msgstr "Elementos buscador de atributos"
+
+#: models.py:510
+msgid "Attribute Search Items"
+msgstr "Elementos del buscador de atributos"
+
+#: models.py:522
+msgid "From"
+msgstr "Desde"
+
+#: models.py:523
+msgid "To"
+msgstr "A"
+
+#: models.py:529
+msgid "Attribute Search Price"
+msgstr "Precio buscador de atributos"
+
+#: models.py:530
+msgid "Attribute Search Prices"
+msgstr "Precios buscador de atributos"
+
+#: views.py:76
+#, python-format
+msgid "List all categories of %s"
+msgstr "Lista todas las categorías de %s"
+
+#: views.py:90
+msgid "This category is not available because you navigate with bookmarks or search engine. Use navigation menu"
+msgstr "Esta categoría no está disponible porque navega con marcadores o motor de búsqueda. Utilice el menú del navegador"
+
+#: views.py:136
+#, python-format
+msgid "%(category)s - Page %(page)s of %(total)s"
+msgstr "%(category)s - Página %(page)s def %(total)s"
+
+#: views.py:141
+#, python-format
+msgid "%(category)s. Page %(page)s of %(total)s"
+msgstr "%(category)s. Página %(page)s def %(total)s"
+
+#: views.py:178
+#, python-format
+msgid "%(product)s"
+msgstr "%(product)s"
+
+#: views.py:180
+#, python-format
+msgid "Buy %(name)s for %(price)s %(currency)s."
+msgstr "Compra %(name)s por %(price)s %(currency)s."
+
+#: views.py:221
+msgid "Are you a customer? Please, contact us. We will create a new role"
+msgstr "Es usted un cliente? Por favor, contáctenos. Crearemos un nuevo rol"
+
+#: views.py:227
+msgid "Error when connecting with our ERP. Try again or contact us"
+msgstr "Se ha producido un error conectando con nuestro ERP. Vuelva a probar o contáctenos"
+
+#: views.py:262
+msgid "Whislist"
+msgstr "Lista de deseos"
+
+#: views.py:263
+#, python-format
+msgid "Whislist of %s"
+msgstr "Lista de deseos de %s"
+
+#: views.py:342
+msgid "Compare Products"
+msgstr "Comparador de productos"
+
+#: views.py:343
+#, python-format
+msgid "Compare products of %s"
+msgstr "Compare productos de %s"
+
+#: views.py:365
+#, python-format
+msgid "Manufacturers on %(site)s - Page %(page)s of %(total)s"
+msgstr "Marcas a %(site)s - Página %(page)s de %(total)s"
+
+#: views.py:370
+#, python-format
+msgid "Manufacturers of %(site)s - Page %(page)s of %(total)s"
+msgstr "Marcas de %(site)s - Página %(page)s de %(total)s"
+
+#: views.py:460
+#, python-format
+msgid "Buy %(name)s on %(site)s. Page %(page)s of %(total)s"
+msgstr "Compra %(name)s a %(site)s. Página %(page)s def %(total)s"
+
+#: views.py:566
+msgid "Add Product Home"
+msgstr "Añadir productos inicio"
+
+#: views.py:596
+msgid "Edit Product Home"
+msgstr "Edita producto inicio"
+
+#: views.py:673
+msgid "Add Product Recommended"
+msgstr "Añadir productos recomendados"
+
+#: views.py:703
+msgid "Edit Product Recommended"
+msgstr "Edita productos recomendados"
+
+#: views.py:780
+msgid "Add Product Offer"
+msgstr "Añadir producto oferta"
+
+#: views.py:810
+msgid "Edit Product Offer"
+msgstr "Editar producto oferta"
+
+#: templates/catalog/category.html:8
+#: templates/catalog/compare.html:7
+#: templates/catalog/index.html:5
+#: templates/catalog/manufacturer.html:9
+#: templates/catalog/manufacturers.html:5
+#: templates/catalog/product.html:8
+#: templates/catalog/whistlist.html:7
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/catalog/category.html:8
+#: templates/catalog/category.html.py:9
+#: templates/catalog/category.html:51
+#: templates/catalog/category.html.py:52
+#: templates/catalog/category.html:70
+#: templates/catalog/category.html.py:71
+#: templates/catalog/compare.html:7
+#: templates/catalog/compare.html.py:42
+#: templates/catalog/index.html:5
+#: templates/catalog/index.html.py:18
+#: templates/catalog/manufacturer.html:35
+#: templates/catalog/product.html:41
+#: templates/catalog/product.html.py:42
+#: templates/catalog/whistlist.html:7
+#: templates/catalog/whistlist.html:42
+#: templates/catalog/tags/horizontal_menu.html:15
+#: templates/catalog/tags/horizontal_menu.html:17
+#: templates/catalog/tags/horizontal_menu.html:19
+#: templates/catalog/tags/horizontal_menu.html:21
+#: templates/catalog/tags/horizontal_menu.html:22
+msgid "catalog"
+msgstr "catalogo"
+
+#: templates/catalog/category.html:8
+#: templates/catalog/index.html:5
+msgid "Catalog"
+msgstr "Catálogo"
+
+#: templates/catalog/category.html:25
+#: templates/catalog/manufacturer.html:44
+msgid "Show"
+msgstr "Mostrar"
+
+#: templates/catalog/category.html:25
+#: templates/catalog/manufacturer.html:44
+msgid "items"
+msgstr "artículos"
+
+#: templates/catalog/category.html:26
+#: templates/catalog/manufacturer.html:51
+msgid "item"
+msgstr "artículo"
+
+#: templates/catalog/category.html:29
+#: templates/catalog/manufacturer.html:48
+msgid "Sort by"
+msgstr "Ordena por"
+
+#: templates/catalog/category.html:31
+#: templates/catalog/manufacturer.html:50
+msgid "ASC"
+msgstr "ASC"
+
+#: templates/catalog/category.html:31
+#: templates/catalog/manufacturer.html:50
+msgid "DESC"
+msgstr "DESC"
+
+#: templates/catalog/category.html:32
+msgid "View as"
+msgstr "Ver como"
+
+#: templates/catalog/category.html:33
+msgid "Grid"
+msgstr "Parrilla"
+
+#: templates/catalog/category.html:34
+msgid "List"
+msgstr "Lista"
+
+#: templates/catalog/category.html:38
+#: templates/catalog/compare.html:44
+#: templates/catalog/whistlist.html:44
+msgid "There are any products matching the selection."
+msgstr "No hay ningún producto que concuerde con la selección."
+
+#: templates/catalog/category.html:51
+#: templates/catalog/category.html.py:70
+#: templates/catalog/product.html:42
+msgid "Add to Wishlist"
+msgstr "Añadir a la lista de deseos"
+
+#: templates/catalog/category.html:52
+#: templates/catalog/category.html.py:71
+#: templates/catalog/product.html:41
+msgid "Add to Compare"
+msgstr "Comparar"
+
+#: templates/catalog/category.html:68
+msgid "Details"
+msgstr "Detalles"
+
+#: templates/catalog/category.html:83
+#: templates/catalog/compare.html:55
+#: templates/catalog/manufacturer.html:77
+#: templates/catalog/product.html:132
+#: templates/catalog/whistlist.html:55
+msgid "Price updating..."
+msgstr "Actualización de precios..."
+
+#: templates/catalog/compare.html:7
+msgid "Compare"
+msgstr "Comparar"
+
+#: templates/catalog/compare.html:19
+#: templates/catalog/whistlist.html:24
+msgid "Product Name"
+msgstr "Nombre del producto"
+
+#: templates/catalog/compare.html:41
+msgid "Add cart"
+msgstr "Añade a la cesta"
+
+#: templates/catalog/compare.html:42
+#: templates/catalog/whistlist.html:42
+msgid "Remove Item"
+msgstr "Borra el producte"
+
+#: templates/catalog/form_list.html:4
+msgid "Add"
+msgstr "Añadir"
+
+#: templates/catalog/form_list.html:7
+msgid "Inactive"
+msgstr "Inactivo"
+
+#: templates/catalog/manufacturer.html:9
+#: templates/catalog/manufacturer.html:10
+#: templates/catalog/manufacturers.html:5
+msgid "manufacturer"
+msgstr "fabricante"
+
+#: templates/catalog/manufacturer.html:28
+msgid "Manufacturer description not availble"
+msgstr "La descripción del fabricante no se encuentra disponible"
+
+#: templates/catalog/manufacturer.html:29
+msgid "Add logo"
+msgstr "Añadir logo"
+
+#: templates/catalog/manufacturer.html:29
+msgid "Reload page after add logo"
+msgstr "Recarga la página después de añadir el logo"
+
+#: templates/catalog/manufacturer.html:32
+#, python-format
+msgid "Products %(manufacturer)s at Top Categories:"
+msgstr "Productos de %(manufacturer)s a las categorias principales:"
+
+#: templates/catalog/manufacturer.html:35
+msgid "in"
+msgstr "a"
+
+#: templates/catalog/manufacturer.html:45
+#, python-format
+msgid "All products of %(manufacturer)s"
+msgstr "Todos los productos de %(manufacturer)s"
+
+#: templates/catalog/manufacturer.html:54
+msgid "There are any products matching in this manufacturer."
+msgstr "No hay ningún producto que concuerde con este fabricante."
+
+#: templates/catalog/manufacturers.html:10
+msgid "Our brands"
+msgstr "Nuestras marcas"
+
+#: templates/catalog/manufacturers.html:11
+#, python-format
+msgid "These are all brands you'll find on %(site)s."
+msgstr "Estas son nuestras marcas que se encuentran disponibles a %(site)s."
+
+#: templates/catalog/product.html:8
+msgid "Products"
+msgstr "Productos"
+
+#: templates/catalog/product.html:18
+msgid "Product Related"
+msgstr "Productos"
+
+#: templates/catalog/product.html:62
+msgid "This product is out of service"
+msgstr "Este producto está fuera de servicio"
+
+#: templates/catalog/product.html:72
+msgid "Related Products"
+msgstr "Productos relacionados"
+
+#: templates/catalog/product.html:73
+msgid "Up-sells"
+msgstr "Ventas sugeridas"
+
+#: templates/catalog/product.html:74
+msgid "Keywords"
+msgstr "Palabras clave"
+
+#: templates/catalog/whistlist.html:7
+msgid "Whistlist"
+msgstr "Lista de deseos"
+
+#: templates/catalog/tags/attribute_form.html:4
+msgid "Search Products"
+msgstr "Buscar productos"
+
+#: templates/catalog/tags/attribute_form.html:24
+msgid "Search"
+msgstr "Buscar"
+
+#: templates/catalog/tags/product_related.html:5
+msgid "There are not related products"
+msgstr "No hay productos relacionados"
+
+#: templates/catalog/type/simple.html:8
+#: templates/catalog/type/variants.html:11
+msgid "Add to cart"
+msgstr "Añade a la cesta"
+
+#~ msgid "%(metadescription)s"
+#~ msgstr "%(metadescription)s"
+#~ msgid "Your shopping cart"
+#~ msgstr "Su cesta de la compra"
+#~ msgid "You don't have any items inside your cart."
+#~ msgstr "Ningún artículo en su cesta."
+#~ msgid "View shopping cart"
+#~ msgstr "Ver cesta de la compra"
+#~ msgid "Newsletter"
+#~ msgstr "Boletín"
+#~ msgid "Subscribe our newsletter."
+#~ msgstr "Subscripción a nuestro boletín."
+#~ msgid "Subscribe"
+#~ msgstr "Subscripción"
+#~ msgid "Available Product Listing (Sort By)"
+#~ msgstr "Lista de productos disponibles (ordenada por)"
+#~ msgid "Parent"
+#~ msgstr "Padre"
+#~ msgid "ProductCategory"
+#~ msgstr "Categoría"
+#~ msgid "Previous"
+#~ msgstr "Anterior"
+#~ msgid "Next"
+#~ msgstr "Siguiente"
+#~ msgid "Pricelist"
+#~ msgstr "Tarifa"
+#~ msgid "Value"
+#~ msgstr "Valor"
+#~ msgid "attribute"
+#~ msgstr "atributo"
+#~ msgid "attributes"
+#~ msgstr "atributos"
+

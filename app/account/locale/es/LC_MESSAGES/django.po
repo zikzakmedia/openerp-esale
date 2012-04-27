@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-21 10:09+0100\n"
+"PO-Revision-Date: 2012-03-21 10:10+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: views.py:34
+msgid "draft"
+msgstr "Borrador"
+
+#: views.py:35
+msgid "proforma"
+msgstr "ProForma"
+
+#: views.py:36
+msgid "proforma2"
+msgstr "ProForma"
+
+#: views.py:37
+msgid "open"
+msgstr "Abierta"
+
+#: views.py:38
+msgid "paid"
+msgstr "Pagada"
+
+#: views.py:39
+msgid "cancel"
+msgstr "Cancelada"
+
+#: views.py:46
+#: views.py:70
+msgid "Are you a customer? Please, contact us. We will create a new role"
+msgstr "¿Eres cliente? Contacte con nosotros. Os crearemos como cliente en la tienda."
+
+#: views.py:51
+#: views.py:75
+msgid "Error when connecting with our ERP. Try again or cantact us"
+msgstr "Error en conectar con nuestro ERP. Intente de nuevo o, contacte con nosotros"
+
+#: views.py:60
+msgid "All Invoices"
+msgstr "Todas las facturas"
+
+#: views.py:61
+#, python-format
+msgid "List all invoices of %s"
+msgstr "Listado de todas las facturas de %s"
+
+#: views.py:80
+msgid "It is not allowed to view this section or not found. Use navigation menu."
+msgstr "No tiene permisos para ver esta sección o no se encuentra. Utilize el menú de navegación."
+
+#: views.py:84
+#, python-format
+msgid "Invoice %s"
+msgstr "Factura %s"
+
+#: views.py:85
+#, python-format
+msgid "Details invoice %s"
+msgstr "Detalles de la factura %s"
+
+#: templates/account/invoice.html:6
+#: templates/account/invoices.html:6
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/account/invoice.html:6
+#: templates/account/invoices.html:6
+msgid "Invoices"
+msgstr "Facturas"
+
+#: templates/account/invoice.html:21
+#: templates/account/invoices.html:23
+msgid "Date"
+msgstr "Fecha"
+
+#: templates/account/invoice.html:22
+#: templates/account/invoices.html:25
+msgid "State"
+msgstr "Estado"
+
+#: templates/account/invoice.html:23
+msgid "Source Document"
+msgstr "Fuente del documento"
+
+#: templates/account/invoice.html:24
+msgid "Payment Type"
+msgstr "Tipo de pago"
+
+#: templates/account/invoice.html:27
+msgid "Address Invoice"
+msgstr "Dirección factura"
+
+#: templates/account/invoice.html:38
+#: templates/account/invoices.html:22
+msgid "Reference"
+msgstr "Referéncia"
+
+#: templates/account/invoice.html:39
+msgid "Qty"
+msgstr "Qty"
+
+#: templates/account/invoice.html:40
+msgid "Discount"
+msgstr "Descuento"
+
+#: templates/account/invoice.html:41
+msgid "Unit Price"
+msgstr "Unidad Precio"
+
+#: templates/account/invoice.html:42
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#: templates/account/invoice.html:56
+msgid "Untaxed"
+msgstr "Base"
+
+#: templates/account/invoice.html:57
+msgid "Tax"
+msgstr "IVA"
+
+#: templates/account/invoice.html:58
+#: templates/account/invoices.html:24
+msgid "Total"
+msgstr "Total"
+
+#: templates/account/invoices.html:28
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/account/invoices.html:28
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/account/invoices.html:37
+msgid "The invoices  are not  avaible. Don't you like something?"
+msgstr "No hay facturas disponibles. No le gusta nada de nuestra tienda?"
+

@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-15 18:46+0100\n"
+"PO-Revision-Date: 2012-02-15 18:46+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: enums.py:32
+#: templates/content/default.html:30
+msgid "Active"
+msgstr "Actiu"
+
+#: enums.py:33
+#: templates/content/default.html:30
+msgid "Inactive"
+msgstr "Inactiu"
+
+#: models.py:37
+msgid "created by"
+msgstr "Creat per"
+
+#: models.py:38
+msgid "created on"
+msgstr "Creat"
+
+#: models.py:39
+msgid "updated on"
+msgstr "Actualitzat"
+
+#: models.py:40
+msgid "updated by"
+msgstr "Actualitzat per"
+
+#: models.py:46
+#: templates/content/blank.html:19
+msgid "Name"
+msgstr "Nom"
+
+#: models.py:47
+msgid "slug"
+msgstr "Slug"
+
+#: models.py:47
+msgid "This is a unique identifier, ex 'how-can-i-contribute'"
+msgstr "Aquest és un identificador únic, per exemple 'com-puc-contribuir'"
+
+#: models.py:48
+msgid "description"
+msgstr "Descripció"
+
+#: models.py:51
+msgid "status"
+msgstr "Estat"
+
+#: models.py:51
+msgid "Only contents with their status set to 'Active' will be displayed."
+msgstr "Només es mostraran els continguts amb l'opció 'Actiu'."
+
+#: models.py:52
+msgid "sort order"
+msgstr "Ordenació"
+
+#: models.py:52
+msgid "The order you would like the content to be displayed."
+msgstr "L'ordre amb que li agradaria que es mostrés el contingut."
+
+#: models.py:53
+msgid "If don't specific template, use default.html template"
+msgstr "Si no s'especifica cap plantilla, s'utilitzarà la plantilla default.html"
+
+#: models.py:56
+msgid "content"
+msgstr "Contingut"
+
+#: models.py:57
+msgid "contents"
+msgstr "Continguts"
+
+#: views.py:35
+#: views.py:108
+msgid "Add Content"
+msgstr "Afegir article"
+
+#: views.py:36
+msgid "Results"
+msgstr "Resultats"
+
+#: views.py:37
+msgid "No results found."
+msgstr "No s'han trobat resultats."
+
+#: views.py:38
+msgid "Author"
+msgstr "Autor"
+
+#: views.py:39
+msgid "Search In"
+msgstr "Cercar en"
+
+#: views.py:129
+msgid "Edit Content"
+msgstr "Editar article"
+
+#: templates/content/blank.html:16
+msgid "More details"
+msgstr "Més detalls"
+
+#: templates/content/blank.html:18
+#: templates/content/default.html:24
+msgid "Field"
+msgstr "Camp"
+
+#: templates/content/blank.html:18
+#: templates/content/default.html:24
+msgid "Value"
+msgstr "Valor"
+
+#: templates/content/blank.html:20
+#: templates/content/default.html:25
+msgid "Slug"
+msgstr "Slug"
+
+#: templates/content/blank.html:21
+#: templates/content/default.html:26
+msgid "MetaDesc"
+msgstr "MetaDesc"
+
+#: templates/content/blank.html:22
+#: templates/content/default.html:27
+msgid "MetaKey"
+msgstr "Metakey"
+
+#: templates/content/blank.html:23
+#: templates/content/default.html:30
+msgid "Status"
+msgstr "Estat"
+
+#: templates/content/blank.html:24
+#: templates/content/default.html:28
+msgid "Sort Order"
+msgstr "Ordenació"
+
+#: templates/content/blank.html:25
+#: templates/content/default.html:29
+msgid "Template"
+msgstr "Plantilla"
+
+#: templates/content/default.html:22
+msgid "Edit"
+msgstr "Edita"
+

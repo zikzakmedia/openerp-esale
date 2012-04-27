@@ -1,0 +1,8 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'OpenERP e-Sale Site Admin' %}{% endblock %}
+
+{% block branding %}<h1 id="site-name">{% trans 'OpenERP e-Sale Site' %}</h1>{% endblock %}
+
+{% block footer %}<p style="text-align:center;">{% trans 'Licence' %}: <strong>AGPL-3</strong>. {% trans 'Develop by' %} <a href="http://www.zikzakmedia.com" title="Zikzakmedia">Zikzakmedia</a></p>{% endblock %}

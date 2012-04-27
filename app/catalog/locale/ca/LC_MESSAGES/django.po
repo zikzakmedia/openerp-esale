@@ -1,0 +1,712 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-13 20:56+0200\n"
+"PO-Revision-Date: 2012-04-16 09:57+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: models.py:45
+#: models.py:134
+#: models.py:401
+#: models.py:469
+#: views.py:45
+#: templates/catalog/form_list.html:6
+msgid "Name"
+msgstr "Nom"
+
+#: models.py:46
+#: models.py:51
+#: models.py:404
+#: templates/catalog/compare.html:20
+#: templates/catalog/product.html:71
+#: templates/catalog/whistlist.html:25
+msgid "Description"
+msgstr "Descripció"
+
+#: models.py:47
+msgid "slug"
+msgstr "slug"
+
+#: models.py:47
+msgid "This is a unique identifier that allows your contents to display its detail view, ex 'how-can-i-contribute'"
+msgstr "Identificador únic que permet als vostres continguts mostrar la seva vista de detall, ex. 'com-puc-ajudar'"
+
+#: models.py:48
+msgid "Full Slug"
+msgstr "Slug total"
+
+#: models.py:49
+msgid "Title"
+msgstr "Títol"
+
+#: models.py:50
+msgid "Keyword"
+msgstr "Paraula clau"
+
+#: models.py:58
+msgid "Default Product Listing Sort (Sort By)"
+msgstr "Llista ordenada de productes per defecte (ordenar per)"
+
+#: models.py:59
+#: models.py:159
+#: templates/catalog/form_list.html:6
+msgid "Status"
+msgstr "Estat"
+
+#: models.py:61
+msgid "Sequence"
+msgstr "Seqüència"
+
+#: models.py:67
+msgid "category"
+msgstr "categoria"
+
+#: models.py:68
+msgid "categories"
+msgstr "categories"
+
+#: models.py:133
+msgid "created on"
+msgstr "creat el"
+
+#: models.py:135
+msgid "Codes"
+msgstr "Codis"
+
+#: models.py:135
+msgid "Separated by comma"
+msgstr "Separat per coma"
+
+#: models.py:137
+msgid "Short Description"
+msgstr "Descripció curta"
+
+#: models.py:138
+msgid "Sale Description"
+msgstr "Descripció de venda"
+
+#: models.py:139
+#: models.py:402
+msgid "Slug"
+msgstr "Slug"
+
+#: models.py:146
+msgid "Visibility"
+msgstr "Visibilitat"
+
+#: models.py:147
+msgid "Meta Title"
+msgstr "Meta títol"
+
+#: models.py:148
+msgid "Meta Description"
+msgstr "Meta descripció"
+
+#: models.py:149
+msgid "Meta Keyword"
+msgstr "Meta paraula clau"
+
+#: models.py:153
+msgid "Unit Of Measure"
+msgstr "Unitat de mesura"
+
+#: models.py:154
+msgid "Unit of Sale"
+msgstr "Unitat de venda"
+
+#: models.py:155
+msgid "Volume"
+msgstr "Volum"
+
+#: models.py:156
+msgid "Warranty (months)"
+msgstr "Garantia (mesos)"
+
+#: models.py:157
+msgid "Gross weight"
+msgstr "Pes brut"
+
+#: models.py:158
+msgid "Net weight"
+msgstr "Pes net"
+
+#: models.py:160
+#: views.py:43
+#: templates/catalog/form_list.html:6
+msgid "Position"
+msgstr "Posició"
+
+#: models.py:161
+msgid "New"
+msgstr "Novetat"
+
+#: models.py:168
+msgid "template"
+msgstr "producte"
+
+#: models.py:169
+msgid "templates"
+msgstr "productes"
+
+#: models.py:254
+#: models.py:403
+#: models.py:472
+#: models.py:505
+#: templates/catalog/form_list.html:7
+msgid "Active"
+msgstr "Actiu"
+
+#: models.py:255
+#: templates/catalog/type/simple.html:3
+#: templates/catalog/type/variants.html:3
+msgid "Code"
+msgstr "Codi"
+
+#: models.py:256
+#: templates/catalog/type/simple.html:4
+#: templates/catalog/type/variants.html:4
+msgid "EAN13"
+msgstr "EAN13"
+
+#: models.py:257
+#: models.py:471
+#: views.py:44
+#: templates/catalog/compare.html:21
+#: templates/catalog/whistlist.html:26
+#: templates/catalog/tags/attribute_form.html:17
+msgid "Price"
+msgstr "Preu"
+
+#: models.py:258
+msgid "Special Price"
+msgstr "Preu espcial"
+
+#: models.py:259
+msgid "Attribute Group"
+msgstr "Atribut"
+
+#: models.py:260
+#: models.py:502
+msgid "Cart Description"
+msgstr "Descripció cistella"
+
+#: models.py:266
+msgid "product"
+msgstr "producte"
+
+#: models.py:267
+msgid "products"
+msgstr "productes"
+
+#: models.py:325
+msgid "Image Title"
+msgstr "Títol de la imatge"
+
+#: models.py:327
+msgid "File Location"
+msgstr "Ubicació dels arxius"
+
+#: models.py:328
+msgid "Base Image"
+msgstr "Imatge base"
+
+#: models.py:329
+msgid "Thumb Image"
+msgstr "Miniatura"
+
+#: models.py:330
+msgid "Exclude"
+msgstr "Exclou"
+
+#: models.py:336
+#: models.py:348
+msgid "image"
+msgstr "imatge"
+
+#: models.py:337
+msgid "images"
+msgstr "imatges"
+
+#: models.py:348
+msgid "Check Documentation about size image"
+msgstr "Revisa la documentació sobre la mida de la imatge"
+
+#: models.py:349
+msgid "description"
+msgstr "Descripció"
+
+#: models.py:350
+#: models.py:368
+#: models.py:385
+msgid "status"
+msgstr "Estat"
+
+#: models.py:350
+#: models.py:368
+#: models.py:385
+msgid "Only items with their status set to 'Active' will be displayed."
+msgstr "Només els elements amb l'estat actiu es mostraran."
+
+#: models.py:351
+#: models.py:369
+#: models.py:386
+#: models.py:504
+#: models.py:525
+msgid "order"
+msgstr "ordenació"
+
+#: models.py:355
+#: views.py:508
+msgid "Product Home"
+msgstr "Producte Inici"
+
+#: models.py:356
+msgid "Products Home"
+msgstr "Productes Inici"
+
+#: models.py:373
+#: views.py:615
+msgid "Product Recommended"
+msgstr "Producte recomenats"
+
+#: models.py:374
+msgid "Products Recommended"
+msgstr "Productes recomenats"
+
+#: models.py:390
+#: views.py:722
+msgid "Product Offer"
+msgstr "Producte oferta"
+
+#: models.py:391
+msgid "Products Offer"
+msgstr "Productes oferta"
+
+#: models.py:405
+msgid "Resize image. Check documentation about logo template"
+msgstr "Revisa la documentació sobre la mida de la imatge"
+
+#: models.py:409
+msgid "Manufacturer"
+msgstr "Fabricant"
+
+#: models.py:410
+#: templates/catalog/manufacturer.html:9
+#: templates/catalog/manufacturers.html:5
+msgid "Manufacturers"
+msgstr "Fabricants"
+
+#: models.py:470
+#: views.py:75
+msgid "Categories"
+msgstr "Categories"
+
+#: models.py:471
+msgid "Available Price Search"
+msgstr "Mostrar el cercador de preus"
+
+#: models.py:473
+msgid "Default"
+msgstr "Defecte"
+
+#: models.py:473
+msgid "Default Attribute Search Box. If you don't select some category, use this search box"
+msgstr "Cercador mitjançant atributs. Si no selecciona cap categoria, s'utilitzarà aquest (cercador genèric)"
+
+#: models.py:477
+msgid "Attribute Search"
+msgstr "Cercador d'atributs"
+
+#: models.py:478
+msgid "Attributes Search"
+msgstr "Cercador d'atributs"
+
+#: models.py:509
+msgid "Attribute Search Item"
+msgstr "Elements del cercador d'atributs"
+
+#: models.py:510
+msgid "Attribute Search Items"
+msgstr "Elements del cercador d'atributs"
+
+#: models.py:522
+msgid "From"
+msgstr "Des de"
+
+#: models.py:523
+msgid "To"
+msgstr "A"
+
+#: models.py:529
+msgid "Attribute Search Price"
+msgstr "Preu cercador d'atributs"
+
+#: models.py:530
+msgid "Attribute Search Prices"
+msgstr "Preus cercador d'atributs"
+
+#: views.py:76
+#, python-format
+msgid "List all categories of %s"
+msgstr "Llista totes les categories de %s"
+
+#: views.py:90
+msgid "This category is not available because you navigate with bookmarks or search engine. Use navigation menu"
+msgstr "Aquesta categoria no està disponible perquè navegueu amb marcadors o motor de cerca. Utilitzeu el menú del navegador"
+
+#: views.py:136
+#, python-format
+msgid "%(category)s - Page %(page)s of %(total)s"
+msgstr "%(category)s - Pàgina %(page)s de %(total)s"
+
+#: views.py:141
+#, python-format
+msgid "%(category)s. Page %(page)s of %(total)s"
+msgstr "%(category)s. Pàgina %(page)s de %(total)s"
+
+#: views.py:178
+#, python-format
+msgid "%(product)s"
+msgstr "%(product)s"
+
+#: views.py:180
+#, python-format
+msgid "Buy %(name)s for %(price)s %(currency)s."
+msgstr "Compra %(name)s per %(price)s %(currency)s."
+
+#: views.py:221
+msgid "Are you a customer? Please, contact us. We will create a new role"
+msgstr "Sou un client? Si us plau, contacteu-nos. Crearem un nou rol"
+
+#: views.py:227
+msgid "Error when connecting with our ERP. Try again or contact us"
+msgstr "S'ha produït un error connectant amb el nostre ERP. Torneu a provar o contacteu-nos"
+
+#: views.py:262
+msgid "Whislist"
+msgstr "Llista de desitjos"
+
+#: views.py:263
+#, python-format
+msgid "Whislist of %s"
+msgstr "Llista de desitjos de %s"
+
+#: views.py:342
+msgid "Compare Products"
+msgstr "Compara productes"
+
+#: views.py:343
+#, python-format
+msgid "Compare products of %s"
+msgstr "Compara productes de %s"
+
+#: views.py:365
+#, python-format
+msgid "Manufacturers on %(site)s - Page %(page)s of %(total)s"
+msgstr "Marques a %(site)s - Pàgina %(page)s de %(total)s"
+
+#: views.py:370
+#, python-format
+msgid "Manufacturers of %(site)s - Page %(page)s of %(total)s"
+msgstr "Marques de %(site)s - Pàgina %(page)s de %(total)s"
+
+#: views.py:460
+#, python-format
+msgid "Buy %(name)s on %(site)s. Page %(page)s of %(total)s"
+msgstr "Compra %(name)s a %(site)s. Pàgina %(page)s de %(total)s"
+
+#: views.py:566
+msgid "Add Product Home"
+msgstr "Afegir producte inici"
+
+#: views.py:596
+msgid "Edit Product Home"
+msgstr "Edita producte inici"
+
+#: views.py:673
+msgid "Add Product Recommended"
+msgstr "Afegir producte recomenat"
+
+#: views.py:703
+msgid "Edit Product Recommended"
+msgstr "Edita producte recomenat"
+
+#: views.py:780
+msgid "Add Product Offer"
+msgstr "Afegir producte oferta"
+
+#: views.py:810
+msgid "Edit Product Offer"
+msgstr "Edita producte oferta"
+
+#: templates/catalog/category.html:8
+#: templates/catalog/compare.html:7
+#: templates/catalog/index.html:5
+#: templates/catalog/manufacturer.html:9
+#: templates/catalog/manufacturers.html:5
+#: templates/catalog/product.html:8
+#: templates/catalog/whistlist.html:7
+msgid "Home"
+msgstr "Inici"
+
+#: templates/catalog/category.html:8
+#: templates/catalog/category.html.py:9
+#: templates/catalog/category.html:51
+#: templates/catalog/category.html.py:52
+#: templates/catalog/category.html:70
+#: templates/catalog/category.html.py:71
+#: templates/catalog/compare.html:7
+#: templates/catalog/compare.html.py:42
+#: templates/catalog/index.html:5
+#: templates/catalog/index.html.py:18
+#: templates/catalog/manufacturer.html:35
+#: templates/catalog/product.html:41
+#: templates/catalog/product.html.py:42
+#: templates/catalog/whistlist.html:7
+#: templates/catalog/whistlist.html:42
+#: templates/catalog/tags/horizontal_menu.html:15
+#: templates/catalog/tags/horizontal_menu.html:17
+#: templates/catalog/tags/horizontal_menu.html:19
+#: templates/catalog/tags/horizontal_menu.html:21
+#: templates/catalog/tags/horizontal_menu.html:22
+msgid "catalog"
+msgstr "cataleg"
+
+#: templates/catalog/category.html:8
+#: templates/catalog/index.html:5
+msgid "Catalog"
+msgstr "Catàleg"
+
+#: templates/catalog/category.html:25
+#: templates/catalog/manufacturer.html:44
+msgid "Show"
+msgstr "Mostra"
+
+#: templates/catalog/category.html:25
+#: templates/catalog/manufacturer.html:44
+msgid "items"
+msgstr "articles"
+
+#: templates/catalog/category.html:26
+#: templates/catalog/manufacturer.html:51
+msgid "item"
+msgstr "article"
+
+#: templates/catalog/category.html:29
+#: templates/catalog/manufacturer.html:48
+msgid "Sort by"
+msgstr "Ordena per"
+
+#: templates/catalog/category.html:31
+#: templates/catalog/manufacturer.html:50
+msgid "ASC"
+msgstr "ASC"
+
+#: templates/catalog/category.html:31
+#: templates/catalog/manufacturer.html:50
+msgid "DESC"
+msgstr "DESC"
+
+#: templates/catalog/category.html:32
+msgid "View as"
+msgstr "Veure com"
+
+#: templates/catalog/category.html:33
+msgid "Grid"
+msgstr "Graella"
+
+#: templates/catalog/category.html:34
+msgid "List"
+msgstr "Llista"
+
+#: templates/catalog/category.html:38
+#: templates/catalog/compare.html:44
+#: templates/catalog/whistlist.html:44
+msgid "There are any products matching the selection."
+msgstr "No hi ha cap producte que concordi amb la selecció."
+
+#: templates/catalog/category.html:51
+#: templates/catalog/category.html.py:70
+#: templates/catalog/product.html:42
+msgid "Add to Wishlist"
+msgstr "Afegeix a la llista de desitjos"
+
+#: templates/catalog/category.html:52
+#: templates/catalog/category.html.py:71
+#: templates/catalog/product.html:41
+msgid "Add to Compare"
+msgstr "Compara"
+
+#: templates/catalog/category.html:68
+msgid "Details"
+msgstr "Detalls"
+
+#: templates/catalog/category.html:83
+#: templates/catalog/compare.html:55
+#: templates/catalog/manufacturer.html:77
+#: templates/catalog/product.html:132
+#: templates/catalog/whistlist.html:55
+msgid "Price updating..."
+msgstr "Actualització dels preus..."
+
+#: templates/catalog/compare.html:7
+msgid "Compare"
+msgstr "Compara"
+
+#: templates/catalog/compare.html:19
+#: templates/catalog/whistlist.html:24
+msgid "Product Name"
+msgstr "Nom del producte"
+
+#: templates/catalog/compare.html:41
+msgid "Add cart"
+msgstr "Afegeix a la cistella"
+
+#: templates/catalog/compare.html:42
+#: templates/catalog/whistlist.html:42
+msgid "Remove Item"
+msgstr "Treu el producte"
+
+#: templates/catalog/form_list.html:4
+msgid "Add"
+msgstr "Afegir"
+
+#: templates/catalog/form_list.html:7
+msgid "Inactive"
+msgstr "Inactiu"
+
+#: templates/catalog/manufacturer.html:9
+#: templates/catalog/manufacturer.html:10
+#: templates/catalog/manufacturers.html:5
+msgid "manufacturer"
+msgstr "fabricant"
+
+#: templates/catalog/manufacturer.html:28
+msgid "Manufacturer description not availble"
+msgstr "La descripció del fabricant no es troba disponible"
+
+#: templates/catalog/manufacturer.html:29
+msgid "Add logo"
+msgstr "Afegir logo"
+
+#: templates/catalog/manufacturer.html:29
+msgid "Reload page after add logo"
+msgstr "Recarrega la pàgina després d'afegir el logo"
+
+#: templates/catalog/manufacturer.html:32
+#, python-format
+msgid "Products %(manufacturer)s at Top Categories:"
+msgstr "Productes de %(manufacturer)s a les categories principals:"
+
+#: templates/catalog/manufacturer.html:35
+msgid "in"
+msgstr "a"
+
+#: templates/catalog/manufacturer.html:45
+#, python-format
+msgid "All products of %(manufacturer)s"
+msgstr "Tots els productes de %(manufacturer)s"
+
+#: templates/catalog/manufacturer.html:54
+msgid "There are any products matching in this manufacturer."
+msgstr "No hi ha cap producte que concordi amb aquest fabricant."
+
+#: templates/catalog/manufacturers.html:10
+msgid "Our brands"
+msgstr "Les nostres marques"
+
+#: templates/catalog/manufacturers.html:11
+#, python-format
+msgid "These are all brands you'll find on %(site)s."
+msgstr "Aquests son totes les marques que es troben disponibles a %(site)s."
+
+#: templates/catalog/product.html:8
+msgid "Products"
+msgstr "Productes"
+
+#: templates/catalog/product.html:18
+msgid "Product Related"
+msgstr "Productes"
+
+#: templates/catalog/product.html:62
+msgid "This product is out of service"
+msgstr "Aquest producte està fora de servei"
+
+#: templates/catalog/product.html:72
+msgid "Related Products"
+msgstr "Productes relacionats"
+
+#: templates/catalog/product.html:73
+msgid "Up-sells"
+msgstr "Vendes sugerides"
+
+#: templates/catalog/product.html:74
+msgid "Keywords"
+msgstr "Paraules clau"
+
+#: templates/catalog/whistlist.html:7
+msgid "Whistlist"
+msgstr "Llista de desitjos"
+
+#: templates/catalog/tags/attribute_form.html:4
+msgid "Search Products"
+msgstr "Cercador productes"
+
+#: templates/catalog/tags/attribute_form.html:24
+msgid "Search"
+msgstr "Cerca"
+
+#: templates/catalog/tags/product_related.html:5
+msgid "There are not related products"
+msgstr "No hi ha productes relacionats"
+
+#: templates/catalog/type/simple.html:8
+#: templates/catalog/type/variants.html:11
+msgid "Add to cart"
+msgstr "Afegeix a la cistella"
+
+#~ msgid "%(metadescription)s"
+#~ msgstr "%(metadescription)s"
+#~ msgid "Your shopping cart"
+#~ msgstr "La seva cistella de la compra"
+#~ msgid "You don't have any items inside your cart."
+#~ msgstr "Cap article dins la seva cistella."
+#~ msgid "View shopping cart"
+#~ msgstr "Veure cistella de la compra"
+#~ msgid "Newsletter"
+#~ msgstr "Butlletí"
+#~ msgid "Subscribe our newsletter."
+#~ msgstr "Subscripció al nostre butlletí."
+#~ msgid "Subscribe"
+#~ msgstr "Subscripció"
+#~ msgid "Available Product Listing (Sort By)"
+#~ msgstr "Llista de productes disponibles (ordenada per)"
+#~ msgid "Parent"
+#~ msgstr "Pare"
+#~ msgid "ProductCategory"
+#~ msgstr "Categoria"
+#~ msgid "Previous"
+#~ msgstr "Anterior"
+#~ msgid "Next"
+#~ msgstr "Següent"
+#~ msgid "Pricelist"
+#~ msgstr "Tarifa"
+#~ msgid "Value"
+#~ msgstr "Valor"
+#~ msgid "attribute"
+#~ msgstr "atribut"
+#~ msgid "attributes"
+#~ msgstr "atributs"
+

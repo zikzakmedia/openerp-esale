@@ -1,0 +1,445 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-23 12:12+0200\n"
+"PO-Revision-Date: 2012-04-23 12:15+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: email.py:61
+msgid "Your order is in process but we don't send email. Check in your order customer section."
+msgstr "Su pedido está en proceso pero no se ha podido enviar el correo electrónico. Puede hacer el seguimiento de sus pedidos en la área de clientes"
+
+#: models.py:29
+#: templates/sale/checkout.html:31
+#: templates/sale/order.html:56
+#: templates/sale/order.html.py:81
+#: templates/sale/orders.html:24
+#: templates/sale/payment.html:40
+#: templates/sale/payorder_detail.html:34
+#: templates/sale/payorder_form.html:7
+msgid "Total"
+msgstr "Total"
+
+#: views.py:43
+msgid "draft"
+msgstr "Borrador"
+
+#: views.py:44
+msgid "waiting_date"
+msgstr "Esperando planificación"
+
+#: views.py:45
+msgid "manual"
+msgstr "Manual"
+
+#: views.py:46
+msgid "progress"
+msgstr "En pogreso"
+
+#: views.py:47
+msgid "shipping_except"
+msgstr "Excepción envío"
+
+#: views.py:48
+msgid "invoice_except"
+msgstr "Excepción factura"
+
+#: views.py:49
+msgid "done"
+msgstr "Realizado"
+
+#: views.py:50
+msgid "cancel"
+msgstr "Cancelado"
+
+#: views.py:60
+#: views.py:93
+#: views.py:125
+#: views.py:174
+#: views.py:285
+#: views.py:421
+#: views.py:451
+msgid "Are you a customer? Please, contact us. We will create a new role"
+msgstr "¿Eres un cliente? Contacte con nosotros. Os crearemos como cliente en nuestra tienda."
+
+#: views.py:65
+#: views.py:98
+#: views.py:130
+#: views.py:179
+#: views.py:290
+#: views.py:426
+#: views.py:458
+#: views.py:637
+msgid "Error when connecting with our ERP. Try again or cantact us"
+msgstr "Error conectando con nuestro ERP. Vuelva a intentarlo o, contacte con nosotros."
+
+#: views.py:74
+msgid "All Orders"
+msgstr "Todos los pedidos"
+
+#: views.py:75
+#, python-format
+msgid "List all orders of %s"
+msgstr "Listado todos los pedidos de %s"
+
+#: views.py:103
+#: views.py:135
+#: views.py:184
+msgid "It is not allowed to view this section or not found. Use navigation menu."
+msgstr "No tiene permisos para acceder esta sección o no se encuentra. Utiliza el menú de navegación."
+
+#: views.py:107
+#: views.py:647
+#, python-format
+msgid "Order %s"
+msgstr "Pedido %s"
+
+#: views.py:108
+#: views.py:648
+#, python-format
+msgid "Details order %s"
+msgstr "Detalle del pedido %s"
+
+#: views.py:141
+msgid "Your order is in progress and it is not possible to cancel. Contact with us"
+msgstr "Su pedido está en curso y no es posible cancelarlo. Contacte con nosotros"
+
+#: views.py:148
+msgid "An error is getting when cancel this order. Try again or contact us"
+msgstr "Un error ha sucedido mientras se intentaba cancelar su pedido. Vuelva a intentarlo o, contacte con nosotros."
+
+#: views.py:157
+#: views.py:158
+#, python-format
+msgid "Order %s cancelled"
+msgstr "Pedido %s cancelado"
+
+#: views.py:190
+msgid "Your order is in progress or this order was payed"
+msgstr "Su pedido está en curso o está pagado"
+
+#: views.py:196
+#: views.py:197
+#, python-format
+msgid "Payment Order %s"
+msgstr "Pago del pedido %s"
+
+#: views.py:334
+msgid "Not enough stock !"
+msgstr "No hay estoc disponible!"
+
+#: views.py:367
+msgid "Checkout"
+msgstr "Crea el pedido"
+
+#: views.py:368
+#, python-format
+msgid "Checkout order %s"
+msgstr "Su pedido %s"
+
+#: views.py:610
+msgid "This payment is not available. Use navigation menus"
+msgstr "Este tipo de pago no se encuentra disponible. Utilize los menús de navegación"
+
+#: views.py:625
+#: views.py:626
+msgid "Payment Order by reference"
+msgstr "Pago del pedido por referencia"
+
+#: views.py:652
+msgid "Try again. There are not some reference pending to pay or total do not match."
+msgstr "No hay ninguna referencia pendiente de pago o el total no coincide."
+
+#: views.py:654
+msgid "Try again. Insert reference and total Order."
+msgstr "Inserte referencia y el total del pedido de venta."
+
+#: templates/sale/checkout.html:7
+#: templates/sale/order.html:5
+#: templates/sale/orders.html:5
+#: templates/sale/payment.html:25
+#: templates/sale/payorder.html:13
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/sale/checkout.html:29
+msgid "Untaxed Amount"
+msgstr "Base"
+
+#: templates/sale/checkout.html:30
+msgid "Taxes"
+msgstr "IVA"
+
+#: templates/sale/checkout.html:33
+#: templates/sale/order.html:22
+#: templates/sale/payorder_detail.html:6
+msgid "Delivery"
+msgstr "Envío"
+
+#: templates/sale/checkout.html:39
+#: templates/sale/order.html:59
+#: templates/sale/orders.html:37
+#: templates/sale/payment.html:25
+msgid "Payment"
+msgstr "Pago"
+
+#: templates/sale/checkout.html:45
+msgid "Code Promotion"
+msgstr "Código de promoción"
+
+#: templates/sale/checkout.html:49
+msgid "Confirm"
+msgstr "Confirmación"
+
+#: templates/sale/checkout.html:52
+#: templates/sale/order.html:25
+#: templates/sale/payorder_detail.html:9
+msgid "Address Invoice"
+msgstr "Dirección de factura"
+
+#: templates/sale/checkout.html:56
+#: templates/sale/checkout.html.py:92
+msgid "Add new address"
+msgstr "Añade nueva dirección"
+
+#: templates/sale/checkout.html:61
+#: templates/sale/checkout.html.py:97
+#: templates/sale/order.html:66
+#: templates/sale/order.html.py:81
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/sale/checkout.html:65
+#: templates/sale/checkout.html.py:101
+msgid "Address"
+msgstr "Dirección"
+
+#: templates/sale/checkout.html:69
+#: templates/sale/checkout.html.py:105
+msgid "ZIP"
+msgstr "Código Postal"
+
+#: templates/sale/checkout.html:73
+#: templates/sale/checkout.html.py:109
+msgid "City"
+msgstr "Ciudad"
+
+#: templates/sale/checkout.html:77
+#: templates/sale/checkout.html.py:113
+msgid "Country"
+msgstr "País"
+
+#: templates/sale/checkout.html:83
+#: templates/sale/checkout.html.py:119
+msgid "Phone"
+msgstr "Teléfono"
+
+#: templates/sale/checkout.html:88
+#: templates/sale/order.html:33
+#: templates/sale/payorder_detail.html:17
+msgid "Address Delivery"
+msgstr "Dirección de envío"
+
+#: templates/sale/checkout.html:135
+msgid ""
+"Could you confirm the order?\\n"
+"Then you will redirect payment type to finish your order"
+msgstr ""
+"¿Puede confirmar el pedido?\\n"
+"Después será enviado al sistema de pago para finalizar el pedido"
+
+#: templates/sale/checkout.html:135
+msgid "Order confirmation"
+msgstr "Confirmación de pedido"
+
+#: templates/sale/checkout.html:140
+msgid "You are cancel this order! Do not you like it?"
+msgstr "Ha cancelado este pedido! ¿No le gusta?"
+
+#: templates/sale/checkout.html:140
+msgid "Error"
+msgstr "Error"
+
+#: templates/sale/checkout_line.html:6
+#: templates/sale/order_line.html:5
+#: templates/sale/orders.html:21
+#: templates/sale/payorder_form.html:6
+msgid "Reference"
+msgstr "Referencia"
+
+#: templates/sale/checkout_line.html:7
+#: templates/sale/order_line.html:6
+msgid "Qty"
+msgstr "Qty"
+
+#: templates/sale/checkout_line.html:8
+#: templates/sale/order_line.html:7
+msgid "Discount"
+msgstr "Descuento"
+
+#: templates/sale/checkout_line.html:9
+#: templates/sale/order_line.html:8
+msgid "Unit Price"
+msgstr "Precio unidad"
+
+#: templates/sale/checkout_line.html:10
+#: templates/sale/order_line.html:9
+msgid "Subtotal"
+msgstr "Total"
+
+#: templates/sale/checkout_line.html:11
+msgid "Delete"
+msgstr "Eliminar"
+
+#: templates/sale/checkout_line.html:15
+msgid "Your cart is empty"
+msgstr "Su carrito está vacio"
+
+#: templates/sale/checkout_line.html:17
+msgid "product"
+msgstr "producto"
+
+#: templates/sale/checkout_line.html:22
+msgid "Remove Item"
+msgstr "Eliminar"
+
+#: templates/sale/order.html:5
+#: templates/sale/orders.html:5
+#: templates/sale/payment.html:25
+#: templates/sale/payorder.html:13
+msgid "Orders"
+msgstr "Pedidos"
+
+#: templates/sale/order.html:19
+#: templates/sale/order.html.py:66
+#: templates/sale/order.html:81
+#: templates/sale/orders.html:22
+#: templates/sale/payment.html:39
+#: templates/sale/payorder_detail.html:4
+msgid "Date"
+msgstr "Fecha"
+
+#: templates/sale/order.html:20
+#: templates/sale/orders.html:23
+msgid "Date Confirm"
+msgstr "Fecha de confirmación"
+
+#: templates/sale/order.html:20
+#: templates/sale/orders.html:34
+msgid "Pending"
+msgstr "Pendiente"
+
+#: templates/sale/order.html:21
+#: templates/sale/order.html.py:66
+#: templates/sale/order.html:81
+#: templates/sale/orders.html:25
+#: templates/sale/payorder_detail.html:5
+msgid "State"
+msgstr "Estado"
+
+#: templates/sale/order.html:43
+msgid "Order"
+msgstr "Pedido"
+
+#: templates/sale/order.html:44
+msgid "Pickings"
+msgstr "Albaranes"
+
+#: templates/sale/order.html:45
+msgid "Invoices"
+msgstr "Facturas"
+
+#: templates/sale/order.html:54
+#: templates/sale/payorder_detail.html:32
+msgid "Untaxed"
+msgstr "Base"
+
+#: templates/sale/order.html:55
+#: templates/sale/payorder_detail.html:33
+msgid "Tax"
+msgstr "IVA"
+
+#: templates/sale/order.html:59
+#: templates/sale/payment.html:56
+#: templates/sale/payorder_detail.html:50
+msgid "Make Payment"
+msgstr "Realizar pago"
+
+#: templates/sale/order.html:60
+msgid "Cancel"
+msgstr "Cancelado"
+
+#: templates/sale/order.html:60
+msgid "Cancel Order"
+msgstr "Cancelar pedido"
+
+#: templates/sale/order.html:66
+msgid "Carrier"
+msgstr "Mensajero"
+
+#: templates/sale/order.html:66
+msgid "Tracking"
+msgstr "Nº seguimiento"
+
+#: templates/sale/order.html:81
+msgid "Payment Type"
+msgstr "Tipo de pago"
+
+#: templates/sale/orders.html:29
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/sale/orders.html:29
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/sale/orders.html:40
+msgid "There are not orders avaible. There's nothing you like?"
+msgstr "No hay pedidos disponibles. ¿No hay nada que le guste?"
+
+#: templates/sale/payment.html:38
+msgid "Number"
+msgstr "Número"
+
+#: templates/sale/payment.html:46
+msgid "Select payment"
+msgstr "Seleccione el pago"
+
+#: templates/sale/payment.html:52
+#: templates/sale/payorder_detail.html:46
+msgid "Please select payment"
+msgstr "Debe seleccionar el pago"
+
+#: templates/sale/payorder_detail.html:40
+msgid "Select payment to process Order"
+msgstr "Seleccione el pago para proceder el pedido de venta"
+
+#: templates/sale/payorder_form.html:4
+msgid "Sale Order"
+msgstr "Pedido de venta"
+
+#: templates/sale/payorder_form.html:5
+msgid "Insert your reference and total to proceed the payment order."
+msgstr "Inserte su referencia y total para proceder el pago del pedido."
+
+#: templates/sale/payorder_form.html:9
+msgid "Submit"
+msgstr "Enviar"
+
+#~ msgid ""
+#~ "It is Not allowed to view this section or not found. Use navigation menu."
+#~ msgstr ""
+#~ "No tiene permisos para acceder esta sección o no se encuentra. Utiliza el "
+#~ "menú de navegación."
+

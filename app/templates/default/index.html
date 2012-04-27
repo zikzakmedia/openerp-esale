@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% load i18n %}
+
+{% block content %}
+<div id="zoook-doc-boxright">
+    <ul>
+        <li><a href="/manager/">Go to Admin</a></li>
+        <li><a href="https://launchpad.net/zoook">Go to documentation and code</a></li>
+    </ul>
+</div>
+
+<div id="zoook-doc-content">
+    <h2 class="zoook-doc">Welcome Zoook - OpenERP e-sale</h2>
+    <p>You are at home of Zoook</p>
+
+    <h2 class="zoook-doc">OpenERP Configuration</h2>
+    <p>Edit config.py. Configure OpenERP connections (XML-RPC or PyRO)
+
+    <h2 class="zoook-doc">Home Page</h2>
+    <p>Edit tpl index for customization frontend and custom your template.</p>
+
+    <h2 class="zoook-doc">Django configuration</h2>
+    <ul>
+    <li>1. Create symbolic link at inplaceeditform library in static dir:
+    static$ ln -s /usr/local/lib/python2.6/dist-packages/django_inplaceedit-0.XX-py2.6.egg/inplaceeditform/media/ inplaceeditform</li>
+    <li>2. Edit config.py (database, OpenERP connection, sale ID, ....)</li>
+    <li>3. check py files in sync dir need execute permisions</li>
+    <li>4. Create tables: python manage.py syncdb</li>
+    <li>5. Important! Run configuration.py. Add new values site django (extra site fields)</li>
+    <li>6. Run Server: python manage.py runserver</li>
+    <li>7. Check documentation about migrations app (south)</li>
+    </ul>
+
+    <h2 class="zoook-doc">OpenERP configuration</h2>
+    <ul>
+    <li>1. Sale/Administration/Sales. Configure your Sale Shop and paramiko connection (ssh)</li>
+    <li>2. Add Countries. This countries are availables in select address and check vat.</li>
+    <li>3. Add Languages. Add same languages at Django</li>
+    <li>4. Sale Order or Invoices sequence not use / (for example, SO/001). URL navigator get order number and / it's a path url and broken.</li>
+    </ul>
+
+    <h2 class="zoook-doc">Catalog and Product Sync</h2>
+    <p>Sales, partners, ... are creating in real time e-sale to OpenERP. Only nedd sync categories and products.
+    Go to sale shop OpenERP for sync. Remember Django Sync dir need execute permisions.
+    Also, remember see OpenERP logs and Django logs</p>
+    <p><strong>Atention! Manager catalog section is only check values sync (product, categories,..) Not change this values with manager tool. Use Sync Tools</strong></p>
+
+    <h2 class="zoook-doc">Django Template</h2>
+    <p>See more documentation about Django template at <a href="https://docs.djangoproject.com/en/dev/ref/templates/">Django Templates Doc</a></p>
+    <p><strong>Some Features</strong><br/>
+    Add new modules in your template: &#123;% module [position]%&#125;</p>
+
+
+    <h2 class="zoook-doc">Catalog Admin</h2>
+    <p>Super Users are available access to Catalog Admin. This section is only check catalog database sync OpenERP -> Django. Create your catalog in OpenERP</p>
+</div>
+{% endblock %}

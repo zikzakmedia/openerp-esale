@@ -1,0 +1,235 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-07 15:42+0100\n"
+"PO-Revision-Date: 2012-02-07 15:43+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: enums.py:32
+msgid "Active"
+msgstr "Actiu"
+
+#: enums.py:33
+msgid "Inactive"
+msgstr "Inactiu"
+
+#: models.py:35
+msgid "site title"
+msgstr "títol site"
+
+#: models.py:36
+msgid "site slogan"
+msgstr "site slogan"
+
+#: models.py:37
+msgid "site metadescription"
+msgstr "site metadescripció"
+
+#: models.py:38
+msgid "site metakeywords"
+msgstr "site paraules clau"
+
+#: models.py:39
+msgid "contact emails"
+msgstr "Correus contacta"
+
+#: models.py:39
+msgid "Separated by comma (,)"
+msgstr "Separats per coma (,)"
+
+#: models.py:40
+msgid "rss max"
+msgstr "RSS màx"
+
+#: models.py:44
+msgid "configuration"
+msgstr "configuració"
+
+#: models.py:45
+msgid "configurations"
+msgstr "configuracions"
+
+#: models.py:57
+#: models.py:110
+#: models.py:129
+msgid "name"
+msgstr "nom"
+
+#: models.py:58
+#: models.py:130
+msgid "slug"
+msgstr "slug"
+
+#: models.py:59
+msgid "base url"
+msgstr "base url"
+
+#: models.py:60
+#: models.py:112
+#: models.py:131
+msgid "description"
+msgstr "descripció"
+
+#: models.py:63
+msgid "menu"
+msgstr "menu"
+
+#: models.py:64
+msgid "menus"
+msgstr "menus"
+
+#: models.py:89
+#: models.py:160
+msgid "title"
+msgstr "títol"
+
+#: models.py:90
+#: models.py:161
+msgid "link url"
+msgstr "link url"
+
+#: models.py:90
+#: models.py:161
+msgid "URL or URI, eg /about/ or http://foo.com/"
+msgstr "URL o URI, eg /about/ or http://foo.com/"
+
+#: models.py:91
+#: models.py:162
+msgid "order"
+msgstr "ordenació"
+
+#: models.py:92
+msgid "css class"
+msgstr "css class"
+
+#: models.py:93
+msgid "login required"
+msgstr "usuari registrat"
+
+#: models.py:94
+#: models.py:113
+#: models.py:163
+msgid "status"
+msgstr "estat"
+
+#: models.py:94
+#: models.py:163
+msgid "Only items with their status set to 'Active' will be displayed."
+msgstr "Només els elements amb l'estat 'Actiu' es mostraran."
+
+#: models.py:97
+msgid "menus item"
+msgstr "menús element"
+
+#: models.py:98
+msgid "menus items"
+msgstr "menú elements"
+
+#: models.py:111
+msgid "position"
+msgstr "possició"
+
+#: models.py:111
+msgid "This is a unique identifier, ex 'position1'"
+msgstr "Un so identificador, ex 'posicio1'"
+
+#: models.py:113
+msgid "Only modules with their status set to 'Active' will be displayed."
+msgstr "Només els mòduls amb l'estat 'Actiu' es mostraran."
+
+#: models.py:116
+msgid "module"
+msgstr "mòdul"
+
+#: models.py:117
+msgid "modules"
+msgstr "mòduls"
+
+#: models.py:134
+msgid "Slider Box"
+msgstr "Slider Box"
+
+#: models.py:135
+msgid "Sliders Boxes"
+msgstr "Slider Boxes"
+
+#: models.py:159
+msgid "image"
+msgstr "imatge"
+
+#: models.py:159
+msgid "Check Documentation about size image"
+msgstr "Revisa la documentació sobre les mides"
+
+#: models.py:166
+msgid "Sliders Image"
+msgstr "Sliders Imatge"
+
+#: models.py:167
+msgid "Sliders Images"
+msgstr "Sliders Imatges"
+
+#: views.py:41
+msgid "Modules"
+msgstr "Mòduls"
+
+#: views.py:85
+msgid "All Modules"
+msgstr "Tots els mòduls"
+
+#: views.py:95
+msgid "Add modules"
+msgstr "Afegir mòduls"
+
+#: views.py:110
+msgid "Edit modules"
+msgstr "Editar mòduls"
+
+#: templates/cms/modules/form.html:8
+msgid "Show this module in your site, also you need edit template and add this position"
+msgstr "Mostrar aquest mòdul en el web, necessita editar la plantilla i afegir la possició"
+
+#: templates/cms/modules/list.html:5
+#: templates/cms/tags/user_add.html:5
+msgid "Add"
+msgstr "Afegir"
+
+#: templates/cms/modules/list.html:7
+msgid "Name"
+msgstr "Nom"
+
+#: templates/cms/modules/list.html:7
+msgid "Position"
+msgstr "Possició"
+
+#: templates/cms/modules/list.html:7
+msgid "Status"
+msgstr "Estat"
+
+#: templatetags/cms.py:50
+msgid "string"
+msgstr "text"
+
+#: templatetags/cms.py:57
+msgid "Media Files"
+msgstr "Media Files"
+
+#: templatetags/cms.py:58
+msgid "Go to Admin"
+msgstr "Anar a l'Administrador"
+
+#: templatetags/wiki.py:38
+msgid "Table of Contents"
+msgstr "Taula de continguts"
+

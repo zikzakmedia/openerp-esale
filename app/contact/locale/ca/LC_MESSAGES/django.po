@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-30 10:45+0200\n"
+"PO-Revision-Date: 2012-03-30 10:46+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: models.py:36
+#: templates/contact/form.html:56
+msgid "Name"
+msgstr "Nom"
+
+#: models.py:37
+msgid "slug"
+msgstr "slug"
+
+#: models.py:37
+msgid "This is a unique identifier that allows your contacts to display its detail view, ex 'how-can-i-contribute'"
+msgstr "Aquest camp identifica els seus contactes per mostrar en els detalls, per exemple 'zikzakmedia-barcelona'"
+
+#: models.py:38
+msgid "Default"
+msgstr "Defecte"
+
+#: models.py:39
+#: templates/contact/form.html:57
+msgid "Email"
+msgstr "Correu electrònic"
+
+#: models.py:40
+msgid "Show Email"
+msgstr "Mostrar correu"
+
+#: models.py:41
+msgid "Street"
+msgstr "Carrer"
+
+#: models.py:42
+msgid "Zip"
+msgstr "Codi postal"
+
+#: models.py:43
+msgid "City"
+msgstr "Ciutat"
+
+#: models.py:44
+msgid "Country"
+msgstr "País"
+
+#: models.py:45
+msgid "Phone"
+msgstr "Teléfon"
+
+#: models.py:46
+msgid "Mobile Phone"
+msgstr "Mòbil"
+
+#: models.py:47
+msgid "Fax"
+msgstr "Fax"
+
+#: models.py:48
+msgid "UTM"
+msgstr "UTM"
+
+#: models.py:49
+msgid "Twitter"
+msgstr "Twitter"
+
+#: models.py:50
+msgid "Miscellaneous"
+msgstr "Miscèl·lania"
+
+#: models.py:51
+msgid "Status"
+msgstr "Estat"
+
+#: models.py:52
+msgid "Resize image. Check documentation about logo template"
+msgstr "Optimitza la imatge. Revisi la documentació per la mida de la imatge"
+
+#: models.py:58
+#: templates/contact/form.html:53
+msgid "contact"
+msgstr "contacta"
+
+#: models.py:59
+msgid "contacts"
+msgstr "contactes"
+
+#: views.py:65
+msgid "Error with captcha system. Try again."
+msgstr "Error amb el sistema de codi de verificació. Torni a provar."
+
+#: views.py:70
+msgid "Error with captcha number. Copy the same number."
+msgstr "Error amb el codi de verificació. Copia el mateix codi."
+
+#: views.py:72
+#, python-format
+msgid "Contact - %(name)s"
+msgstr "Contacta - %(name)s"
+
+#: views.py:73
+#, python-format
+msgid ""
+"This email is generated with Contact Module from %(site)s\n"
+"\n"
+"%(name)s - %(email)s\n"
+"%(message)s"
+msgstr ""
+"Aquest correu s'ha generat mitjançant el mòdul contacta de %(site)s\n"
+"\n"
+"%(name)s - %(email)s\n"
+"%(message)s"
+
+#: views.py:88
+#, python-format
+msgid "%(name)s. Thanks for your message. We will answer soon."
+msgstr "%(name)s. Gràcies pel seu missatge. En breu respondrem."
+
+#: views.py:90
+msgid "Error SMTP server send email. Sorry. Can you try later?"
+msgstr "Error en l'enviament de correu SMTP. Pot intentar mes tard?"
+
+#: views.py:92
+msgid "Sorry! This form is not valid. Try again."
+msgstr "Disculpeu! La informació enviada no és correcta. Torneu a provar."
+
+#: views.py:96
+#, python-format
+msgid "Contact %(name)s"
+msgstr "Contacta - %(name)s"
+
+#: views.py:98
+#, python-format
+msgid "Contact %(name)s details"
+msgstr "Detalls del contacta - %(name)s"
+
+#: templates/contact/form.html:55
+msgid "Contact"
+msgstr "Contacta"
+
+#: templates/contact/form.html:58
+msgid "Message"
+msgstr "Missatge"
+
+#: templates/contact/form.html:61
+msgid "Submit"
+msgstr "Enviar"
+
+#~ msgid "Error. Configure yours emails contacts."
+#~ msgstr "Error. Configuri els seus correus de contacta."
+
