@@ -57,10 +57,21 @@ class sale_shop(osv.osv):
         'zoook_langs': fields.many2many('res.lang','zoook_lang_rel', 'sale_shop_id','lang_id','Languages'),
         'email_sale_order': fields.many2one('poweremail.templates', 'Email Sale Order', help='Email Template Sale Order'),
         'zoook_tax_include': fields.boolean('Taxes included',help='Show B2B price list with taxes included'),
+        'zoook_log_clean': fields.selection([
+            ('1','1 Day'),
+            ('3','3 Days'),
+            ('5','5 Days'),
+            ('7','7 Days'),
+            ('15','15 Days'),
+            ('30','30 Days'),
+            ('60','60 Days'),
+            ('90','90 Days'),
+        ], 'Clean Logs', help='Days from delete logs to past'),
     }
 
     _defaults = {
         'zoook_tax_include':lambda * a:True,
+        'zoook_log_clean': '15',
     }
 
     def test_connection(self, cr, uid, ids, context):
@@ -228,7 +239,7 @@ class sale_shop(osv.osv):
                 for product in product_obj.browse(cr, uid, products):
                     product_product.append(product.id)
                 products_shop.append({'product_template':template_id,'product_product':product_product})
-        else: #sync products by cront
+        else: #sync products by cron
             for shop in self.browse(cr, uid, ids):
                 last_exported_time = shop.zoook_last_export_products
                 product_tmps = product_template_obj.search(cr, uid, [('zoook_exportable','=',True),('zoook_saleshop_ids','in',shop.id)])

@@ -33,39 +33,40 @@
                                         <button name="zoook_export_conf" string="Global Configuration" colspan="1" type="object" confirm="Are you sure to continue? See logs e-server process"/>
                                     </group>
                                     <group col="2" colspan="2">
-                                        <field name="zoook_last_export_categories" />
-                                        <field name="zoook_last_export_products" />
-                                        <field name="zoook_last_export_images" />
+                                        <field name="zoook_last_export_categories"/>
+                                        <field name="zoook_last_export_products"/>
+                                        <field name="zoook_last_export_images"/>
                                     </group>
                                 </group>
                             </page>
                             <page string="Configuration">
                                 <group col="4" colspan="4">
                                     <field name="zoook_root_category_id" attrs="{'required':[('zoook_shop','=', True)]}"/>
-                                    <field name="zoook_automatic_export" />
-                                    <field name="zoook_tax_include" />
+                                    <field name="zoook_automatic_export"/>
+                                    <field name="zoook_tax_include"/>
                                     <field name="email_sale_order" attrs="{'required':[('zoook_shop','=', True)]}"/>
+                                    <field name="zoook_log_clean"/>
                                 </group>
                             </page>
                             <page string="Languages">
                                 <group col="4" colspan="4">
                                     <label string="Before to add new language, your e-sale are available this language? Contact your webmaster to active first this language in your e-sale" colspan="4"/>
-                                    <field name="zoook_langs" colspan="4" nolabel="1" />
+                                    <field name="zoook_langs" colspan="4" nolabel="1"/>
                                 </group>
                             </page>
                             <page string="Delivery">
                                 <group col="4" colspan="4">
-                                    <field name="zoook_delivery_ids" colspan="4" nolabel="1" />
+                                    <field name="zoook_delivery_ids" colspan="4" nolabel="1"/>
                                 </group>
                             </page>
                             <page string="Payment">
                                 <group col="4" colspan="4">
-                                    <field name="zoook_payment_types" colspan="4" nolabel="1" />
+                                    <field name="zoook_payment_types" colspan="4" nolabel="1"/>
                                 </group>
                             </page>
                             <page string="Country">
                                 <group col="4" colspan="4">
-                                    <field name="vat_country_ids" colspan="4" nolabel="1" />
+                                    <field name="vat_country_ids" colspan="4" nolabel="1"/>
                                 </group>
                             </page>
                             <page string="SSH Connection">
@@ -79,7 +80,7 @@
                                     <field name="zoook_key"/>
                                     <field name="zoook_ssh_key" attrs="{'required':[('zoook_key','=', True)]}"/>
                                     <group colspan="4" col="4">
-                                        <button name="test_connection" string="Test Connection" type="object" colspan="4" />
+                                        <button name="test_connection" string="Test Connection" type="object" colspan="4"/>
                                     </group>
                                 </group>
                             </page>
@@ -128,11 +129,11 @@
         <record model="ir.ui.view" id="zoook_view_sale_order_form1">
             <field name="name">zoook_view_sale_order_form1</field>
             <field name="model">sale.order</field>
-            <field name="inherit_id" ref="sale_payment.view_sale_paytype_sale_order_form_tp" />
+            <field name="inherit_id" ref="sale_payment.view_sale_paytype_sale_order_form_tp"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <field name="payment_type" position="after" >
-                    <field name="payment_state" />
+                <field name="payment_type" position="after">
+                    <field name="payment_state"/>
                 </field>
             </field>
         </record>

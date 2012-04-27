@@ -26,6 +26,7 @@ from tools.translate import _
 
 import netsvc
 import time
+import datetime
 
 class esale_log(osv.osv):
     _name = 'esale.log'
@@ -33,7 +34,7 @@ class esale_log(osv.osv):
     _order = "id desc"
 
     _columns = {
-        'create': fields.datetime('Create'),
+        'create_log': fields.datetime('Create'),
         'sale_shop_id': fields.many2one('sale.shop', 'Sale Shop', required=True),
         'model_id': fields.many2one('ir.model', 'OpenERP Model', required=True, select=True, ondelete='cascade'),
         'oerp_id': fields.integer('OpenERP ID', required=True),
@@ -44,9 +45,6 @@ class esale_log(osv.osv):
         ], 'Status'),
         'comment': fields.char('Comment', size=256),
     }
-
-    def unlink(self, cr, uid, vals, context=None):
-        raise osv.except_osv(_("Alert"), _("This Log is not allow to delete"))
 
     def create_log(self, cr, uid, shop, model, oerp_id, status = 'done', comment = ''):
         """
@@ -59,7 +57,7 @@ class esale_log(osv.osv):
         model_ids = self.pool.get('ir.model').search(cr, uid, [('model','=',model)])
 
         values = {
-            'create': time.strftime('%Y-%m-%d %H:%M:%S'),
+            'create_log': time.strftime('%Y-%m-%d %H:%M:%S'),
             'sale_shop_id': shop,
             'model_id': model_ids[0],
             'oerp_id': oerp_id,
@@ -70,5 +68,24 @@ class esale_log(osv.osv):
         cr.commit()
 
         return esale_log_id
+
+    def run_clean_log_scheduler(self, cr, uid, use_new_cursor=False, context=None):
+        """eSale - Clean Logs
+        Delete logs from date to past
+        """
+
+        esale_log_obj = self.pool.get('esale.log')
+        sale_shop_obj = self.pool.get('sale.shop')
+
+        sale_shops = sale_shop_obj.search(cr, uid, [('zoook_shop','=',True)])
+        for sale_shop in sale_shop_obj.browse(cr, uid, sale_shops):
+            day = int(sale_shop.zoook_log_clean)
+            if day:
+                date = datetime.date.today()-datetime.timedelta(days=day)
+                from_date = "%s 00:00:00" % (date)
+                logs = esale_log_obj.search(cr, uid, [('create_log', '<', from_date),('sale_shop_id','=',sale_shop.id)])
+                esale_log_obj.unlink(cr, uid, logs)
+
+        return True
 
 esale_log()
