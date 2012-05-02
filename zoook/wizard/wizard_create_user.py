@@ -95,19 +95,15 @@ class create_user_wizard(osv.osv_memory):
 
         form = self.browse(cr, uid, ids[0])
 
-        partner_id = context and context.get('partner_id')
-        partner = self.pool.get('res.partner').browse(cr, uid, partner_id)
         partner_address = self.pool.get('res.partner.address').browse(cr, uid, form.partner_address_id)
+        partner = partner_address.partner_id
 
         if partner.dj_username or partner.dj_email:
             result = _('This Django user exist.')
 
-        if not partner_address.email:
-            result = _('This address there are not email. Please add new email for this address')
-
         useremail = self.pool.get('res.partner').search(cr, uid, [('dj_email','=',partner_address.email)])
-        if len(useremail):
-            result = _('This email exist another user. Use another email/address')
+        if len(useremail) or not partner_address.email:
+            result = _('This email is null or exist another user. Use another email/address')
 
         if not result:
             #First Name / Last Name
@@ -143,7 +139,7 @@ class create_user_wizard(osv.osv_memory):
                     'ssh_key': sale.zoook_ssh_key,
                     'basepath': sale.zoook_basepath,
                 }
-                context['command'] = 'sync/user.py -u %s -p %s -o %s -e %s -f "%s" -l "%s"' % (username, password, partner_id, email, first_name, last_name)
+                context['command'] = 'sync/user.py -u %s -p %s -o %s -e %s -f "%s" -l "%s"' % (username, password, partner.id, email, first_name, last_name)
                 respy = self.pool.get('django.connect').ssh_command(cr, uid, sale.id, values, context)
                 res.append(_('Sale Shop: %s Username: %s. %s') % (sale.name, username, respy))
 
@@ -158,7 +154,7 @@ class create_user_wizard(osv.osv_memory):
             res_values['email'] = email
 
             #write partner dj info
-            self.pool.get('res.partner').write(cr, uid, [partner_id], {'dj_username': username, 'dj_email': email})
+            self.pool.get('res.partner').write(cr, uid, [partner.id], {'dj_username': username, 'dj_email': email})
 
         res_values['state'] = 'done'
         res_values['result'] = result
