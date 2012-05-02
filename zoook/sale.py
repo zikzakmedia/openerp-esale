@@ -326,6 +326,7 @@ class sale_shop(osv.osv):
             categ_ids = []
             last_exported_time = shop.zoook_last_export_categories
             categ_ids = category_obj._get_recursive_cat_children_ids(cr, uid, [shop.zoook_root_category_id.id], "", [], context)[shop.zoook_root_category_id.id]
+            categ_ids.append(shop.zoook_root_category_id.id) #add top esale category
 
             for categ in self.pool.get('product.category').perm_read(cr, uid, categ_ids):
                 if last_exported_time < categ['create_date'][:19] or (categ['write_date'] and last_exported_time < categ['write_date'][:19]):
