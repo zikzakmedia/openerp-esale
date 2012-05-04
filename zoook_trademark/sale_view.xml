@@ -9,7 +9,7 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="/form/group/notebook/page[@string='Actions']/group/group/button[@name='zoook_export_images']" position="after">
+                    <xpath expr="/form/group/notebook/page[@string='Actions']/group/group/button[@name='zoook_export_conf']" position="before">
                         <button name="zoook_export_manufacturers" string="Export Manufacturers" colspan="1" type="object" confirm="Export Manufacturers. This operation is longer. Are you sure to continue? See logs server process"/>
                     </xpath>
                 </data>
