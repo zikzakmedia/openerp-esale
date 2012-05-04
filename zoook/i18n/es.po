@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.2\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-04-27 13:25+0000\n"
-"PO-Revision-Date: 2012-04-27 15:30+0100\n"
+"PO-Revision-Date: 2012-05-04 11:25+0100\n"
 "Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -68,7 +68,7 @@ msgstr "Virtual payment. Example: Paypal"
 #. module: zoook
 #: view:sale.shop:0
 msgid "Are you sure to continue? See logs e-server process"
-msgstr "Are you sure to continue? See logs e-server process"
+msgstr "Estáis seguros de continuar? Revise el historial del servidor."
 
 #. module: zoook
 #: sql_constraint:sale.order:0
@@ -83,7 +83,7 @@ msgstr "OpenERP ID"
 #. module: zoook
 #: model:ir.model,name:zoook.model_zoook_connect
 msgid "ZoooK Connect"
-msgstr "Conexión ZoooK"
+msgstr "Conexión e-Sale"
 
 #. module: zoook
 #: field:sale.shop,zoook_last_export_categories:0
@@ -324,7 +324,7 @@ msgstr "Plantilla de correo del pedido de venta"
 #. module: zoook
 #: view:zoook.sync.product.wizard:0
 msgid "Exportation is running.... This action is in background. See logs server process"
-msgstr "Exportation is running.... This action is in background. See logs server process"
+msgstr "La exportación se está ejecutando... Esta acción se realiza en paralelo. Revise el historial del servidor para más información."
 
 #. module: zoook
 #: field:zoook.create.user.wizard,email:0
@@ -373,12 +373,12 @@ msgstr "Exportar producto"
 #. module: zoook
 #: selection:sale.order,payment_state:0
 msgid "Checking"
-msgstr "Comprobante"
+msgstr "Comprobando"
 
 #. module: zoook
 #: view:zoook.sync.product.wizard:0
 msgid "Products to sync..."
-msgstr "Productos a sincronizar"
+msgstr "Productos a exportar"
 
 #. module: zoook
 #: sql_constraint:res.country:0
@@ -460,7 +460,7 @@ msgstr "Envío completo"
 #. module: zoook
 #: view:esale.log:0
 msgid "Search Log"
-msgstr "Search Log"
+msgstr "Buscar en el historial"
 
 #. module: zoook
 #: help:zoook.sale.shop.payment.type,sequence:0
@@ -585,7 +585,7 @@ msgstr "Error: UOM por defecto y UOM de compra deben ser de la misma categoría.
 #: view:sale.shop:0
 #: field:sale.shop,zoook_langs:0
 msgid "Languages"
-msgstr "Lenguas"
+msgstr "Idiomas"
 
 #. module: zoook
 #: view:sale.shop:0

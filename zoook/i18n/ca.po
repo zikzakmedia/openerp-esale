@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.2\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-04-27 13:25+0000\n"
-"PO-Revision-Date: 2012-04-27 15:30+0100\n"
+"PO-Revision-Date: 2012-05-04 11:28+0100\n"
 "Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -68,7 +68,7 @@ msgstr "Virtual payment. Example: Paypal"
 #. module: zoook
 #: view:sale.shop:0
 msgid "Are you sure to continue? See logs e-server process"
-msgstr "Are you sure to continue? See logs e-server process"
+msgstr "Esteu segurs de continuar? Revisi el historial del servidor."
 
 #. module: zoook
 #: sql_constraint:sale.order:0
@@ -324,7 +324,7 @@ msgstr "Plantilla de correu de la comanda de venda"
 #. module: zoook
 #: view:zoook.sync.product.wizard:0
 msgid "Exportation is running.... This action is in background. See logs server process"
-msgstr "Exportation is running.... This action is in background. See logs server process"
+msgstr "La sincronització s'està execuntant-se. Aquesta acció es realitza en paral·lel. Reviseu el historial del servidor per més informació."
 
 #. module: zoook
 #: field:zoook.create.user.wizard,email:0
@@ -460,7 +460,7 @@ msgstr "Enviament complert"
 #. module: zoook
 #: view:esale.log:0
 msgid "Search Log"
-msgstr "Cerca Log"
+msgstr "Cerca en l'historial"
 
 #. module: zoook
 #: help:zoook.sale.shop.payment.type,sequence:0
@@ -585,7 +585,7 @@ msgstr "Error: UOM per defecte i UOM de compra han de ser de la mateixa categori
 #: view:sale.shop:0
 #: field:sale.shop,zoook_langs:0
 msgid "Languages"
-msgstr "Languages"
+msgstr "Idiomes"
 
 #. module: zoook
 #: view:sale.shop:0
