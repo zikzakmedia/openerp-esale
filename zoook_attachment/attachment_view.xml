@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Ir Attachment-->
+        <record id="ir_attachment_esale" model="ir.ui.view">
+            <field name="name">ir.attachment.esale</field>
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="document.view_document_file_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="/form/group/field[@name='company_id']" position="after">
+                    <field name="esale_exportable" attrs="{'invisible':[('esale_exportable','==',True)]}"/>
+                </xpath>
+                <notebook position="inside">
+                    <page string="e-sale" attrs="{'invisible':[('esale_exportable','==',False)]}">
+                        <field name="esale_visibility"/>
+                        <separator colspan="4" string="Websites"/>
+                        <field name="esale_saleshop_ids" colspan="4" nolabel="1"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,188 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* zoook_attachment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-05-04 09:11+0000\n"
+"PO-Revision-Date: 2012-05-04 11:25+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: zoook_attachment
+#: field:sale.shop,esale_last_export_attachment:0
+msgid "Last Export Attachment"
+msgstr "Últimos adjuntos exportados"
+
+#. module: zoook_attachment
+#: field:esale.sync.attachment.wizard,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: zoook_attachment
+#: view:esale.sync.attachment.wizard:0
+msgid "Exportation is running.... This action is in background. See logs server process"
+msgstr "La exportación se está ejecutando... Esta acción se realiza en paralelo. Revise el historial del servidor para más información."
+
+#. module: zoook_attachment
+#: selection:ir.attachment,esale_visibility:0
+msgid "Public"
+msgstr "Público"
+
+#. module: zoook_attachment
+#: code:addons/zoook_attachment/wizard/wizard_attachment.py:75
+#, python-format
+msgid "Not available some e-Sale Attachments to export"
+msgstr "No hay adjuntos e-Sale disponibles a publicar"
+
+#. module: zoook_attachment
+#: view:esale.sync.attachment.wizard:0
+msgid "Export Attachment"
+msgstr "Exportar adjuntos"
+
+#. module: zoook_attachment
+#: field:ir.attachment,esale_exportable:0
+msgid "Available e-sale"
+msgstr "Disponible e-sale"
+
+#. module: zoook_attachment
+#: field:ir.attachment,esale_visibility:0
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#. module: zoook_attachment
+#: code:addons/zoook_attachment/attachment.py:50
+#, python-format
+msgid "Alert"
+msgstr "Alerta"
+
+#. module: zoook_attachment
+#: code:addons/zoook_attachment/wizard/wizard_attachment.py:54
+#, python-format
+msgid "Select attachments to export"
+msgstr "Selecciona adjuntos para exportar"
+
+#. module: zoook_attachment
+#: model:ir.model,name:zoook_attachment.model_ir_attachment
+msgid "ir.attachment"
+msgstr "ir.attachment"
+
+#. module: zoook_attachment
+#: model:ir.model,name:zoook_attachment.model_sale_shop
+msgid "Sales Shop"
+msgstr "Tiendas"
+
+#. module: zoook_attachment
+#: view:esale.sync.attachment.wizard:0
+msgid "Export"
+msgstr "Export"
+
+#. module: zoook_attachment
+#: view:sale.shop:0
+msgid "Export Attachments"
+msgstr "Exportar adjuntos"
+
+#. module: zoook_attachment
+#: selection:ir.attachment,esale_visibility:0
+msgid "None"
+msgstr "Ninguna parte"
+
+#. module: zoook_attachment
+#: view:esale.sync.attachment.wizard:0
+msgid "Attachments to sync..."
+msgstr "Adjuntos a exportar..."
+
+#. module: zoook_attachment
+#: selection:ir.attachment,esale_visibility:0
+msgid "Register"
+msgstr "Registrado"
+
+#. module: zoook_attachment
+#: view:ir.attachment:0
+#: field:ir.attachment,esale_saleshop_ids:0
+msgid "Websites"
+msgstr "Websites"
+
+#. module: zoook_attachment
+#: code:addons/zoook_attachment/wizard/wizard_attachment.py:54
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: zoook_attachment
+#: code:addons/zoook_attachment/attachment.py:50
+#, python-format
+msgid "To Unlink this attachment mark visibility is none"
+msgstr "Para eliminar este adjunto marque la opción de visibilidad \"Ninguna parte\"."
+
+#. module: zoook_attachment
+#: selection:esale.sync.attachment.wizard,state:0
+msgid "First"
+msgstr "Primero"
+
+#. module: zoook_attachment
+#: view:ir.attachment:0
+msgid "e-sale"
+msgstr "e-sale"
+
+#. module: zoook_attachment
+#: view:esale.sync.attachment.wizard:0
+msgid "Are you sure to export this attachment?"
+msgstr "Estáis seguro de exportar este adjunto?"
+
+#. module: zoook_attachment
+#: help:ir.attachment,esale_saleshop_ids:0
+msgid "Select yours Sale Shops available this attachment"
+msgstr "Selecciona las tiendas disponible este adjunto"
+
+#. module: zoook_attachment
+#: view:sale.shop:0
+msgid "Export Attachments. This operation is longer. Are you sure to continue? See logs server process"
+msgstr "Exporta adjuntos. Esta operación puede tardar un tiempo largo. Estáis seguros de continuar? Revise el historial del servidor."
+
+#. module: zoook_attachment
+#: constraint:ir.attachment:0
+msgid "File name must be unique!"
+msgstr "El nombre debe ser único."
+
+#. module: zoook_attachment
+#: selection:esale.sync.attachment.wizard,state:0
+msgid "Done"
+msgstr "Realizado"
+
+#. module: zoook_attachment
+#: field:esale.sync.attachment.wizard,result:0
+msgid "Result"
+msgstr "Resultado"
+
+#. module: zoook_attachment
+#: field:esale.sync.attachment.wizard,esale_sale_shop:0
+msgid "Sale Shop"
+msgstr "Tiendas"
+
+#. module: zoook_attachment
+#: model:ir.model,name:zoook_attachment.model_esale_sync_attachment_wizard
+msgid "esale.sync.attachment.wizard"
+msgstr "esale.sync.attachment.wizard"
+
+#. module: zoook_attachment
+#: view:esale.sync.attachment.wizard:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: zoook_attachment
+#: view:esale.sync.attachment.wizard:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: zoook_attachment
+#: model:ir.actions.act_window,name:zoook_attachment.act_esale_sync_attachment
+msgid "Export e-Sale"
+msgstr "Exporta a e-Sale"
+
