@@ -54,6 +54,7 @@
         "settings/django_mapping.xml",
         "wizard/wizard_create_user.xml",
         "wizard/wizard_product_product.xml",
+        "wizard/wizard_product_image.xml",
         "wizard/wizard_reset_user.xml",
         "base_view.xml",
         "delivery_view.xml",

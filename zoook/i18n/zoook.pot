@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-04-27 13:25+0000\n"
-"PO-Revision-Date: 2012-04-27 13:25+0000\n"
+"POT-Creation-Date: 2012-05-10 09:30+0000\n"
+"PO-Revision-Date: 2012-05-10 09:30+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -64,6 +64,17 @@ msgstr "eSale Logs"
 #: help:zoook.sale.shop.payment.type,virtual:0
 msgid "Virtual payment. Example: Paypal"
 msgstr "Virtual payment. Example: Paypal"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_zoook_sync_product_image_wizard
+msgid "zoook.sync.product.image.wizard"
+msgstr "zoook.sync.product.image.wizard"
+
+#. module: zoook
+#: code:addons/zoook/wizard/wizard_create_user.py:106
+#, python-format
+msgid "This email is null or exist another user. Use another email/address"
+msgstr "This email is null or exist another user. Use another email/address"
 
 #. module: zoook
 #: view:sale.shop:0
@@ -127,7 +138,7 @@ msgid "Base Image"
 msgstr "Base Image"
 
 #. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:134
+#: code:addons/zoook/wizard/wizard_create_user.py:130
 #: code:addons/zoook/wizard/wizard_reset_user.py:68
 #, python-format
 msgid "Error: Sale Shop not active"
@@ -172,13 +183,8 @@ msgid "Invoice from the Packing"
 msgstr "Invoice from the Packing"
 
 #. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:106
-#, python-format
-msgid "This address there are not email. Please add new email for this address"
-msgstr "This address there are not email. Please add new email for this address"
-
-#. module: zoook
 #: code:addons/zoook/sale.py:103
+#: code:addons/zoook/wizard/wizard_product_image.py:54
 #: code:addons/zoook/wizard/wizard_product_product.py:54
 #, python-format
 msgid "Error!"
@@ -237,6 +243,12 @@ msgstr "Products Image gallery"
 #: constraint:product.category:0
 msgid "Error ! You can not create recursive categories."
 msgstr "Error ! You can not create recursive categories."
+
+#. module: zoook
+#: code:addons/zoook/wizard/wizard_product_image.py:54
+#, python-format
+msgid "Select Product Images to export"
+msgstr "Select Product Images to export"
 
 #. module: zoook
 #: code:addons/zoook/sale.py:99
@@ -320,6 +332,7 @@ msgid "Email Template Sale Order"
 msgstr "Email Template Sale Order"
 
 #. module: zoook
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Exportation is running.... This action is in background. See logs server process"
 msgstr "Exportation is running.... This action is in background. See logs server process"
@@ -364,6 +377,7 @@ msgid "Several dimension values for the same dimension type"
 msgstr "Several dimension values for the same dimension type"
 
 #. module: zoook
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Export Product"
 msgstr "Export Product"
@@ -472,7 +486,7 @@ msgid "Products Related"
 msgstr "Products Related"
 
 #. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:103
+#: code:addons/zoook/wizard/wizard_create_user.py:102
 #, python-format
 msgid "This Django user exist."
 msgstr "This Django user exist."
@@ -495,6 +509,7 @@ msgstr "Reset User (new password create)"
 #. module: zoook
 #: selection:zoook.create.user.wizard,state:0
 #: selection:zoook.reset.user.wizard,state:0
+#: selection:zoook.sync.product.image.wizard,state:0
 #: selection:zoook.sync.product.wizard,state:0
 msgid "First"
 msgstr "First"
@@ -505,9 +520,9 @@ msgid "Comment"
 msgstr "Comment"
 
 #. module: zoook
-#: model:ir.model,name:zoook.model_product_template
-msgid "Product Template"
-msgstr "Product Template"
+#: model:ir.actions.act_window,name:zoook.act_zoook_sync_product_image
+msgid "Export Images e-Sale"
+msgstr "Export Images e-Sale"
 
 #. module: zoook
 #: field:zoook.create.user.wizard,last_name:0
@@ -525,7 +540,7 @@ msgid "Magento ID"
 msgstr "Magento ID"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:562
+#: code:addons/zoook/sale.py:575
 #, python-format
 msgid "Order %s change status: Cancel"
 msgstr "Order %s change status: Cancel"
@@ -533,6 +548,7 @@ msgstr "Order %s change status: Cancel"
 #. module: zoook
 #: field:zoook.create.user.wizard,result:0
 #: field:zoook.reset.user.wizard,result:0
+#: field:zoook.sync.product.image.wizard,result:0
 #: field:zoook.sync.product.wizard,result:0
 msgid "Result"
 msgstr "Result"
@@ -564,12 +580,13 @@ msgid "Vat Check"
 msgstr "Vat Check"
 
 #. module: zoook
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Are you sure to export this product?"
 msgstr "Are you sure to export this product?"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:551
+#: code:addons/zoook/sale.py:564
 #, python-format
 msgid "Order %s change status: Done"
 msgstr "Order %s change status: Done"
@@ -596,7 +613,7 @@ msgid "Draft"
 msgstr "Draft"
 
 #. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:148
+#: code:addons/zoook/wizard/wizard_create_user.py:144
 #: code:addons/zoook/wizard/wizard_reset_user.py:82
 #, python-format
 msgid "Sale Shop: %s Username: %s. %s"
@@ -607,12 +624,6 @@ msgstr "Sale Shop: %s Username: %s. %s"
 #, python-format
 msgid "-copy"
 msgstr "-copy"
-
-#. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:110
-#, python-format
-msgid "This email exist another user. Use another email/address"
-msgstr "This email exist another user. Use another email/address"
 
 #. module: zoook
 #: selection:sale.shop,zoook_log_clean:0
@@ -645,6 +656,11 @@ msgstr "To Unlink this product mark status is False"
 #: field:res.partner,product_whistlist_ids:0
 msgid "Whislist"
 msgstr "Whislist"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_product_product
+msgid "Product"
+msgstr "Product"
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_zoook_create_user_wizard
@@ -763,7 +779,7 @@ msgid "Atention! If you change slug, you need change manually all full slug chil
 msgstr "Atention! If you change slug, you need change manually all full slug childreen categories"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:547
+#: code:addons/zoook/sale.py:560
 #, python-format
 msgid "Order Payment: %s"
 msgstr "Order Payment: %s"
@@ -775,8 +791,14 @@ msgid "Sequence"
 msgstr "Sequence"
 
 #. module: zoook
+#: model:ir.model,name:zoook.model_product_template
+msgid "Product Template"
+msgstr "Product Template"
+
+#. module: zoook
 #: field:zoook.create.user.wizard,state:0
 #: field:zoook.reset.user.wizard,state:0
+#: field:zoook.sync.product.image.wizard,state:0
 #: field:zoook.sync.product.wizard,state:0
 msgid "State"
 msgstr "State"
@@ -797,12 +819,14 @@ msgstr "General Information"
 #: selection:sale.order,payment_state:0
 #: selection:zoook.create.user.wizard,state:0
 #: selection:zoook.reset.user.wizard,state:0
+#: selection:zoook.sync.product.image.wizard,state:0
 #: selection:zoook.sync.product.wizard,state:0
 msgid "Done"
 msgstr "Done"
 
 #. module: zoook
 #: field:esale.log,sale_shop_id:0
+#: field:zoook.sync.product.image.wizard,zoook_sale_shop:0
 #: field:zoook.sync.product.wizard,zoook_sale_shop:0
 msgid "Sale Shop"
 msgstr "Sale Shop"
@@ -811,6 +835,7 @@ msgstr "Sale Shop"
 #: selection:sale.order,payment_state:0
 #: view:zoook.create.user.wizard:0
 #: view:zoook.reset.user.wizard:0
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Cancel"
 msgstr "Cancel"
@@ -818,6 +843,7 @@ msgstr "Cancel"
 #. module: zoook
 #: view:zoook.create.user.wizard:0
 #: view:zoook.reset.user.wizard:0
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Close"
 msgstr "Close"
@@ -879,9 +905,9 @@ msgid "15 Days"
 msgstr "15 Days"
 
 #. module: zoook
-#: model:ir.model,name:zoook.model_product_product
-msgid "Product"
-msgstr "Product"
+#: view:zoook.sync.product.image.wizard:0
+msgid "Images Product to sync..."
+msgstr "Images Product to sync..."
 
 #. module: zoook
 #: view:product.category:0
@@ -1092,6 +1118,11 @@ msgid "Actions"
 msgstr "Actions"
 
 #. module: zoook
+#: field:sale.shop,zoook_port:0
+msgid "Port"
+msgstr "Port"
+
+#. module: zoook
 #: view:product.template:0
 #: view:res.partner:0
 msgid "e-sale"
@@ -1103,6 +1134,7 @@ msgid "Error: Invalid ean code"
 msgstr "Error: Invalid ean code"
 
 #. module: zoook
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Export"
 msgstr "Export"
@@ -1114,7 +1146,8 @@ msgid "Partner"
 msgstr "Partner"
 
 #. module: zoook
-#: field:sale.shop,zoook_port:0
-msgid "Port"
-msgstr "Port"
+#: code:addons/zoook/wizard/wizard_product_image.py:75
+#, python-format
+msgid "Not available some e-Sale Images Product to export"
+msgstr "Not available some e-Sale Images Product to export"
 

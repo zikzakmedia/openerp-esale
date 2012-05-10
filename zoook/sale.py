@@ -389,28 +389,40 @@ class sale_shop(osv.osv):
             LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, "Error connection to server.")
             return False
 
-    def dj_export_images(self, cr, uid, ids, context=None):
+    def dj_export_images(self, cr, uid, ids, prods=[], context=None):
         """
         Return list images IDs
+        @param prods: Product Template IDS
+        Return list IDs
         """
 
-        for shop in self.browse(cr, uid, ids):
-            images = []
-            image_ids = []
-            last_exported_time = shop.zoook_last_export_images
+        images = []
+        image_ids = []
+        if len(prods)>0: #sync products by wizard
+            for template in prods:
+                template_id = int(template)
+                products = self.pool.get('product.product').search(cr, uid, [('product_tmpl_id','=',template_id)])
+                if len(products) > 0:
+                    imgs = self.pool.get('product.images').search(cr, uid, [('product_id','=',products[0])])
+                    if len(imgs) > 0:
+                        for img in imgs:
+                            images.append(img)
+        else: #sync images by cron
+            for shop in self.browse(cr, uid, ids):
+                last_exported_time = shop.zoook_last_export_images
 
-            product_tmps = self.pool.get('product.template').search(cr, uid, [('zoook_exportable','=',True),('zoook_saleshop_ids','in',shop.id)])
-            products = self.pool.get('product.product').search(cr, uid, [('product_tmpl_id','in',product_tmps)])
+                product_tmps = self.pool.get('product.template').search(cr, uid, [('zoook_exportable','=',True),('zoook_saleshop_ids','in',shop.id)])
+                products = self.pool.get('product.product').search(cr, uid, [('product_tmpl_id','in',product_tmps)])
 
-            image_ids = self.pool.get('product.images').search(cr, uid, [('product_id','in',products)])
+                image_ids = self.pool.get('product.images').search(cr, uid, [('product_id','in',products)])
 
-            for image in self.pool.get('product.images').perm_read(cr, uid, image_ids):
-                if last_exported_time < image['create_date'][:19] or (image['write_date'] and last_exported_time < image['write_date'][:19]):
-                    images.append(image['id'])
+                for image in self.pool.get('product.images').perm_read(cr, uid, image_ids):
+                    if last_exported_time < image['create_date'][:19] or (image['write_date'] and last_exported_time < image['write_date'][:19]):
+                        images.append(image['id'])
 
-            LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Images: %s" % (images) )
+                LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Images: %s" % (images) )
 
-            self.write(cr, uid, [shop.id], {'zoook_last_export_images': time.strftime('%Y-%m-%d %H:%M:%S')})
+                self.write(cr, uid, [shop.id], {'zoook_last_export_images': time.strftime('%Y-%m-%d %H:%M:%S')})
 
         return images
 

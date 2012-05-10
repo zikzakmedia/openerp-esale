@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.2\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-04-27 13:25+0000\n"
-"PO-Revision-Date: 2012-05-04 11:28+0100\n"
+"POT-Creation-Date: 2012-05-10 09:30+0000\n"
+"PO-Revision-Date: 2012-05-10 11:39+0100\n"
 "Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -64,6 +64,17 @@ msgstr "eSale Logs"
 #: help:zoook.sale.shop.payment.type,virtual:0
 msgid "Virtual payment. Example: Paypal"
 msgstr "Virtual payment. Example: Paypal"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_zoook_sync_product_image_wizard
+msgid "zoook.sync.product.image.wizard"
+msgstr "zoook.sync.product.image.wizard"
+
+#. module: zoook
+#: code:addons/zoook/wizard/wizard_create_user.py:106
+#, python-format
+msgid "This email is null or exist another user. Use another email/address"
+msgstr "Aquest correu ja existeix amb un altre usuari. Utilitzi un altre correo/adreça."
 
 #. module: zoook
 #: view:sale.shop:0
@@ -127,7 +138,7 @@ msgid "Base Image"
 msgstr "Imatge base"
 
 #. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:134
+#: code:addons/zoook/wizard/wizard_create_user.py:130
 #: code:addons/zoook/wizard/wizard_reset_user.py:68
 #, python-format
 msgid "Error: Sale Shop not active"
@@ -172,13 +183,8 @@ msgid "Invoice from the Packing"
 msgstr "Facturar des d'albarà"
 
 #. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:106
-#, python-format
-msgid "This address there are not email. Please add new email for this address"
-msgstr "Aquesta adreça no conté cap adreça. Insereix un correu per aquesta adreça"
-
-#. module: zoook
 #: code:addons/zoook/sale.py:103
+#: code:addons/zoook/wizard/wizard_product_image.py:54
 #: code:addons/zoook/wizard/wizard_product_product.py:54
 #, python-format
 msgid "Error!"
@@ -239,6 +245,12 @@ msgstr "Galeria de productes"
 #: constraint:product.category:0
 msgid "Error ! You can not create recursive categories."
 msgstr "Error ! No pot crear categories recursives."
+
+#. module: zoook
+#: code:addons/zoook/wizard/wizard_product_image.py:54
+#, python-format
+msgid "Select Product Images to export"
+msgstr "Selecciona els productes a exportar"
 
 #. module: zoook
 #: code:addons/zoook/sale.py:99
@@ -322,6 +334,7 @@ msgid "Email Template Sale Order"
 msgstr "Plantilla de correu de la comanda de venda"
 
 #. module: zoook
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Exportation is running.... This action is in background. See logs server process"
 msgstr "La sincronització s'està execuntant-se. Aquesta acció es realitza en paral·lel. Reviseu el historial del servidor per més informació."
@@ -366,6 +379,7 @@ msgid "Several dimension values for the same dimension type"
 msgstr "Several dimension values for the same dimension type"
 
 #. module: zoook
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Export Product"
 msgstr "Exporta producte"
@@ -435,7 +449,7 @@ msgstr "Si publiques nous productes que ja estan relacionats amb altres producte
 #. module: zoook
 #: view:sale.shop:0
 msgid "Export Products"
-msgstr "Exporta productes"
+msgstr "Exporta producte e-Sale"
 
 #. module: zoook
 #: help:zoook.reset.user.wizard,email_reset_user:0
@@ -474,7 +488,7 @@ msgid "Products Related"
 msgstr "Productes relacionats"
 
 #. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:103
+#: code:addons/zoook/wizard/wizard_create_user.py:102
 #, python-format
 msgid "This Django user exist."
 msgstr "Aquest usuari a Django existeix."
@@ -497,6 +511,7 @@ msgstr "Reiniciar usuari (es crearà una nova contrasenya)"
 #. module: zoook
 #: selection:zoook.create.user.wizard,state:0
 #: selection:zoook.reset.user.wizard,state:0
+#: selection:zoook.sync.product.image.wizard,state:0
 #: selection:zoook.sync.product.wizard,state:0
 msgid "First"
 msgstr "Primer"
@@ -507,9 +522,9 @@ msgid "Comment"
 msgstr "Comentari"
 
 #. module: zoook
-#: model:ir.model,name:zoook.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producte"
+#: model:ir.actions.act_window,name:zoook.act_zoook_sync_product_image
+msgid "Export Images e-Sale"
+msgstr "Exporta imatges e-Sale"
 
 #. module: zoook
 #: field:zoook.create.user.wizard,last_name:0
@@ -527,7 +542,7 @@ msgid "Magento ID"
 msgstr "Magento ID"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:562
+#: code:addons/zoook/sale.py:575
 #, python-format
 msgid "Order %s change status: Cancel"
 msgstr "La comanda de venda %s ha canviat d'estat: Cancel·lat"
@@ -535,6 +550,7 @@ msgstr "La comanda de venda %s ha canviat d'estat: Cancel·lat"
 #. module: zoook
 #: field:zoook.create.user.wizard,result:0
 #: field:zoook.reset.user.wizard,result:0
+#: field:zoook.sync.product.image.wizard,result:0
 #: field:zoook.sync.product.wizard,result:0
 msgid "Result"
 msgstr "Resultat"
@@ -566,12 +582,13 @@ msgid "Vat Check"
 msgstr "Comprovació CIF/NIF"
 
 #. module: zoook
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Are you sure to export this product?"
 msgstr "Esteu segurs d'exportar aquest producte?"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:551
+#: code:addons/zoook/sale.py:564
 #, python-format
 msgid "Order %s change status: Done"
 msgstr "La comanda de venda %s ha canviat d'estat: Realitzat"
@@ -598,7 +615,7 @@ msgid "Draft"
 msgstr "Esborrany"
 
 #. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:148
+#: code:addons/zoook/wizard/wizard_create_user.py:144
 #: code:addons/zoook/wizard/wizard_reset_user.py:82
 #, python-format
 msgid "Sale Shop: %s Username: %s. %s"
@@ -609,12 +626,6 @@ msgstr "Botiga: %s Nom d'usuari: %s. %s"
 #, python-format
 msgid "-copy"
 msgstr "-copia"
-
-#. module: zoook
-#: code:addons/zoook/wizard/wizard_create_user.py:110
-#, python-format
-msgid "This email exist another user. Use another email/address"
-msgstr "This email exist another user. Use another email/address"
 
 #. module: zoook
 #: selection:sale.shop,zoook_log_clean:0
@@ -647,6 +658,11 @@ msgstr "Per eliminar aquest producte marqui l'estat a fals"
 #: field:res.partner,product_whistlist_ids:0
 msgid "Whislist"
 msgstr "Llista de desitjos"
+
+#. module: zoook
+#: model:ir.model,name:zoook.model_product_product
+msgid "Product"
+msgstr "Producte"
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_zoook_create_user_wizard
@@ -765,7 +781,7 @@ msgid "Atention! If you change slug, you need change manually all full slug chil
 msgstr "Atenció! Si canvia el slug, necessita canviar manualment la ruta completa de les categories filles"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:547
+#: code:addons/zoook/sale.py:560
 #, python-format
 msgid "Order Payment: %s"
 msgstr "Pagament de la comanda: %s"
@@ -777,8 +793,14 @@ msgid "Sequence"
 msgstr "Seqüència"
 
 #. module: zoook
+#: model:ir.model,name:zoook.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producte"
+
+#. module: zoook
 #: field:zoook.create.user.wizard,state:0
 #: field:zoook.reset.user.wizard,state:0
+#: field:zoook.sync.product.image.wizard,state:0
 #: field:zoook.sync.product.wizard,state:0
 msgid "State"
 msgstr "Estat"
@@ -799,12 +821,14 @@ msgstr "Informació General"
 #: selection:sale.order,payment_state:0
 #: selection:zoook.create.user.wizard,state:0
 #: selection:zoook.reset.user.wizard,state:0
+#: selection:zoook.sync.product.image.wizard,state:0
 #: selection:zoook.sync.product.wizard,state:0
 msgid "Done"
 msgstr "Fet"
 
 #. module: zoook
 #: field:esale.log,sale_shop_id:0
+#: field:zoook.sync.product.image.wizard,zoook_sale_shop:0
 #: field:zoook.sync.product.wizard,zoook_sale_shop:0
 msgid "Sale Shop"
 msgstr "Botiga"
@@ -813,6 +837,7 @@ msgstr "Botiga"
 #: selection:sale.order,payment_state:0
 #: view:zoook.create.user.wizard:0
 #: view:zoook.reset.user.wizard:0
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -820,6 +845,7 @@ msgstr "Cancel·la"
 #. module: zoook
 #: view:zoook.create.user.wizard:0
 #: view:zoook.reset.user.wizard:0
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Close"
 msgstr "Tanca"
@@ -881,9 +907,9 @@ msgid "15 Days"
 msgstr "15 Dies"
 
 #. module: zoook
-#: model:ir.model,name:zoook.model_product_product
-msgid "Product"
-msgstr "Producte"
+#: view:zoook.sync.product.image.wizard:0
+msgid "Images Product to sync..."
+msgstr "Productes a sincronitzar...."
 
 #. module: zoook
 #: view:product.category:0
@@ -1094,6 +1120,11 @@ msgid "Actions"
 msgstr "Accions"
 
 #. module: zoook
+#: field:sale.shop,zoook_port:0
+msgid "Port"
+msgstr "Port"
+
+#. module: zoook
 #: view:product.template:0
 #: view:res.partner:0
 msgid "e-sale"
@@ -1105,6 +1136,7 @@ msgid "Error: Invalid ean code"
 msgstr "Error: Codi EAN invàlid"
 
 #. module: zoook
+#: view:zoook.sync.product.image.wizard:0
 #: view:zoook.sync.product.wizard:0
 msgid "Export"
 msgstr "Exporta"
@@ -1116,10 +1148,15 @@ msgid "Partner"
 msgstr "Empresa"
 
 #. module: zoook
-#: field:sale.shop,zoook_port:0
-msgid "Port"
-msgstr "Port"
+#: code:addons/zoook/wizard/wizard_product_image.py:75
+#, python-format
+msgid "Not available some e-Sale Images Product to export"
+msgstr "No s'ha trobat imatges de producte a exportar"
 
+#~ msgid ""
+#~ "This address there are not email. Please add new email for this address"
+#~ msgstr ""
+#~ "Aquesta adreça no conté cap adreça. Insereix un correu per aquesta adreça"
 #~ msgid "Keyword"
 #~ msgstr "Keyword"
 #~ msgid "This Log is not allow to delete"
