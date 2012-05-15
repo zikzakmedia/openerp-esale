@@ -6,20 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-05-10 09:30+0000\n"
-"PO-Revision-Date: 2012-05-10 09:30+0000\n"
+"POT-Creation-Date: 2012-05-15 15:15+0000\n"
+"PO-Revision-Date: 2012-05-15 15:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: zoook
-#: code:addons/zoook/product.py:234
-#, python-format
-msgid "To Unlink this category mark status is False"
-msgstr "To Unlink this category mark status is False"
 
 #. module: zoook
 #: selection:zoook.sale.shop.payment.type,picking_policy:0
@@ -59,6 +53,12 @@ msgstr "e-Sale Filters..."
 #: model:ir.ui.menu,name:zoook.menu_esale_log
 msgid "eSale Logs"
 msgstr "eSale Logs"
+
+#. module: zoook
+#: code:addons/zoook/product.py:237
+#, python-format
+msgid "To Unlink this category, unmark active field"
+msgstr "To Unlink this category, unmark active field"
 
 #. module: zoook
 #: help:zoook.sale.shop.payment.type,virtual:0
@@ -257,7 +257,7 @@ msgid "Ok!"
 msgstr "Ok!"
 
 #. module: zoook
-#: code:addons/zoook/product.py:360
+#: code:addons/zoook/product.py:363
 #, python-format
 msgid "Not Price List available Partner or Shop."
 msgstr "Not Price List available Partner or Shop."
@@ -592,6 +592,12 @@ msgid "Order %s change status: Done"
 msgstr "Order %s change status: Done"
 
 #. module: zoook
+#: code:addons/zoook/product.py:413
+#, python-format
+msgid "To Unlink this product, unmark active field and select none option in visibility field"
+msgstr "To Unlink this product, unmark active field and select none option in visibility field"
+
+#. module: zoook
 #: constraint:product.template:0
 msgid "Error: The default UOM and the purchase UOM must be in the same category."
 msgstr "Error: The default UOM and the purchase UOM must be in the same category."
@@ -620,7 +626,7 @@ msgid "Sale Shop: %s Username: %s. %s"
 msgstr "Sale Shop: %s Username: %s. %s"
 
 #. module: zoook
-#: code:addons/zoook/product.py:401
+#: code:addons/zoook/product.py:404
 #, python-format
 msgid "-copy"
 msgstr "-copy"
@@ -645,12 +651,6 @@ msgstr "Full Slug"
 #: field:zoook.sale.shop.payment.type,picking_policy:0
 msgid "Packing Policy"
 msgstr "Packing Policy"
-
-#. module: zoook
-#: code:addons/zoook/product.py:407
-#, python-format
-msgid "To Unlink this product mark status is False"
-msgstr "To Unlink this product mark status is False"
 
 #. module: zoook
 #: field:res.partner,product_whistlist_ids:0
@@ -939,10 +939,10 @@ msgstr "Name App Payment module (example, paypal, servired, cash_on_delivery,...
 #. module: zoook
 #: code:addons/zoook/product.py:173
 #: code:addons/zoook/product.py:199
-#: code:addons/zoook/product.py:234
-#: code:addons/zoook/product.py:279
-#: code:addons/zoook/product.py:315
-#: code:addons/zoook/product.py:407
+#: code:addons/zoook/product.py:237
+#: code:addons/zoook/product.py:282
+#: code:addons/zoook/product.py:318
+#: code:addons/zoook/product.py:413
 #, python-format
 msgid "Alert"
 msgstr "Alert"
@@ -961,7 +961,7 @@ msgstr "Template Email Create User"
 #. module: zoook
 #: code:addons/zoook/product.py:173
 #: code:addons/zoook/product.py:199
-#: code:addons/zoook/product.py:279
+#: code:addons/zoook/product.py:282
 #, python-format
 msgid "This Slug exists. Choose another slug"
 msgstr "This Slug exists. Choose another slug"
@@ -1065,7 +1065,7 @@ msgid "Ssh key"
 msgstr "Ssh key"
 
 #. module: zoook
-#: code:addons/zoook/product.py:315
+#: code:addons/zoook/product.py:318
 #, python-format
 msgid "Slug %s exists. Choose another slug"
 msgstr "Slug %s exists. Choose another slug"

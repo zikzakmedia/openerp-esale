@@ -188,8 +188,11 @@ class product_category(osv.osv):
         fslug recalculated
         """
 
+        if isinstance(ids, int):
+            ids = [ids]
+
         super(product_category, self).write(cr, uid, ids, vals, context=context)
-        
+
         for cat in self.browse(cr, uid, ids):
             if cat.zoook_exportable:
                 slug = vals.get('slug', False) or cat.slug
@@ -231,7 +234,10 @@ class product_category(osv.osv):
         return super(product_category, self).copy(cr, uid, id, default, context=context)
 
     def unlink(self, cr, uid, ids, context=None):
-        raise osv.except_osv(_("Alert"), _("To Unlink this category mark status is False"))
+        """Not unlink products if are exportable"""
+        for category in self.browse(cr, uid, ids, context):
+            if category.zoook_exportable:
+                raise osv.except_osv(_("Alert"), _("To Unlink this category, unmark active field"))
 
 product_category()
 
@@ -345,7 +351,7 @@ class product_product(osv.osv):
             partner_id = []
 
         logger = netsvc.Logger()
-    
+
         product_obj = self.pool.get('product.product')
         product_template_obj = self.pool.get('product.template')
         sale_shop_obj = self.pool.get('sale.shop')
@@ -404,6 +410,9 @@ class product_product(osv.osv):
         return super(product_product, self).copy(cr, uid, id, default, context)
 
     def unlink(self, cr, uid, ids, context=None):
-        raise osv.except_osv(_("Alert"), _("To Unlink this product mark status is False"))
+        """Not unlink products if are exportable"""
+        for product in self.browse(cr, uid, ids, context):
+            if product.zoook_exportable:
+                raise osv.except_osv(_("Alert"), _("To Unlink this product, unmark active field and select none option in visibility field"))
 
 product_product()

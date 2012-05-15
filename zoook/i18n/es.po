@@ -6,20 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.2\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-05-10 09:30+0000\n"
-"PO-Revision-Date: 2012-05-10 11:40+0100\n"
+"POT-Creation-Date: 2012-05-15 15:15+0000\n"
+"PO-Revision-Date: 2012-05-15 17:19+0100\n"
 "Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-
-#. module: zoook
-#: code:addons/zoook/product.py:234
-#, python-format
-msgid "To Unlink this category mark status is False"
-msgstr "Para eliminar esta categoría marque el estado a falso"
 
 #. module: zoook
 #: selection:zoook.sale.shop.payment.type,picking_policy:0
@@ -59,6 +53,12 @@ msgstr "e-Sale Filters..."
 #: model:ir.ui.menu,name:zoook.menu_esale_log
 msgid "eSale Logs"
 msgstr "eSale Logs"
+
+#. module: zoook
+#: code:addons/zoook/product.py:237
+#, python-format
+msgid "To Unlink this category, unmark active field"
+msgstr "Para eliminar esta categoría, desmarque el campo estado."
 
 #. module: zoook
 #: help:zoook.sale.shop.payment.type,virtual:0
@@ -259,7 +259,7 @@ msgid "Ok!"
 msgstr "Aceptar"
 
 #. module: zoook
-#: code:addons/zoook/product.py:360
+#: code:addons/zoook/product.py:363
 #, python-format
 msgid "Not Price List available Partner or Shop."
 msgstr "No hay listas de tarifa disponibles en la empresa o en la tienda"
@@ -594,6 +594,12 @@ msgid "Order %s change status: Done"
 msgstr "Pedido de venta %s ha cambiado el estado: Realizado"
 
 #. module: zoook
+#: code:addons/zoook/product.py:413
+#, python-format
+msgid "To Unlink this product, unmark active field and select none option in visibility field"
+msgstr "Para eliminar el producto, desmarque el campo activo y el campo visibilidad a ninguna parte."
+
+#. module: zoook
 #: constraint:product.template:0
 msgid "Error: The default UOM and the purchase UOM must be in the same category."
 msgstr "Error: UOM por defecto y UOM de compra deben ser de la misma categoría."
@@ -622,7 +628,7 @@ msgid "Sale Shop: %s Username: %s. %s"
 msgstr "Tienda: %s Nombre de usuario: %s. %s"
 
 #. module: zoook
-#: code:addons/zoook/product.py:401
+#: code:addons/zoook/product.py:404
 #, python-format
 msgid "-copy"
 msgstr "-copia"
@@ -647,12 +653,6 @@ msgstr "Slug completo"
 #: field:zoook.sale.shop.payment.type,picking_policy:0
 msgid "Packing Policy"
 msgstr "Política de envío"
-
-#. module: zoook
-#: code:addons/zoook/product.py:407
-#, python-format
-msgid "To Unlink this product mark status is False"
-msgstr "Para eliminar este producto marque el estado a falso"
 
 #. module: zoook
 #: field:res.partner,product_whistlist_ids:0
@@ -941,10 +941,10 @@ msgstr "Nombre de la aplicación de pago (ejemplo: paypal, servired, cash_on_del
 #. module: zoook
 #: code:addons/zoook/product.py:173
 #: code:addons/zoook/product.py:199
-#: code:addons/zoook/product.py:234
-#: code:addons/zoook/product.py:279
-#: code:addons/zoook/product.py:315
-#: code:addons/zoook/product.py:407
+#: code:addons/zoook/product.py:237
+#: code:addons/zoook/product.py:282
+#: code:addons/zoook/product.py:318
+#: code:addons/zoook/product.py:413
 #, python-format
 msgid "Alert"
 msgstr "Alerta"
@@ -963,7 +963,7 @@ msgstr "Plantilla de creación de usuario"
 #. module: zoook
 #: code:addons/zoook/product.py:173
 #: code:addons/zoook/product.py:199
-#: code:addons/zoook/product.py:279
+#: code:addons/zoook/product.py:282
 #, python-format
 msgid "This Slug exists. Choose another slug"
 msgstr "Este slug ya existe. Utilice otro."
@@ -1067,7 +1067,7 @@ msgid "Ssh key"
 msgstr "Clave SSH"
 
 #. module: zoook
-#: code:addons/zoook/product.py:315
+#: code:addons/zoook/product.py:318
 #, python-format
 msgid "Slug %s exists. Choose another slug"
 msgstr "Slug %s existe. Utilize otro nombre."
@@ -1153,6 +1153,8 @@ msgstr "Empresa"
 msgid "Not available some e-Sale Images Product to export"
 msgstr "No hay productos e-Sale disponibles a publicar"
 
+#~ msgid "To Unlink this product mark status is False"
+#~ msgstr "Para eliminar este producto marque el estado a falso"
 #~ msgid ""
 #~ "This address there are not email. Please add new email for this address"
 #~ msgstr "Esta dirección no contiene ningún correo electrónico. Insertar uno."
