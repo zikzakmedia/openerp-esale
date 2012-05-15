@@ -238,6 +238,7 @@ class product_category(osv.osv):
         for category in self.browse(cr, uid, ids, context):
             if category.zoook_exportable:
                 raise osv.except_osv(_("Alert"), _("To Unlink this category, unmark active field"))
+        return super(product_category, self).unlink(cr, uid, ids, context)
 
 product_category()
 
@@ -414,5 +415,6 @@ class product_product(osv.osv):
         for product in self.browse(cr, uid, ids, context):
             if product.zoook_exportable:
                 raise osv.except_osv(_("Alert"), _("To Unlink this product, unmark active field and select none option in visibility field"))
+        return super(product_product, self).unlink(cr, uid, ids, context)
 
 product_product()
