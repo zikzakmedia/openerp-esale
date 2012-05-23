@@ -104,6 +104,14 @@
                 <field name="app_payment"/>
                 <field name="confirm"/>
                 <field name="virtual"/>
+                <field name="commission"/>
+                <group col="4" colspan="4" attrs="{'invisible':[('commission','==',False)]}">
+                    <separator string="Commission" colspan="4" />
+                    <field name="commission_product_id" attrs="{'required':[('commission','=', True)]}"/>
+                    <field name="commission_type" attrs="{'required':[('commission','=', True)]}"/>
+                    <field name="commission_operator" attrs="{'required':[('commission','=', True)]}"/>
+                    <field name="commission_price" attrs="{'required':[('commission','=', True)]}"/>
+                </group>
             </form>
             </field>
         </record>

@@ -580,6 +580,15 @@ class sale_order(osv.osv):
 
 sale_order()
 
+class sale_order_line(osv.osv):
+    _inherit = 'sale.order.line'
+
+    _columns = {
+        'commission_line': fields.boolean('Commission', help="Commission line"),
+     }
+
+sale_order_line()
+
 class zoook_sale_shop_payment_type(osv.osv):
     _name = "zoook.sale.shop.payment.type"
 
@@ -591,16 +600,127 @@ class zoook_sale_shop_payment_type(osv.osv):
         'shop_id': fields.many2one('sale.shop','Shop', required=True),
         'picking_policy': fields.selection([('direct', 'Partial Delivery'), ('one', 'Complete Delivery')], 'Packing Policy', required=True),
         'order_policy': fields.selection([
-         ('prepaid', 'Payment Before Delivery'),
-         ('manual', 'Shipping & Manual Invoice'),
-         ('postpaid', 'Invoice on Order After Delivery'),
-         ('picking', 'Invoice from the Packing'),
+            ('prepaid', 'Payment Before Delivery'),
+            ('manual', 'Shipping & Manual Invoice'),
+            ('postpaid', 'Invoice on Order After Delivery'),
+            ('picking', 'Invoice from the Packing'),
         ], 'Shipping Policy', required=True),
         'invoice_quantity': fields.selection([('order', 'Ordered Quantities'), ('procurement', 'Shipped Quantities')], 'Invoice on', required=True),
         'app_payment': fields.char('App Payment', size=255, required=True, help='Name App Payment module (example, paypal, servired, cash_on_delivery,...)'),
         'confirm': fields.boolean('Confirm', help="Confirm order. Sale Order change state draft to done, and generate picking and/or invoice automatlly"),
         'sequence': fields.integer('Sequence', help="Gives the sequence order when displaying a list of payments."),
         'virtual': fields.boolean('Virtual', help="Virtual payment. Example: Paypal"),
+        'commission': fields.boolean('Commission', help="Commission Payment. Add extra price in sale order"),
+        'commission_product_id': fields.many2one('product.product', 'Product', help='Product commission in sale order line.'),
+        'commission_type': fields.selection([
+            ('fix', 'Fix'),
+            ('percentage', 'Percentage'),
+        ], 'Commission Type'),
+        'commission_operator': fields.selection([
+            ('add', '(+) Add'),
+            ('subtract', '(-) Substract'),
+        ], 'Commission Operator'),
+        'commission_price': fields.float('Price', help="Fix price or percentatge. Percentat is over 100. 10% is 0.10"),
      }
+
+    _defaults = {
+        'commission_type': 'fix',
+        'commission_operator': 'add',
+     }
+
+    def get_payment_commission(self, cr, uid, order):
+        """
+        Get payments by sale shop and get payment comission
+         - order: Id Order
+         :return list [{'sequence','app_payment','name'}]
+        """
+
+        if not order:
+            return []
+
+        payment_esale = []
+        sale_payment_type = self.pool.get('zoook.sale.shop.payment.type')
+
+        order = self.pool.get('sale.order').browse(cr, uid, order)
+
+        sale_shop_payments = sale_payment_type.search(cr, uid, [('shop_id','=',order.shop_id.id)])
+        if not len(sale_shop_payments)>0:
+            return []
+
+        for payment in sale_payment_type.browse(cr, uid, sale_shop_payments):
+            name = '%s' % (payment.payment_type_id.name)
+            if payment.commission:
+                if payment.commission_operator == 'subtract':
+                    operator = '-'
+                else:
+                    operator = '+'
+
+                if payment.commission_type == 'percentage':
+                    price = order.amount_untaxed*payment.commission_price
+                else:
+                    price = payment.commission_price
+
+                name = '%(name)s (%(operator)s%(price)s %(currency)s)' % {
+                    'name': payment.payment_type_id.name,
+                    'operator': operator,
+                    'price': price,
+                    'currency': order.shop_id.pricelist_id.currency_id.symbol,
+                }
+            payment_esale.append({'sequence':payment.sequence,'app_payment':payment.app_payment,'name':name})
+
+        return payment_esale
+
+    def set_payment_commission(self, cr, uid, order, payment):
+        """
+        Set payment commission in sale line
+         - order: Id Order
+         - payment: Str Payment
+         :return True
+        """
+
+        if not order and not payment:
+            return False
+
+        order = self.pool.get('sale.order').browse(cr, uid, order)
+
+        if order.state != 'draft' and order.payment_state != 'draft':
+            return False
+    
+        payment = self.pool.get('zoook.sale.shop.payment.type').search(cr, uid, [('shop_id','=',order.shop_id.id),('app_payment','=',payment)])
+        if not len(payment)>0:
+            return False
+
+        payment = self.pool.get('zoook.sale.shop.payment.type').browse(cr, uid, payment)[0]
+        if payment.commission:
+            if payment.commission_type == 'percentage':
+                price = order.amount_untaxed*payment.commission_price
+
+            else:
+                price = payment.commission_price
+
+            if payment.commission_operator == 'subtract':
+                price = -price
+
+        values = {
+            'order_id': order.id,
+            'name': '%s - %s' % (payment.payment_type_id.name, payment.commission_product_id.name),
+            'product_id': payment.commission_product_id.id,
+            'product_uom_qty': 1,
+            'product_uom': payment.commission_product_id.product_tmpl_id.uom_id.id,
+            'price_unit': price,
+            'commission_line': True,
+        }
+
+        try:
+            self.pool.get('sale.order.line').create(cr, uid, values)
+            comment = "Add commission payment %s - %s: %s" % (order.id, payment.payment_type_id.name, price)
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, comment)
+            self.pool.get('esale.log').create_log(cr, uid, order.shop_id.id, 'sale.order', order.id, 'done', comment)
+        except:
+            comment = "Add commission payment %s - %s: %s" % (order.id, payment.payment_type_id.name, price)
+            LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, comment)
+            self.pool.get('esale.log').create_log(cr, uid, order.shop_id.id, 'sale.order', order.id, 'error', comment)
+
+        return True
 
 zoook_sale_shop_payment_type()
