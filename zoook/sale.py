@@ -26,6 +26,7 @@ from osv import osv, fields
 from datetime import datetime
 from tools.translate import _
 
+import decimal_precision as dp
 import netsvc
 import time
 import tools
@@ -660,6 +661,8 @@ class zoook_sale_shop_payment_type(osv.osv):
                 else:
                     price = payment.commission_price
 
+                price = round(price,self.pool.get('decimal.precision').precision_get(cr, uid, 'Sale Price'))
+
                 name = '%(name)s (%(operator)s%(price)s %(currency)s)' % {
                     'name': payment.payment_type_id.name,
                     'operator': operator,
@@ -690,6 +693,7 @@ class zoook_sale_shop_payment_type(osv.osv):
         if not len(payment)>0:
             return False
 
+        price = False
         payment = self.pool.get('zoook.sale.shop.payment.type').browse(cr, uid, payment)[0]
         if payment.commission:
             if payment.commission_type == 'percentage':
@@ -701,25 +705,28 @@ class zoook_sale_shop_payment_type(osv.osv):
             if payment.commission_operator == 'subtract':
                 price = -price
 
-        values = {
-            'order_id': order.id,
-            'name': '%s - %s' % (payment.payment_type_id.name, payment.commission_product_id.name),
-            'product_id': payment.commission_product_id.id,
-            'product_uom_qty': 1,
-            'product_uom': payment.commission_product_id.product_tmpl_id.uom_id.id,
-            'price_unit': price,
-            'commission_line': True,
-        }
+            price = round(price,self.pool.get('decimal.precision').precision_get(cr, uid, 'Sale Price'))
 
-        try:
-            self.pool.get('sale.order.line').create(cr, uid, values)
-            comment = "Add commission payment %s - %s: %s" % (order.id, payment.payment_type_id.name, price)
-            LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, comment)
-            self.pool.get('esale.log').create_log(cr, uid, order.shop_id.id, 'sale.order', order.id, 'done', comment)
-        except:
-            comment = "Add commission payment %s - %s: %s" % (order.id, payment.payment_type_id.name, price)
-            LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, comment)
-            self.pool.get('esale.log').create_log(cr, uid, order.shop_id.id, 'sale.order', order.id, 'error', comment)
+        if price:
+            values = {
+                'order_id': order.id,
+                'name': '%s - %s' % (payment.payment_type_id.name, payment.commission_product_id.name),
+                'product_id': payment.commission_product_id.id,
+                'product_uom_qty': 1,
+                'product_uom': payment.commission_product_id.product_tmpl_id.uom_id.id,
+                'price_unit': price,
+                'commission_line': True,
+            }
+
+            try:
+                self.pool.get('sale.order.line').create(cr, uid, values)
+                comment = "Add commission payment %s - %s: %s" % (order.id, payment.payment_type_id.name, price)
+                LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, comment)
+                self.pool.get('esale.log').create_log(cr, uid, order.shop_id.id, 'sale.order', order.id, 'done', comment)
+            except:
+                comment = "Add commission payment %s - %s: %s" % (order.id, payment.payment_type_id.name, price)
+                LOGGER.notifyChannel('e-Sale', netsvc.LOG_ERROR, comment)
+                self.pool.get('esale.log').create_log(cr, uid, order.shop_id.id, 'sale.order', order.id, 'error', comment)
 
         return True
 
