@@ -37,6 +37,7 @@
         "account_payment_extension",
         "base",
         "base_vat",
+        "currency_numeric_code",
         'delivery',
         "django",
         "poweremail",
