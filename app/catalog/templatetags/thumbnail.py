@@ -35,7 +35,7 @@ class ThumbnailNode(Node):
     def __init__(self, source_var, size, default):
         self.source_var = source_var
         self.size = size
-        self.default = default
+        self.default = '/static/images/%s/%s' % (BASE_TEMPLATE, default)
  
     def render(self, context):
         try:
@@ -86,12 +86,12 @@ def thumbnail(parser, token):
     *size* the size in the format ``[width]x[height]`` For example,
       ``{% thumbnail 'http://domain/file.png' 100x50 %}``
 
-    *img_default* path image default For example,
-      ``{% thumbnail 'http://domain/file.png' 100x50 /static/images/product_zoook.png %}``
+    *img_default* image name default. For example,
+      ``{% thumbnail 'http://domain/file.png' 100x50 product_thumb.png %}``
 
     Demo:
-      {% thumbnail 'http://domain/file.png' 100x50 /static/images/product_zoook.png %}
-      {% thumbnail value.base_image.filename 150x150 /static/images/product_zoook.png %}
+      {% thumbnail 'http://domain/file.png' 100x50 product_thumb.png %}
+      {% thumbnail value.base_image.filename 150x150 product_thumb.png %}
 
     Thumbnail image is created in MEDIA_ROOT/catalog directory. Thumbnail create directory size, for example, MEDIA_ROOT/50x50
     """

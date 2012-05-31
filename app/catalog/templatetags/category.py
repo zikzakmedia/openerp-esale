@@ -28,8 +28,7 @@ from config import LOCALE_URI
 
 register = template.Library()
 
-@register.inclusion_tag('catalog/tags/horizontal_menu.html', takes_context = True)
-def render_horizontal_menu(context):
+def render_category_menu(context):
     root_category = ProductCategory.objects.filter(parent=None)
 
     oldlevel = 0
@@ -46,3 +45,14 @@ def render_horizontal_menu(context):
         'lastlevel': oldlevel,
         'LOCALE_URI': context['LOCALE_URI'],
     }
+
+@register.inclusion_tag('catalog/tags/horizontal_menu.html', takes_context = True)
+def render_horizontal_menu(context):
+    """Render category tree (all categories and childs) to horizontal menu.
+    Horizontal Menu only suport 5 levels"""
+    return render_category_menu(context)
+
+@register.inclusion_tag('catalog/tags/vertical_menu.html', takes_context = True)
+def render_vertical_menu(context):
+    """Render category tree (all categories and childs) to vertical menu."""
+    return render_category_menu(context)

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Error" %}
+{% endblock %}
+
+{% block content %}
+    <div id="error">
+        <h1>{% trans "An unexpected error has occurred and has not been able to continue. Repeat again or contact us." %}</h1>
+        {% if error %}<p>{{ error }}</p>{% endif %}
+    </div>
+{% endblock%}

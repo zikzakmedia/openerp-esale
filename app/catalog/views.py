@@ -31,7 +31,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.models import Site
 from django.forms import ModelForm
-from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_protect
 
 from settings import *
@@ -81,7 +80,6 @@ def index(request):
                     'values': values,
                 }, context_instance=RequestContext(request))
 
-@cache_page(60 * 15)
 @csrf_protect
 def category(request, category):
     """All Products filtered by category"""
@@ -131,7 +129,10 @@ def category(request, category):
             })
 
     # == order by position, name or price ==
-    values.sort(key=lambda x: x[request.session['order']], reverse = request.session['order_by'] == 'desc')
+    try:
+        values.sort(key=lambda x: x[request.session['order']], reverse = request.session['order_by'] == 'desc')
+    except:
+        pass
 
     # == template values ==
     num_pages = get_num_pages(products_tmpl, request.session['paginator'])
@@ -162,7 +163,6 @@ def category(request, category):
     }
     return render_to_response("catalog/category.html", category_values, context_instance=RequestContext(request))
 
-@cache_page(60 * 15)
 @csrf_protect
 def product(request, product):
     """Product View"""
@@ -194,6 +194,9 @@ def product(request, product):
     related_products = tplproduct.get_related_products()
     upsells_products = tplproduct.get_upsells_produts()
 
+    #add session last visited
+    tplproduct.set_last_visited(request, tplproduct)
+
     values = {
         'title': title,
         'metadescription': metadescription,
@@ -209,6 +212,7 @@ def product(request, product):
         'thumb_images': thumb_images,
         'url': LIVE_URL,
         'currency': DEFAULT_CURRENCY,
+        'twitter_user':TWITTER_USER,
     }
     return render_to_response("catalog/product.html", values, context_instance=RequestContext(request))
 
@@ -383,7 +387,6 @@ def manufacturers(request, key=False):
                         },
                         context_instance=RequestContext(request))
 
-@cache_page(60 * 15)
 def manufacturer(request, manufacturer):
     """Manufacturer Detail and Products
     :param request
@@ -454,7 +457,7 @@ def manufacturer(request, manufacturer):
 
     num_pages = get_num_pages(products_tmpl, request.session['paginator'])
 
-    title = "%(manufacturer)s - %(site)s - Page %(page)s of %(total)s" % {
+    title = _("%(manufacturer)s - %(site)s - Page %(page)s of %(total)s") % {
         'manufacturer': manufacturer.name,
         'site': site_configuration.site_title,
         'page': int(request.GET.get('page', '1')),

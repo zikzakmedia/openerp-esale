@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% load i18n %}
+
+{% block head %}<script type="text/javascript" src="/static/js/ckeditor/ckeditor.js"></script> 
+<script type="text/javascript" src="/static/js/ckeditor.js"></script>
+<script type="text/javascript" src="/media/admin/js/urlify.js"></script>{% endblock %}
+
+{% block content %}
+    <form action="{{ url_form }}" method="post" id="form-app-user">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}
+
+{% block buttom %}{% include "form.html" %}{% endblock %}

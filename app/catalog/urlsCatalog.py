@@ -26,12 +26,11 @@ from catalog.feeds import *
 
 """Urls Catalog"""
 urlpatterns = patterns("",
-    (r'^$', 'catalog.views.index'),
-    (r"^updateprice", 'catalog.views.updateprice',''),
-    (r"^compare", 'catalog.views.compare',''),
-    (r"^whistlist", 'catalog.views.whistlist',''),
-    (r"^rss/$", ProductFeed()),
-    (r"^.+/(?P<category>[^/]+)/$", 'catalog.views.category'),
-    (r"(?P<category>[^/]+)/$", 'catalog.views.category'),
-#    (r"^(?P<category>[^/]+)/$", 'catalog.views.category'),
+    url(r'^$', 'catalog.views.index', name='catalog_index'),
+    url(r"^updateprice", 'catalog.views.updateprice', name='catalog_updateprice'),
+    url(r"^compare", 'catalog.views.compare', name='catalog_compare'),
+    url(r"^whistlist", 'catalog.views.whistlist', name='catalog_whistlist'),
+    url(r"^rss/$", ProductFeed()),
+    url(r"^.+/(?P<category>[^/]+)/$", 'catalog.views.category', name='catalog_category_child'),
+    url(r"(?P<category>[^/]+)/$", 'catalog.views.category', name='catalog_category'),
 )

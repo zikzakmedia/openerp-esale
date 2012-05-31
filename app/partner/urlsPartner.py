@@ -24,14 +24,15 @@ from django.conf.urls.defaults import *
 from partner.views import *
 
 """Urls Partner"""
-urlpatterns = patterns("",
-    (r'^$', 'partner.views.login','', 'partner_index'),
-    (r'^login', 'partner.views.login', '', 'auth_login'),
-    (r'^profile', 'partner.views.profile'),
-    #~ (r'^profile', 'sale.views.orders'),
-    (r"^logout/$", "django.contrib.auth.views.logout", {"next_page":"/"}, 'auth_logout'),
-    (r'^register', 'partner.views.register', '', 'auth_register'),
-    (r'^remember', 'partner.views.remember', '', 'auth_remember'),
-    (r'^changepassword', 'partner.views.changepassword', '', 'auth_changepassword'),
-    (r'^partner', 'partner.views.partner','','partner_partner'),
+urlpatterns = patterns('',
+    url(r'^$', 'partner.views.login', name='partner'),
+    url(r'^login', 'partner.views.login', name='partner_login'),
+    url(r'^profile', 'partner.views.profile', name='partner_profile'),
+    url(r"^logout/$", "django.contrib.auth.views.logout", {"next_page":"/"}, name='partner_logout'),
+    url(r'^register', 'partner.views.register', name='partner_register'),
+    url(r'^remember', 'partner.views.remember', name='partner_remember'),
+    url(r'^changepassword', 'partner.views.changepassword', name='partner_changepassword'),
+    url(r'^partner', 'partner.views.partner', name='partner_partner'),
 )
+
+

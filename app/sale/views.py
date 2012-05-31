@@ -106,12 +106,13 @@ def order(request, order):
     value = values[0]
     title = _('Order %s') % (value.name)
     metadescription = _('Details order %s') % (value.name)
-
+    currency = value.pricelist_id.currency_id.symbol
+        
     return render_to_response("sale/order.html", {
                 'title': title,
                 'metadescription': metadescription,
                 'value': value,
-                'currency': DEFAULT_CURRENCY,
+                'currency': currency,
             }, context_instance=RequestContext(request))
 
 @login_required
@@ -195,13 +196,14 @@ def payment(request, order):
     
     title = _('Payment Order %s') % (value.name)
     metadescription = _('Payment Order %s') % (value.name)
+    currency = value.pricelist_id.currency_id.symbol
 
     return render_to_response("sale/payment.html", {
                 'title': title, 
                 'metadescription': metadescription, 
                 'value': value, 
                 'payments': payments, 
-                'currency': DEFAULT_CURRENCY,
+                'currency': currency,
             }, context_instance=RequestContext(request))
 
 def check_order(conn, partner_id, OERP_SALE):
@@ -374,9 +376,9 @@ def checkout(request):
         'order':order,
         'lines': lines,
     }
-    
-    #delivery
+
     if len(lines)>0:
+        #delivery
         try:
             values['deliveries'] = conn_webservice('sale.order','delivery_cost', [order.id])
             delivery = True
@@ -393,8 +395,14 @@ def checkout(request):
         #order payment by sequence
         payments = []
         if sale_shop.zoook_payment_types:
+            payment_commission = False
             for payment_type in sale_shop.zoook_payment_types:
+                if payment_type.commission:
+                    payment_commission = True
                 payments.append({'sequence':payment_type.sequence,'app_payment':payment_type.app_payment,'name':payment_type.payment_type_id.name})
+            #if payment commission is available, recalculate extra price
+            if payment_commission:
+                payments = conn_webservice('zoook.sale.shop.payment.type','get_payment_commission', [order.id])
         else:
             logging.basicConfig(filename=LOGFILE,level=logging.INFO)
             logging.info('[%s] %s' % (time.strftime('%Y-%m-%d %H:%M:%S'), 'Need configure payment available in this shop'))
@@ -464,61 +472,66 @@ def checkout_confirm(request):
         if order.state != 'draft':
             return HttpResponseRedirect("%s/sale/" % (context_instance['LOCALE_URI']))
 
-        delivery = request.POST['delivery']
-        payment = request.POST['payment']
-        address_invoice = request.POST['address_invoice']
-        address_delivery = request.POST['address_delivery']
+        delivery = request.POST.get('delivery') and request.POST.get('delivery') or False
+        payment = request.POST['payment'] and request.POST['payment'] or False
+        address_invoice = request.POST['address_invoice'] and request.POST['address_invoice'] or False
+        address_delivery = request.POST['address_delivery'] and request.POST['address_delivery'] or False
 
         #delivery
-        delivery = delivery.split('|')
-        carrier = conn.DeliveryCarrier.filter(code=delivery[0])
-        if len(carrier) == 0:
-            return HttpResponseRedirect("%s/sale/checkout/" % (context_instance['LOCALE_URI']))
-        carrier = carrier[0]
+        if delivery:
+            delivery = delivery.split('|')
+            carrier = conn.DeliveryCarrier.filter(code=delivery[0])
+            if len(carrier) == 0:
+                return HttpResponseRedirect("%s/sale/checkout/" % (context_instance['LOCALE_URI']))
+            carrier = carrier[0]
 
-        if partner.property_product_pricelist:
-            pricelist = partner.property_product_pricelist.id
-        else:
-            shop = conn.SaleShop.get(OERP_SALE)
-            pricelist = shop.pricelist_id.id
+            if partner.property_product_pricelist:
+                pricelist = partner.property_product_pricelist.id
+            else:
+                shop = conn.SaleShop.get(OERP_SALE)
+                pricelist = shop.pricelist_id.id
 
-        values = [
-            [order.id], #ids
-            pricelist, #pricelist
-            carrier.product_id.id, #product
-            1, #qty
-            False, #uom
-            0, #qty_uos
-            False, #uos
-            '', #name
-            partner.id, #partner_id
-        ]
+            values = [
+                [order.id], #ids
+                pricelist, #pricelist
+                carrier.product_id.id, #product
+                1, #qty
+                False, #uom
+                0, #qty_uos
+                False, #uos
+                '', #name
+                partner.id, #partner_id
+            ]
 
-        product_id_change = conn_webservice('sale.order.line','product_id_change', values)
-        order_line = conn.SaleOrderLine.new()
-        order_line.order_id = order
-        order_line.name = carrier.product_id.name
-        order_line.product_id = carrier.product_id
-        order_line.product_uom_qty = 1
-        order_line.product_uom = carrier.product_id.product_tmpl_id.uom_id
-        order_line.delay = product_id_change['value']['delay']
-        order_line.th_weight = product_id_change['value']['th_weight']
-        order_line.type = product_id_change['value']['type']
-        order_line.price_unit = float(re.sub(',','.',delivery[1]))
-        order_line.tax_id = [conn.AccountTax.get(t_id) for t_id in product_id_change['value']['tax_id']]
-        order_line.product_packaging = ''
-        order_line.save()
+            product_id_change = conn_webservice('sale.order.line','product_id_change', values)
+            order_line = conn.SaleOrderLine.new()
+            order_line.order_id = order
+            order_line.name = carrier.product_id.name
+            order_line.product_id = carrier.product_id
+            order_line.product_uom_qty = 1
+            order_line.product_uom = carrier.product_id.product_tmpl_id.uom_id
+            order_line.delay = product_id_change['value']['delay']
+            order_line.th_weight = product_id_change['value']['th_weight']
+            order_line.type = product_id_change['value']['type']
+            order_line.price_unit = float(re.sub(',','.',delivery[1]))
+            order_line.tax_id = [conn.AccountTax.get(t_id) for t_id in product_id_change['value']['tax_id']]
+            order_line.product_packaging = ''
+            order_line.save()
 
-        #delivery
-        order.carrier_id = carrier
+            #delivery
+            order.carrier_id = carrier
 
         #payment type
         payment_type = conn.ZoookSaleShopPaymentType.filter(app_payment=payment)
         if len(payment_type) > 0:
+            if payment_type[0].commission: #add new order line
+                payment = conn_webservice('zoook.sale.shop.payment.type','set_payment_commission', [order.id, payment])
             order.payment_type = payment_type[0].payment_type_id
             order.picking_policy = payment_type[0].picking_policy
             order.order_policy = payment_type[0].order_policy
             order.invoice_quantity = payment_type[0].invoice_quantity
+        else:
+            return HttpResponseRedirect("%s/sale/checkout/" % (context_instance['LOCALE_URI']))
 
         #Replace invoice address and delivery address
         if address_invoice:
@@ -543,6 +556,8 @@ def checkout_confirm(request):
             address_invoice = conn.ResPartnerAddress.get(int(address_invoice))
             if address_invoice:
                 order.partner_invoice_id = address_invoice
+        else:
+            return HttpResponseRedirect("%s/sale/checkout/" % (context_instance['LOCALE_URI']))
 
         if address_delivery:
             #add new delivery address
@@ -566,6 +581,8 @@ def checkout_confirm(request):
             address_delivery = conn.ResPartnerAddress.get(int(address_delivery))
             if address_delivery:
                 order.partner_shipping_id = address_delivery
+        else:
+            return HttpResponseRedirect("%s/sale/checkout/" % (context_instance['LOCALE_URI']))
 
         #cupon code / promotion
         code_promotion = request.POST['promotion']
@@ -628,6 +645,7 @@ def payorder(request):
     message = False
     value = False
     payments = False
+    currency = DEFAULT_CURRENCY
 
     if request.method == 'POST':
         form = PayorderForm(request.POST)
@@ -648,6 +666,7 @@ def payorder(request):
                 metadescription = _('Details order %s') % (value.name)
                 sale_shop = conn.SaleShop.filter(id=OERP_SALE)[0]
                 payments = sale_shop.zoook_payment_types
+                currency = value.pricelist_id.currency_id.symbol
             else:
                 message = _('Try again. There are not some reference pending to pay or total do not match.')
         else:
@@ -661,5 +680,5 @@ def payorder(request):
             'message': message,
             'value': value,
             'payments': payments,
-            'currency': DEFAULT_CURRENCY,
+            'currency': currency,
         }, context_instance=RequestContext(request))

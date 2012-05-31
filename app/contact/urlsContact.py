@@ -26,6 +26,6 @@ from contact.views import *
 """Urls Contact"""
 
 urlpatterns = patterns("",
-    (r'^(?P<contact>[^/]+)', 'contact.views.contactForm'),
-    (r'^$', 'contact.views.contactForm'),
+    url(r'^(?P<contact>[^/]+)', 'contact.views.contactForm', name='contact_contact'),
+    url(r'^$', 'contact.views.contactForm', name='contact_contacts'),
 )

@@ -76,8 +76,8 @@ class ModulesAdmin(admin.ModelAdmin):
 
     class Media:
         js = (
-            'js/ckeditor/ckeditor.js',
-            'js/ckeditor.js',
+            '/static/js/ckeditor/ckeditor.js',
+            '/static/js/ckeditor.js',
         )
 
 admin.site.register(Modules,ModulesAdmin)

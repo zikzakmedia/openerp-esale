@@ -25,6 +25,7 @@ import os
 import sys
 import logging
 import time
+import optparse
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
@@ -37,7 +38,18 @@ from tools.conn import conn_webservice
 logging.basicConfig(filename=LOGFILE,level=logging.INFO)
 logging.info('[%s] %s' % (time.strftime('%Y-%m-%d %H:%M:%S'), _('Sync. Images. Running')))
 
-results = conn_webservice('sale.shop', 'dj_export_images', [[OERP_SALE]])
+usage = "usage: %prog [options]"
+parser = optparse.OptionParser(usage)
+parser.add_option("-p", "--products", dest="products",
+                default=False,
+                help="Get product list.")
+options, args = parser.parse_args()
+
+products = []
+if options.products:
+    products = options.products.split(',')
+
+results = conn_webservice('sale.shop', 'dj_export_images', [[OERP_SALE], products])
 
 if len(results) == 0:
     logging.info('[%s] %s' % (time.strftime('%Y-%m-%d %H:%M:%S'), _('Sync. Images. Not images news or modified')))

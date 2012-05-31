@@ -50,6 +50,15 @@
     <p><strong>Some Features</strong><br/>
     Add new modules in your template: &#123;% module [position]%&#125;</p>
 
+    <h2 class="zoook-doc">Active Payments</h2>
+    <p>Default configuration not available payments active. How to active payments?</p>
+    <ul>
+    <li>1. Go to OpenERP Sale->Shop. In Payment tab, add payments active in this shop</li>
+    <li>2. Edit settings.py. Add payment APP available (see comment app example)</li>
+    <li>3. Edit payment/urlsPayment.py. Add urls payment type available (see comment urls example)</li>
+    <li>4. Edit config.py if you payment type need configuration. There are some examples configuration params Sermepa and Paypal</li>
+    </ul>
+    <p>Paypal or Servired payments, need install in your server <a href="https://github.com/zikzakmedia/django-paypal">django-paypal</a> and <a href="https://github.com/zikzakmedia/django-sermepa">django-sermepa</a>.</p>
 
     <h2 class="zoook-doc">Catalog Admin</h2>
     <p>Super Users are available access to Catalog Admin. This section is only check catalog database sync OpenERP -> Django. Create your catalog in OpenERP</p>

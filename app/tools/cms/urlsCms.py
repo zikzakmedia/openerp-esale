@@ -26,7 +26,7 @@ from tools.cms.views import *
 
 """Urls Cms"""
 urlpatterns = patterns("",
-    (r"^modules/edit/(?P<modules_id>[^/]+)", 'tools.cms.views.modules_edit',''),
-    (r"^modules/add/", 'tools.cms.views.modules_add',''),
-    (r"^modules/list/", 'tools.cms.views.modules_list',''),
+    url(r"^modules/edit/(?P<modules_id>[^/]+)", 'tools.cms.views.modules_edit', name='cms_modules_edit'),
+    url(r"^modules/add/", 'tools.cms.views.modules_add', name='cms_modules_add'),
+    url(r"^modules/list/", 'tools.cms.views.modules_list', name='cms_modules'),
 )

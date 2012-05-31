@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-13 20:56+0200\n"
-"PO-Revision-Date: 2012-04-16 09:57+0100\n"
+"POT-Creation-Date: 2012-05-02 15:24+0200\n"
+"PO-Revision-Date: 2012-05-02 15:24+0100\n"
 "Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: models.py:45
-#: models.py:134
-#: models.py:401
-#: models.py:469
+#: models.py:135
+#: models.py:415
+#: models.py:483
 #: views.py:45
 #: templates/catalog/form_list.html:6
 msgid "Name"
@@ -28,7 +28,7 @@ msgstr "Nom"
 
 #: models.py:46
 #: models.py:51
-#: models.py:404
+#: models.py:418
 #: templates/catalog/compare.html:20
 #: templates/catalog/product.html:71
 #: templates/catalog/whistlist.html:25
@@ -36,6 +36,7 @@ msgid "Description"
 msgstr "Descripció"
 
 #: models.py:47
+#: models.py:416
 msgid "slug"
 msgstr "slug"
 
@@ -60,7 +61,7 @@ msgid "Default Product Listing Sort (Sort By)"
 msgstr "Llista ordenada de productes per defecte (ordenar per)"
 
 #: models.py:59
-#: models.py:159
+#: models.py:160
 #: templates/catalog/form_list.html:6
 msgid "Status"
 msgstr "Estat"
@@ -77,111 +78,110 @@ msgstr "categoria"
 msgid "categories"
 msgstr "categories"
 
-#: models.py:133
+#: models.py:134
 msgid "created on"
 msgstr "creat el"
 
-#: models.py:135
+#: models.py:136
 msgid "Codes"
 msgstr "Codis"
 
-#: models.py:135
+#: models.py:136
 msgid "Separated by comma"
 msgstr "Separat per coma"
 
-#: models.py:137
+#: models.py:138
 msgid "Short Description"
 msgstr "Descripció curta"
 
-#: models.py:138
+#: models.py:139
 msgid "Sale Description"
 msgstr "Descripció de venda"
 
-#: models.py:139
-#: models.py:402
+#: models.py:140
 msgid "Slug"
 msgstr "Slug"
 
-#: models.py:146
+#: models.py:147
 msgid "Visibility"
 msgstr "Visibilitat"
 
-#: models.py:147
+#: models.py:148
 msgid "Meta Title"
 msgstr "Meta títol"
 
-#: models.py:148
+#: models.py:149
 msgid "Meta Description"
 msgstr "Meta descripció"
 
-#: models.py:149
+#: models.py:150
 msgid "Meta Keyword"
 msgstr "Meta paraula clau"
 
-#: models.py:153
+#: models.py:154
 msgid "Unit Of Measure"
 msgstr "Unitat de mesura"
 
-#: models.py:154
+#: models.py:155
 msgid "Unit of Sale"
 msgstr "Unitat de venda"
 
-#: models.py:155
+#: models.py:156
 msgid "Volume"
 msgstr "Volum"
 
-#: models.py:156
+#: models.py:157
 msgid "Warranty (months)"
 msgstr "Garantia (mesos)"
 
-#: models.py:157
+#: models.py:158
 msgid "Gross weight"
 msgstr "Pes brut"
 
-#: models.py:158
+#: models.py:159
 msgid "Net weight"
 msgstr "Pes net"
 
-#: models.py:160
+#: models.py:161
 #: views.py:43
 #: templates/catalog/form_list.html:6
 msgid "Position"
 msgstr "Posició"
 
-#: models.py:161
+#: models.py:162
 msgid "New"
 msgstr "Novetat"
 
-#: models.py:168
+#: models.py:169
 msgid "template"
 msgstr "producte"
 
-#: models.py:169
+#: models.py:170
 msgid "templates"
 msgstr "productes"
 
-#: models.py:254
-#: models.py:403
-#: models.py:472
-#: models.py:505
+#: models.py:264
+#: models.py:417
+#: models.py:486
+#: models.py:519
 #: templates/catalog/form_list.html:7
 msgid "Active"
 msgstr "Actiu"
 
-#: models.py:255
+#: models.py:265
 #: templates/catalog/type/simple.html:3
 #: templates/catalog/type/variants.html:3
 msgid "Code"
 msgstr "Codi"
 
-#: models.py:256
+#: models.py:266
 #: templates/catalog/type/simple.html:4
 #: templates/catalog/type/variants.html:4
 msgid "EAN13"
 msgstr "EAN13"
 
-#: models.py:257
-#: models.py:471
+#: models.py:267
+#: models.py:485
 #: views.py:44
 #: templates/catalog/compare.html:21
 #: templates/catalog/whistlist.html:26
@@ -189,171 +189,175 @@ msgstr "EAN13"
 msgid "Price"
 msgstr "Preu"
 
-#: models.py:258
+#: models.py:268
 msgid "Special Price"
 msgstr "Preu espcial"
 
-#: models.py:259
+#: models.py:269
 msgid "Attribute Group"
 msgstr "Atribut"
 
-#: models.py:260
-#: models.py:502
+#: models.py:270
+#: models.py:516
 msgid "Cart Description"
 msgstr "Descripció cistella"
 
-#: models.py:266
+#: models.py:276
 msgid "product"
 msgstr "producte"
 
-#: models.py:267
+#: models.py:277
 msgid "products"
 msgstr "productes"
 
-#: models.py:325
+#: models.py:336
 msgid "Image Title"
 msgstr "Títol de la imatge"
 
-#: models.py:327
+#: models.py:338
 msgid "File Location"
 msgstr "Ubicació dels arxius"
 
-#: models.py:328
+#: models.py:339
 msgid "Base Image"
 msgstr "Imatge base"
 
-#: models.py:329
+#: models.py:340
 msgid "Thumb Image"
 msgstr "Miniatura"
 
-#: models.py:330
+#: models.py:341
 msgid "Exclude"
 msgstr "Exclou"
 
-#: models.py:336
-#: models.py:348
+#: models.py:347
+#: models.py:359
 msgid "image"
 msgstr "imatge"
 
-#: models.py:337
+#: models.py:348
 msgid "images"
 msgstr "imatges"
 
-#: models.py:348
+#: models.py:359
 msgid "Check Documentation about size image"
 msgstr "Revisa la documentació sobre la mida de la imatge"
 
-#: models.py:349
+#: models.py:360
 msgid "description"
 msgstr "Descripció"
 
-#: models.py:350
-#: models.py:368
-#: models.py:385
+#: models.py:361
+#: models.py:380
+#: models.py:398
 msgid "status"
 msgstr "Estat"
 
-#: models.py:350
-#: models.py:368
-#: models.py:385
+#: models.py:361
+#: models.py:380
+#: models.py:398
 msgid "Only items with their status set to 'Active' will be displayed."
 msgstr "Només els elements amb l'estat actiu es mostraran."
 
-#: models.py:351
-#: models.py:369
-#: models.py:386
-#: models.py:504
-#: models.py:525
+#: models.py:362
+#: models.py:381
+#: models.py:399
+#: models.py:518
+#: models.py:540
 msgid "order"
 msgstr "ordenació"
 
-#: models.py:355
-#: views.py:508
+#: models.py:366
+#: views.py:507
 msgid "Product Home"
 msgstr "Producte Inici"
 
-#: models.py:356
+#: models.py:367
 msgid "Products Home"
 msgstr "Productes Inici"
 
-#: models.py:373
-#: views.py:615
+#: models.py:385
+#: views.py:614
 msgid "Product Recommended"
 msgstr "Producte recomenats"
 
-#: models.py:374
+#: models.py:386
 msgid "Products Recommended"
 msgstr "Productes recomenats"
 
-#: models.py:390
-#: views.py:722
+#: models.py:403
+#: views.py:721
 msgid "Product Offer"
 msgstr "Producte oferta"
 
-#: models.py:391
+#: models.py:404
 msgid "Products Offer"
 msgstr "Productes oferta"
 
-#: models.py:405
+#: models.py:416
+msgid "This is a unique identifier that allows your blogs to display its detail view, ex 'how-can-i-contribute'"
+msgstr "Identificador únic que permet als vostres continguts mostrar la seva vista de detall, ex. 'com-puc-ajudar'"
+
+#: models.py:419
 msgid "Resize image. Check documentation about logo template"
 msgstr "Revisa la documentació sobre la mida de la imatge"
 
-#: models.py:409
+#: models.py:423
 msgid "Manufacturer"
 msgstr "Fabricant"
 
-#: models.py:410
+#: models.py:424
 #: templates/catalog/manufacturer.html:9
 #: templates/catalog/manufacturers.html:5
 msgid "Manufacturers"
 msgstr "Fabricants"
 
-#: models.py:470
+#: models.py:484
 #: views.py:75
 msgid "Categories"
 msgstr "Categories"
 
-#: models.py:471
+#: models.py:485
 msgid "Available Price Search"
 msgstr "Mostrar el cercador de preus"
 
-#: models.py:473
+#: models.py:487
 msgid "Default"
 msgstr "Defecte"
 
-#: models.py:473
+#: models.py:487
 msgid "Default Attribute Search Box. If you don't select some category, use this search box"
 msgstr "Cercador mitjançant atributs. Si no selecciona cap categoria, s'utilitzarà aquest (cercador genèric)"
 
-#: models.py:477
+#: models.py:491
 msgid "Attribute Search"
 msgstr "Cercador d'atributs"
 
-#: models.py:478
+#: models.py:492
 msgid "Attributes Search"
 msgstr "Cercador d'atributs"
 
-#: models.py:509
+#: models.py:523
 msgid "Attribute Search Item"
 msgstr "Elements del cercador d'atributs"
 
-#: models.py:510
+#: models.py:524
 msgid "Attribute Search Items"
 msgstr "Elements del cercador d'atributs"
 
-#: models.py:522
+#: models.py:537
 msgid "From"
 msgstr "Des de"
 
-#: models.py:523
+#: models.py:538
 msgid "To"
 msgstr "A"
 
-#: models.py:529
+#: models.py:544
 msgid "Attribute Search Price"
 msgstr "Preu cercador d'atributs"
 
-#: models.py:530
+#: models.py:545
 msgid "Attribute Search Prices"
 msgstr "Preus cercador d'atributs"
 
@@ -422,36 +426,41 @@ msgstr "Marques a %(site)s - Pàgina %(page)s de %(total)s"
 msgid "Manufacturers of %(site)s - Page %(page)s of %(total)s"
 msgstr "Marques de %(site)s - Pàgina %(page)s de %(total)s"
 
-#: views.py:460
+#: views.py:453
+#, python-format
+msgid "%(manufacturer)s - %(site)s - Page %(page)s of %(total)s"
+msgstr "%(manufacturer)s - %(site)s - Pàgina %(page)s de %(total)s"
+
+#: views.py:459
 #, python-format
 msgid "Buy %(name)s on %(site)s. Page %(page)s of %(total)s"
 msgstr "Compra %(name)s a %(site)s. Pàgina %(page)s de %(total)s"
 
-#: views.py:566
+#: views.py:565
 msgid "Add Product Home"
 msgstr "Afegir producte inici"
 
-#: views.py:596
+#: views.py:595
 msgid "Edit Product Home"
 msgstr "Edita producte inici"
 
-#: views.py:673
+#: views.py:672
 msgid "Add Product Recommended"
 msgstr "Afegir producte recomenat"
 
-#: views.py:703
+#: views.py:702
 msgid "Edit Product Recommended"
 msgstr "Edita producte recomenat"
 
-#: views.py:780
+#: views.py:779
 msgid "Add Product Offer"
 msgstr "Afegir producte oferta"
 
-#: views.py:810
+#: views.py:809
 msgid "Edit Product Offer"
 msgstr "Edita producte oferta"
 
-#: templates/catalog/category.html:8
+#: templates/catalog/category.html:5
 #: templates/catalog/compare.html:7
 #: templates/catalog/index.html:5
 #: templates/catalog/manufacturer.html:9
@@ -461,12 +470,10 @@ msgstr "Edita producte oferta"
 msgid "Home"
 msgstr "Inici"
 
-#: templates/catalog/category.html:8
-#: templates/catalog/category.html.py:9
-#: templates/catalog/category.html:51
-#: templates/catalog/category.html.py:52
-#: templates/catalog/category.html:70
-#: templates/catalog/category.html.py:71
+#: templates/catalog/category.html:5
+#: templates/catalog/category.html.py:6
+#: templates/catalog/category.html:48
+#: templates/catalog/category.html.py:68
 #: templates/catalog/compare.html:7
 #: templates/catalog/compare.html.py:42
 #: templates/catalog/index.html:5
@@ -484,76 +491,70 @@ msgstr "Inici"
 msgid "catalog"
 msgstr "cataleg"
 
-#: templates/catalog/category.html:8
+#: templates/catalog/category.html:5
 #: templates/catalog/index.html:5
 msgid "Catalog"
 msgstr "Catàleg"
 
-#: templates/catalog/category.html:25
+#: templates/catalog/category.html:22
 #: templates/catalog/manufacturer.html:44
 msgid "Show"
 msgstr "Mostra"
 
-#: templates/catalog/category.html:25
+#: templates/catalog/category.html:22
 #: templates/catalog/manufacturer.html:44
 msgid "items"
 msgstr "articles"
 
-#: templates/catalog/category.html:26
+#: templates/catalog/category.html:23
 #: templates/catalog/manufacturer.html:51
 msgid "item"
 msgstr "article"
 
-#: templates/catalog/category.html:29
+#: templates/catalog/category.html:26
 #: templates/catalog/manufacturer.html:48
 msgid "Sort by"
 msgstr "Ordena per"
 
-#: templates/catalog/category.html:31
+#: templates/catalog/category.html:28
 #: templates/catalog/manufacturer.html:50
 msgid "ASC"
 msgstr "ASC"
 
-#: templates/catalog/category.html:31
+#: templates/catalog/category.html:28
 #: templates/catalog/manufacturer.html:50
 msgid "DESC"
 msgstr "DESC"
 
-#: templates/catalog/category.html:32
+#: templates/catalog/category.html:29
 msgid "View as"
 msgstr "Veure com"
 
-#: templates/catalog/category.html:33
+#: templates/catalog/category.html:30
 msgid "Grid"
 msgstr "Graella"
 
-#: templates/catalog/category.html:34
+#: templates/catalog/category.html:31
 msgid "List"
 msgstr "Llista"
 
-#: templates/catalog/category.html:38
+#: templates/catalog/category.html:35
 #: templates/catalog/compare.html:44
 #: templates/catalog/whistlist.html:44
 msgid "There are any products matching the selection."
 msgstr "No hi ha cap producte que concordi amb la selecció."
 
-#: templates/catalog/category.html:51
-#: templates/catalog/category.html.py:70
+#: templates/catalog/category.html:48
+#: templates/catalog/category.html.py:68
 #: templates/catalog/product.html:42
 msgid "Add to Wishlist"
 msgstr "Afegeix a la llista de desitjos"
 
-#: templates/catalog/category.html:52
-#: templates/catalog/category.html.py:71
-#: templates/catalog/product.html:41
-msgid "Add to Compare"
-msgstr "Compara"
-
-#: templates/catalog/category.html:68
+#: templates/catalog/category.html:66
 msgid "Details"
 msgstr "Detalls"
 
-#: templates/catalog/category.html:83
+#: templates/catalog/category.html:82
 #: templates/catalog/compare.html:55
 #: templates/catalog/manufacturer.html:77
 #: templates/catalog/product.html:132
@@ -639,6 +640,10 @@ msgstr "Productes"
 #: templates/catalog/product.html:18
 msgid "Product Related"
 msgstr "Productes"
+
+#: templates/catalog/product.html:41
+msgid "Add to Compare"
+msgstr "Compara"
 
 #: templates/catalog/product.html:62
 msgid "This product is out of service"

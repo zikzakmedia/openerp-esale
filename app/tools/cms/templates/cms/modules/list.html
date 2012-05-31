@@ -1,10 +1,9 @@
-{% extends "layout.html" %}
-{% load i18n %}
+{% extends "layout.html" %}{% load i18n %}{% load url from future %}
 
 {% block content %}
-    <h2 class="more-details"><a href="{{ LOCALE_URI }}/cms/modules/add/">{% trans "Add" %}</a> <span>{% trans "Add" %}</span></h2>
+    <h2 class="more-details"><a href="{% url 'cms_modules_add' %}">{% trans "Add" %}</a> <span>{% trans "Add" %}</span></h2>
     <table id="table-details">
         <tr class="header"><td class="field"><strong>{% trans "Name" %}</strong></td><td class="value"> {% trans "Position" %}</td><td>{% trans "Status" %}</td></tr>
-    {% for modul in modules %}<tr class="row0"><td><a href="{{ LOCALE_URI }}/cms/modules/edit/{{ modul.id }}">{{modul.name}}</a></td><td>{{modul.position}}</td><td>{%if modul.status %}{% trans "Active" %}{% else %}{% trans "Inactive" %}{% endif %}</td></tr>{% endfor %}
+    {% for modul in modules %}<tr class="row0"><td><a href="{% url 'cms_modules_edit' modul.id %}">{{modul.name}}</a></td><td>{{modul.position}}</td><td>{%if modul.status %}{% trans "Active" %}{% else %}{% trans "Inactive" %}{% endif %}</td></tr>{% endfor %}
     </table>
 {% endblock %}

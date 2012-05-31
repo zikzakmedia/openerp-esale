@@ -47,3 +47,16 @@ class ResCountryStateAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(ResCountryState, ResCountryStateAdmin)
+
+class IrAttachmentAdmin(admin.ModelAdmin):
+
+    search_fields = ["name"]
+
+    list_display = (
+        'name',
+        'visibility',
+        'res_model',
+        'res_id',
+    )
+
+admin.site.register(IrAttachment, IrAttachmentAdmin)

@@ -26,17 +26,17 @@ from catalog.views import *
 """Urls Catalog Manage"""
 urlpatterns = patterns("",
     #product home
-    (r"^producthome/edit/(?P<home_id>[^/]+)", 'catalog.views.product_home_edit',''),
-    (r"^producthome/add/", 'catalog.views.product_home_add',''),
-    (r"^producthome/", 'catalog.views.product_home',''),
+    url(r"^producthome/edit/(?P<home_id>[^/]+)", 'catalog.views.product_home_edit', name='catalog_product_home_edit'),
+    url(r"^producthome/add/", 'catalog.views.product_home_add', name='catalog_product_home_add'),
+    url(r"^producthome/", 'catalog.views.product_home', name='catalog_product_home'),
     
     #product recommended
-    (r"^productrecommended/edit/(?P<recommended_id>[^/]+)", 'catalog.views.product_recommended_edit',''),
-    (r"^productrecommended/add/", 'catalog.views.product_recommended_add',''),
-    (r"^productrecommended/", 'catalog.views.product_recommended',''),
+    url(r"^productrecommended/edit/(?P<recommended_id>[^/]+)", 'catalog.views.product_recommended_edit', name='catalog_product_recommended_edit'),
+    url(r"^productrecommended/add/", 'catalog.views.product_recommended_add', name='catalog_product_recommended_add'),
+    url(r"^productrecommended/", 'catalog.views.product_recommended', name='catalog_product_recommended'),
     
     #product offer
-    (r"^productoffer/edit/(?P<offer_id>[^/]+)", 'catalog.views.product_offer_edit',''),
-    (r"^productoffer/add/", 'catalog.views.product_offer_add',''),
-    (r"^productoffer/", 'catalog.views.product_offer',''),
+    url(r"^productoffer/edit/(?P<offer_id>[^/]+)", 'catalog.views.product_offer_edit', name='catalog_product_offer_edit'),
+    url(r"^productoffer/add/", 'catalog.views.product_offer_add', name='catalog_product_offer_add'),
+    url(r"^productoffer/", 'catalog.views.product_offer', name='catalog_product_offer'),
 )

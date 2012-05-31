@@ -26,6 +26,6 @@ from catalog.views import *
 """Urls Manufacturer"""
 
 urlpatterns = patterns("",
-    (r'^$', 'catalog.views.manufacturers'),
-    (r"^(?P<manufacturer>[^/]+)$", 'catalog.views.manufacturer'),
+    url(r'^$', 'catalog.views.manufacturers', name='catalog_manufacturers'),
+    url(r"^(?P<manufacturer>[^/]+)$", 'catalog.views.manufacturer', name='catalog_manufacturer'),
 )

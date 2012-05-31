@@ -26,7 +26,7 @@ from content.views import *
 """Urls Content"""
 
 urlpatterns = patterns("",
-    (r"^edit/(?P<content_id>[^/]+)", 'content.views.content_edit',''),
-    (r"^add/", 'content.views.content_add',''),
-    (r'^$', 'content.views.content_detail'),
+    url(r"^edit/(?P<content_id>[^/]+)", 'content.views.content_edit', name='content_edit'),
+    url(r"^add/", 'content.views.content_add', name='content_add'),
+    url(r'^$', 'content.views.content_detail', name='content_content'),
 )

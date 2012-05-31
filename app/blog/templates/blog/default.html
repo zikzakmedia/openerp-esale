@@ -1,0 +1,54 @@
+{% extends "layout.html" %}{% load modules i18n %}{% load cms %}{% load url from future %}
+{% if not user.is_authenticated %}{% load inplace_edit %}{% inplace_media %}{% endif %}
+
+{% block head %}<link href="{{ MEDIA_URL }}css/{{ THEME }}/blog.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="canonical" href="{{blog.get_absolute_url}}" />
+{% if user.is_staff %}<script type="text/javascript" src="/static/js/ckeditor/ckeditor.js"></script> 
+<script type="text/javascript" src="/static/js/ckeditor.js"></script>
+{% load inplace_edit %}{% inplace_media %}{% endif %}{% endblock %}
+
+{% block pathway %}<div id="pathway"><ul><li><a href="{% url 'index' %}">{% trans "Home" %}</a></li> <li><span>&gt;</span> <a href="{% url 'blog_list' %}">Blog</a></li><li><span>&gt;</span> {{blog.name}}</li></ul></div>{% endblock %}
+
+{% block content %}
+<div id="content-box" class="primary-content span-9 last">
+    <div id="block-right">
+        {% module blog.right %}
+    </div>
+
+    <div id="blog-detail" class="post-body">
+        <h1 class="post-{{blog.id}}">{% inplace_edit "blog.name" %}</h1>
+        <div class="meta">
+            <small>{% trans "Posted in" %}{%for key in blog.metakey|split_metakey:"," %} <a href="{% url 'blog_key' key %}" alt="{{ key }}" title="{{ key }}" rel="category tag">{{ key }}</a> {%endfor %} {% trans "by" %} {%if blog.created_by.first_name%}{{blog.created_by.first_name}} {{blog.created_by.last_name}}{%else%}{{blog.created_by}}{%endif%} {% trans "on" %} {{ blog.created_on|date:"d/M/Y" }} </small> 
+        </div> 
+        <br> 
+        <div class="main"> 
+            {% inplace_edit "blog.description|safe" auto_height=1 %}
+        </div> 
+        <div align="right"></div> 
+    </div>
+
+    <div id="social-blog">
+        <div class="tweet">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="{{twitter_user}}" >Tweet</a>
+        </div>
+        <div class="facebook">
+            <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+            <iframe  src="http://www.facebook.com/plugins/like.php?href={{blog.get_absolute_url}}&amp;layout=standard&amp;show_faces=true&amp;width=380&amp;action=like&amp;colorscheme=light&amp;height=26" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:380px; height:26px;" allowTransparency="true"></iframe>
+        </div>
+    </div>
+
+    {% if change_blog %}<div id="block-detail">
+        <h2 class="more-details"><a href="{% url 'blog_edit' blog.id %}">{% trans "Edit" %}</a></h2>
+        <table id="table-details">
+            <tr class="header"><td class="field"><strong>{% trans "Field" %}</strong></td><td class="value"> {% trans "Value" %}</td></tr>
+            <tr class="row0"><td><strong>{% trans "Slug" %}:</strong></td><td>{% inplace_edit "blog.slug" %}</td></tr>
+            <tr class="row1"><td><strong>{% trans "MetaDesc" %}:</strong></td><td>{% inplace_edit "blog.metadesc" %}</td></tr>
+            <tr class="row0"><td><strong>{% trans "MetaKey" %}:</strong></td><td>{% inplace_edit "blog.metakey" %}</td></tr>
+            <tr class="row1"><td><strong>{% trans "Sort Order" %}:</strong></td><td>{% inplace_edit "blog.sort_order" %}</td></tr>
+            <tr class="row0"><td><strong>{% trans "Template" %}:</strong></td><td>{% inplace_edit "blog.template" %}</td></tr>
+            <tr class="row1"><td><strong>{% trans "Status" %}:</strong></td><td>{%if blog.status %}{% trans "Active" %}{% else %}{% trans "Inactive" %}{% endif %}</td></tr>
+        </table>
+    </div>{% endif %}
+
+</div>
+{% endblock %}

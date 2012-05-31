@@ -55,8 +55,8 @@ class ContentAdmin(admin.ModelAdmin):
 
     class Media:
         js = (
-            'js/ckeditor/ckeditor.js',
-            'js/ckeditor.js',
+            '/static/js/ckeditor/ckeditor.js',
+            '/static/js/ckeditor.js',
         )
 
     def save_model(self, request, obj, form, change): 

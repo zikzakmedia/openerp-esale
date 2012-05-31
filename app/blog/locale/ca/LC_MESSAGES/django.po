@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-07 15:39+0100\n"
+"PO-Revision-Date: 2012-02-07 15:40+0100\n"
+"Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: enums.py:29
+msgid "Active"
+msgstr "Actiu"
+
+#: enums.py:30
+msgid "Inactive"
+msgstr "Inactiu"
+
+#: models.py:38
+msgid "created by"
+msgstr "creat per"
+
+#: models.py:39
+msgid "created on"
+msgstr "creat"
+
+#: models.py:40
+msgid "updated on"
+msgstr "actualitzat"
+
+#: models.py:41
+msgid "updated by"
+msgstr "actualitzat per"
+
+#: models.py:49
+msgid "slug"
+msgstr "slug"
+
+#: models.py:49
+msgid "This is a unique identifier that allows your blogs to display its detail view, ex 'how-can-i-contribute'"
+msgstr "Aquest és un identificador únic que permet mostrar els detalls del seus blogs, per exemple 'com-puc-contribuir'"
+
+#: models.py:50
+msgid "description"
+msgstr "descripció"
+
+#: models.py:53
+msgid "status"
+msgstr "estat"
+
+#: models.py:53
+msgid "Only blogs with their status set to 'Active' will be displayed."
+msgstr "Només es mostraran els blogs amb l'opció 'Actiu'."
+
+#: models.py:54
+msgid "sort order"
+msgstr "Ordenació"
+
+#: models.py:54
+msgid "The order you would like the content to be displayed."
+msgstr "Ordre amb el que voleu que es mostri el contingut."
+
+#: models.py:55
+msgid "If don't specific template, use default.html template"
+msgstr "Si no s'especifica cap plantilla, s'utilitzarà la plantilla default.html"
+
+#: models.py:58
+msgid "blog"
+msgstr "blog"
+
+#: models.py:59
+msgid "blogs"
+msgstr "blogs"
+
+#: views.py:57
+#: views.py:62
+#, python-format
+msgid "Blog :: All Posts %(key)s - Page %(page)s of %(total)s"
+msgstr "Blog :: Tots els Post %(key)s - Pàgina %(page)s de %(total)s"
+
+#: views.py:67
+#, python-format
+msgid "List all post %(key)s blog of %(site)s. Page %(page)s of %(total)s"
+msgstr "Llistat de tots els blogs %(key)s de %(site)s. Pàgina %(page)s de %(total)s"
+
+#: views.py:162
+msgid "Add Blog"
+msgstr "Entrada al bloc"
+
+#: views.py:177
+msgid "Add blog"
+msgstr "Entrada al bloc"
+
+#: views.py:197
+msgid "Edit blog"
+msgstr "Editar bloc"
+
+#: templates/blog/default.html:9
+#: templates/blog/list.html:5
+msgid "Home"
+msgstr "Inici"
+
+#: templates/blog/default.html:20
+#: templates/blog/list.html:19
+msgid "Posted in"
+msgstr "Publicat a"
+
+#: templates/blog/default.html:20
+#: templates/blog/list.html:19
+msgid "by"
+msgstr "per"
+
+#: templates/blog/default.html:20
+#: templates/blog/list.html:19
+msgid "on"
+msgstr "el"
+
+#: templates/blog/default.html:40
+msgid "More details"
+msgstr "Més detalls"
+
+#: templates/blog/default.html:40
+msgid "Edit"
+msgstr "Edita"
+
+#: templates/blog/default.html:42
+msgid "Field"
+msgstr "Camp"
+
+#: templates/blog/default.html:42
+msgid "Value"
+msgstr "Valor"
+
+#: templates/blog/default.html:43
+msgid "Slug"
+msgstr "Slug"
+
+#: templates/blog/default.html:44
+msgid "MetaDesc"
+msgstr "MetaDesc"
+
+#: templates/blog/default.html:45
+msgid "MetaKey"
+msgstr "MetaKey"
+
+#: templates/blog/default.html:46
+msgid "Status"
+msgstr "Estat"
+
+#: templates/blog/default.html:47
+msgid "Sort Order"
+msgstr "Ordenació"
+
+#: templates/blog/default.html:48
+msgid "Template"
+msgstr "Plantilla"
+
+#~ msgid "previous"
+#~ msgstr "Anterior"
+#~ msgid "Page"
+#~ msgstr "Pàgina"
+#~ msgid "of"
+#~ msgstr "de"
+#~ msgid "next"
+#~ msgstr "Següent"
+

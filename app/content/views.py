@@ -80,9 +80,18 @@ def content_form(request, content_id):
         else:
             form = ContentForm(request.POST)
         if form.is_valid():
-            content = form.save()
-            redirect = "%s/%s" % (context_instance['LOCALE_URI'], content.slug)
-            #~ return HttpResponseRedirect(redirect)
+            content = form.save(commit=False)
+            
+            if not content.id:
+                content.created_by = request.user
+            content.updated_by = request.user
+
+            content.save()
+
+            if LOCALE_URI:
+                redirect = '%s/%s' % (context_instance['LOCALE_URI'], content.slug)
+            else:
+                redirect =  '/%s' % (content.slug)
     else:
         if content_id:
             content = get_object_or_404(Content,id=content_id)
@@ -104,7 +113,12 @@ def content_add(request):
     form, redirect = content_form(request, content)
     if redirect:
         return HttpResponseRedirect(redirect)
-    url_form = '%s/content/add/' % (context_instance['LOCALE_URI'])
+
+    if LOCALE_URI:
+        url_form = '%s/content/add/' % (context_instance['LOCALE_URI'])
+    else:
+        url_form =  '/content/add/'
+                
     return render_to_response('content/form.html', {'form':form,'url_form':url_form,'title':_('Add Content')}, context_instance=RequestContext(request))
 
 @login_required
@@ -125,5 +139,10 @@ def content_edit(request, content_id):
     form, redirect = content_form(request, content_id)
     if redirect:
         return HttpResponseRedirect(redirect)
-    url_form = '%s/content/edit/%s' % (context_instance['LOCALE_URI'], content_id)
+
+    if LOCALE_URI:
+        url_form = '%s/content/edit/%s' % (context_instance['LOCALE_URI'], content_id)
+    else:
+        url_form =  '/content/edit/%s' % (content_id)
+
     return render_to_response('content/form.html', {'form':form,'url_form':url_form,'title':_('Edit Content')}, context_instance=RequestContext(request))

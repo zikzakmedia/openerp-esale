@@ -82,9 +82,9 @@ class ProductCategory(models.Model):
 
     def get_absolute_url(self):
         if LOCALE_URI:
-            url = '%s/%s/%s/%s' % (LIVE_URL, get_language(), catalog_url[get_language()], self.fslug)
+            url = '/%s/%s/%s' % (get_language(), catalog_url[get_language()], self.fslug)
         else:
-            url = '%s/%s/%s' % (LIVE_URL, catalog_url[get_language()], self.fslug)
+            url = '/%s/%s' % (catalog_url[get_language()], self.fslug)
         return url
 
     def collect_children(self, level = 0, children = []):
@@ -188,9 +188,9 @@ class ProductTemplate(models.Model):
 
     def get_absolute_url(self):
         if LOCALE_URI:
-            url = '%s/%s/%s/%s' % (LIVE_URL, get_language(), product_url[get_language()], self.slug)
+            url = '/%s/%s/%s' % (get_language(), product_url[get_language()], self.slug)
         else:
-            url = '%s/%s/%s' % (LIVE_URL, product_url[get_language()], self.slug)
+            url = '/%s/%s' % (product_url[get_language()], self.slug)
         return url
 
     def get_related_products(self):
@@ -206,6 +206,20 @@ class ProductTemplate(models.Model):
             products = prod_template_upsell.product_product_set.order_by('price')
             upsells_products.append({'product':prod_template_upsell, 'products':products})
         return upsells_products
+
+    def set_last_visited(self, request, tplproduct):
+        """Set last visited products template
+        :param request
+        :param tplproduct
+        return list of IDs last 25 products visited
+        """
+        last_visited = request.session.get('last_visited', [])
+        if tplproduct.id not in last_visited:
+            last_visited.append(tplproduct.id)
+            last_visited = last_visited[-25:]
+
+        request.session['last_visited'] = last_visited
+        return last_visited
 
     @staticmethod
     def get_qattributes(request):
@@ -426,9 +440,9 @@ class ResManufacturer(models.Model):
 
     def get_absolute_url(self):
         if LOCALE_URI:
-            url = '%s/%s/%s/%s' % (LIVE_URL, get_language(), manufacturer_url[get_language()], self.slug)
+            url = '/%s/%s/%s' % (get_language(), manufacturer_url[get_language()], self.slug)
         else:
-            url = '%s/%s/%s' % (LIVE_URL, manufacturer_url[get_language()], self.slug)
+            url = '/%s/%s' % (manufacturer_url[get_language()], self.slug)
         return url
 
     def __unicode__(self):

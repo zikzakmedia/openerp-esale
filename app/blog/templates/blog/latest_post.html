@@ -1,0 +1,2 @@
+{% load url from future %}{% for e in entries %}
+    <li class="blog-list"><a href="{% url 'blog_blog' e.slug %}" title="{{e.name}}" class="blog-link">{{e.name}}</li>{% endfor %}

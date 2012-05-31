@@ -93,12 +93,13 @@ class MenuItem(models.Model):
     order = models.IntegerField(_('order'),)
     css = models.CharField(_('css class'),max_length=100, blank=True)
     login_required = models.BooleanField(_('login required'),)
-    status = models.IntegerField(_('status'), choices=enums.CMS_STATUS_CHOICES, default=enums.STATUS_INACTIVE, help_text=_("Only items with their status set to 'Active' will be displayed."))
+    status = models.IntegerField(_('status'), choices=enums.CMS_STATUS_CHOICES, default=enums.STATUS_ACTIVE, help_text=_("Only items with their status set to 'Active' will be displayed."))
 
     class Meta:
         verbose_name = _('menus item')
         verbose_name_plural = _('menus items')
         translate = ('title', 'link_url')
+        ordering = ['order']
 
     def __unicode__(self):
         return "%s %s. %s" % (self.menu.slug, self.order, self.title)
@@ -112,7 +113,7 @@ class Modules(models.Model):
     name = models.CharField(_('name'), max_length=255)
     position = models.CharField(_('position'), max_length=255, help_text=_("This is a unique identifier, ex 'position1'"))
     description = models.TextField(verbose_name=_('description'))
-    status = models.IntegerField(_('status'), choices=enums.CMS_STATUS_CHOICES, default=enums.STATUS_INACTIVE, help_text=_("Only modules with their status set to 'Active' will be displayed."))
+    status = models.IntegerField(_('status'), choices=enums.CMS_STATUS_CHOICES, default=enums.STATUS_ACTIVE, help_text=_("Only modules with their status set to 'Active' will be displayed."))
 
     class Meta:
         verbose_name = _('module')
@@ -163,7 +164,7 @@ class ImageSliderItem(models.Model):
     title = models.CharField(_('title'),max_length=100)
     link_url = models.CharField(_('link url'),max_length=100, help_text=_('URL or URI, eg /about/ or http://foo.com/'))
     order = models.IntegerField(_('order'),)
-    status = models.IntegerField(_('status'), choices=enums.CMS_STATUS_CHOICES, default=enums.STATUS_INACTIVE, help_text=_("Only items with their status set to 'Active' will be displayed."))
+    status = models.IntegerField(_('status'), choices=enums.CMS_STATUS_CHOICES, default=enums.STATUS_ACTIVE, help_text=_("Only items with their status set to 'Active' will be displayed."))
 
     class Meta:
         verbose_name = _('Sliders Image')

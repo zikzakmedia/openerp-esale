@@ -1,0 +1,29 @@
+{% extends "layout.html" %}{% load modules i18n %}{% load cms %}{% load pagination_tags %}{% load url from future %}
+
+{% block head %}<link href="{{ MEDIA_URL }}css/{{ THEME }}/blog.css" rel="stylesheet" type="text/css" media="screen">{% endblock %}
+{% block pathway %}<div id="pathway"><ul><li><a href="{% url 'index' %}">{% trans "Home" %}</a></li> <li><span>&gt;</span> <a href="{% url 'blog_list' %}">Blog</a></li></ul></div>{% endblock %}
+
+{% block content %}{% autopaginate blogs 5 %}
+<div class="primary-content span-9 last">
+    <div id="block-right">
+        {% module blog.right %}
+    </div>
+
+    <div id="blog-list">
+        {% for blog in blogs %}<div class="post-body">
+            <h2 id="post-{{blog.id}}">
+                <a href="{{ blog.get_absolute_url }}" alt="{{ blog.name }}" title="{{ blog.name }}" rel="bookmark">{{ blog.name }}</a>
+            </h2>
+            <div class="meta">
+                <small>{% trans "Posted in" %}{%for key in blog.metakey|split_metakey:"," %} <a href="{% url 'blog_key' key %}" alt="{{ key }}" title="{{ key }}" rel="category tag">{{ key }}</a>{%endfor %} {% trans "by" %} {%if blog.created_by.first_name%}{{blog.created_by.first_name}} {{blog.created_by.last_name}}{%else%}{{blog.created_by}}{%endif%} {% trans "on" %} {{ blog.created_on|date:"d/M/Y" }} </small> 
+            </div> 
+            <br> 
+            <div class="main"> 
+                {{ blog.description|safe }}
+            </div> 
+            <div align="right"></div> 
+        </div>{% endfor %}
+    </div>
+    <div id="paginator">{% paginate %}</div>
+</div>
+{% endblock %}

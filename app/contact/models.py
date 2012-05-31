@@ -63,9 +63,9 @@ class Contact(models.Model):
 
     def get_absolute_url(self):
         if LOCALE_URI:
-            url = '%s/%s/%s/%s' % (LIVE_URL, get_language(), contact_url[get_language()], self.slug)
+            url = '/%s/%s/%s' % (get_language(), contact_url[get_language()], self.slug)
         else:
-            url = '%s/%s/%s' % (LIVE_URL, contact_url[get_language()], self.slug)
+            url = '/%s/%s' % (contact_url[get_language()], self.slug)
         return url
 
 class ContactForm(forms.Form):

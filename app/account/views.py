@@ -52,10 +52,10 @@ def invoices(request):
         return render_to_response("partner/error.html", locals(), context_instance=RequestContext(request))
     
     values = {}
-    total = len(conn.AccountInvoice.filter(partner_id=partner_id, state__ne='draft', company_id=OERP_COMPANY))
+    total = len(conn.AccountInvoice.filter(partner_id=partner_id, state__ne='draft', type='out_invoice', company_id=OERP_COMPANY))
     offset, page_previous, page_next = paginationOOOP(request, total, PAGINATOR_INVOICE_TOTAL)
 
-    values = conn.AccountInvoice.filter(partner_id=partner_id, state__ne='draft', company_id=OERP_COMPANY, offset=offset, limit=PAGINATOR_INVOICE_TOTAL, order='name DESC')
+    values = conn.AccountInvoice.filter(partner_id=partner_id, state__ne='draft', type='out_invoice', company_id=OERP_COMPANY, offset=offset, limit=PAGINATOR_INVOICE_TOTAL, order='name DESC')
 
     title = _('All Invoices')
     metadescription = _('List all invoices of %s') % full_name
@@ -75,7 +75,7 @@ def invoice(request, invoice):
         error = _('Error when connecting with our ERP. Try again or cantact us')
         return render_to_response("partner/error.html", locals(), context_instance=RequestContext(request))
 
-    values = conn.AccountInvoice.filter(partner_id=partner_id, number=invoice, company_id=OERP_COMPANY)
+    values = conn.AccountInvoice.filter(partner_id=partner_id, number=invoice, state__ne='draft', type='out_invoice', company_id=OERP_COMPANY)
     if len(values) == 0:
         error = _('It is not allowed to view this section or not found. Use navigation menu.')
         return render_to_response("partner/error.html", locals(), context_instance=RequestContext(request))

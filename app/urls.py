@@ -21,6 +21,8 @@
 ############################################################################################
 
 from django.conf.urls.defaults import *
+from django.conf import settings
+
 from django.contrib.sitemaps import GenericSitemap
 
 from views import index
@@ -39,55 +41,57 @@ js_info_dict = {
 }
 
 urlpatterns = patterns('',
-    (r"^$", index),
-    #~ catalog 
-    (r"^%s/" % catalog_url['en'], include("catalog.urlsCatalog")),
-    (r"^%s/"% catalog_url['es'], include("catalog.urlsCatalog")),
-    (r"^%s/"% catalog_url['ca'], include("catalog.urlsCatalog")),
+    url(r"^$", index, name='index'),
 
-    #catalog manage
-    (r'^catalogmanage/', include('catalog.urlsCatalogManage')),
+    # catalog 
+    url(r"^%s/" % catalog_url['en'], include("catalog.urlsCatalog")),
+    url(r"^%s/"% catalog_url['es'], include("catalog.urlsCatalog")),
+    url(r"^%s/"% catalog_url['ca'], include("catalog.urlsCatalog")),
 
-    #~ manufacturer 
-    (r"^%s/" % manufacturer_url['en'], include("catalog.urlsManufacturer")),
-    (r"^%s/" % manufacturer_url['es'], include("catalog.urlsManufacturer")),
-    (r"^%s/" % manufacturer_url['ca'], include("catalog.urlsManufacturer")),
+    # catalog manage
+    url(r'^catalogmanage/', include('catalog.urlsCatalogManage')),
 
-    #~ product 
-    (r"^%s/" % product_url['en'], include("catalog.urlsProduct")),
-    (r"^%s/" % product_url['es'], include("catalog.urlsProduct")),
-    (r"^%s/" % product_url['ca'], include("catalog.urlsProduct")),
+    # manufacturer 
+    url(r"^%s/" % manufacturer_url['en'], include("catalog.urlsManufacturer")),
+    url(r"^%s/" % manufacturer_url['es'], include("catalog.urlsManufacturer")),
+    url(r"^%s/" % manufacturer_url['ca'], include("catalog.urlsManufacturer")),
 
-    #~ contact
-    (r"^%s/" % contact_url['en'], include("contact.urlsContact")),
-    (r"^%s/" % contact_url['es'], include("contact.urlsContact")),
-    (r"^%s/" % contact_url['ca'], include("contact.urlsContact")),
+    # product 
+    url(r"^%s/" % product_url['en'], include("catalog.urlsProduct")),
+    url(r"^%s/" % product_url['es'], include("catalog.urlsProduct")),
+    url(r"^%s/" % product_url['ca'], include("catalog.urlsProduct")),
 
-    (r'^search/', include('haystack.urls')),
-    (r"^partner/", include("partner.urlsPartner")),
-    (r"^sale/", include("sale.urlsSale")),
-    (r"^account/", include("account.urlsAccount")),
-    (r"^payment/", include("payment.urlsPayment")),
+    # contact
+    url(r"^%s/" % contact_url['en'], include("contact.urlsContact")),
+    url(r"^%s/" % contact_url['es'], include("contact.urlsContact")),
+    url(r"^%s/" % contact_url['ca'], include("contact.urlsContact")),
 
-    (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
-    (r"^static/(?P<path>.*)$", "django.views.static.serve", {"document_root": MEDIA_ROOT}),
+    url(r'^search/', include('haystack.urls')),
+    url(r"^partner/", include("partner.urlsPartner")),
+    url(r"^sale/", include("sale.urlsSale")),
+    url(r"^account/", include("account.urlsAccount")),
+    url(r"^payment/", include("payment.urlsPayment")),
+    url(r"^base/", include("base.urlsBase")),
 
-    #~ Ajax Paths
-    (r'^filemanager/', include('tools.filemanager.connector.urls')),
-    (r'^inplaceeditform/', include('inplaceeditform.urls')),
-    (r'^jsi18n$', 'django.views.i18n.javascript_catalog', js_info_dict),
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+    url(r"^static/(?P<path>.*)$", "django.views.static.serve", {"document_root": MEDIA_ROOT}),
 
-    #~ Admin 
-    (r'^manager/', include(admin.site.urls)),
-    (r'^filebrowser/', include('filebrowser.urls')),
+    # Ajax Paths
+    url(r'^filemanager/', include('tools.filemanager.connector.urls')),
+    url(r'^inplaceeditform/', include('inplaceeditform.urls')),
+    url(r'^jsi18n$', 'django.views.i18n.javascript_catalog', js_info_dict),
+
+    # Admin 
+    url(r'^manager/', include(admin.site.urls)),
+    url(r'^filebrowser/', include('filebrowser.urls')),
 
     #  Blog
-    (r"^blog/", include("blog.urlsBlog")),
+    url(r"^blog/", include("blog.urlsBlog")),
 
-    #~ Cms
-    (r"^cms/", include("tools.cms.urlsCms")),
+    # Cms
+    url(r"^cms/", include("tools.cms.urlsCms")),
 
     # Content
-    (r"^content/", include("content.urlsContent")),
-    (r"^(?P<content>[^/]+)", include("content.urlsContent")),
+    url(r"^content/", include("content.urlsContent")),
+    url(r"^(?P<content>[^/]+)", include("content.urlsContent")),
 )

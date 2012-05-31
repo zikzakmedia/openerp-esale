@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ LANGUAGE_CODE }}-{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}-{{ LANGUAGE_CODE }}" dir="ltr" >
-{% load i18n %}{% get_current_language as LANGUAGE_CODE %}{% get_available_languages as LANGUAGES %}
+{% load i18n %}{% get_current_language as LANGUAGE_CODE %}{% get_available_languages as LANGUAGES %}{% load url from future %}
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="robots" content="index, follow" />
@@ -27,8 +27,25 @@
 {% load cms %}{% render_useradd %}
 <div id="esale" class="page">
     <div class="header-container">
-        <h1 id="logo"><a href="{{ LOCALE_URI }}/"><img src="{{ MEDIA_URL }}images/logo.png" title="{% trans "Zoook - OpenERP e-sale" %}"/></a></h1>
+        <h1 id="logo"><a href="{% url 'index' %}"><img src="{{ MEDIA_URL }}images/logo.png" title="{% trans "Zoook - OpenERP e-sale" %}"/></a></h1>
 
+        <div class="navigation">
+            <form id="search_mini_form" action="{% url 'haystack_search' %}" method="get">
+                <fieldset class="form-search">
+                    <input id="search" type="text" class="input-text-search" name="q" value="{% trans "search" %}" onfocus="if (this.value=='{% trans "search" %}') this.value = ''"/>
+                    <button type="submit" class="button-search-mini"></button>
+                </fieldset>
+            </form>
+
+            <ul class="links">
+                <li class="first">{% if not user.is_authenticated %}<a href="{% url 'partner_login' %}">{% trans "Login" %}</a>{% else %}<a href="{% url 'partner_logout' %}">{% trans "Logout" %} ({{USER_NAME}})</a>{% endif %}</li>
+                {% if user.is_authenticated %}<li class="first"><a href="{% url 'partner' %}">{% trans "My Account" %}</a></li>{% endif %}
+                {% if user.is_authenticated %}<li><a href="{{ LOCALE_URI }}/{% trans 'catalog' %}/whistlist/" class="loading">{% trans "My Whistlist" %}</a></li>{% endif %}
+                {% if user.is_authenticated %}<li><a href="{% url 'sale_checkout' %}" class="loading">{% trans "My Cart" %}</a></li>{% endif %}
+                {% for language in LANGUAGES %}<li><a href="/{{ language.0 }}/" alt="{{ language.1 }}">{{ language.1|capfirst  }}</a></li>{% endfor %}
+            </ul>
+
+        </div>
         {% load category %}{% render_horizontal_menu %}
     </div>
     {% block pathway %}{% endblock %}

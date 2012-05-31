@@ -27,6 +27,8 @@ from django.contrib.auth.decorators import login_required
 from tools.conn import conn_ooop
 from tools.cms.models import SiteConfiguration
 
+import subprocess
+
 def siteConfiguration(site):
     """
     Site Configuration
@@ -93,3 +95,15 @@ def paginationOOOP(request, total=0, limit=10):
         page_next = False
         
     return offset, page_previous, page_next
+
+def call_command(command):
+    """To call command system"""
+
+    process = subprocess.Popen(command, shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE)
+    result = list(process.communicate())
+    result.append(process.returncode)
+    #if process.returncode != 0:
+        #print result
+    return tuple(result)

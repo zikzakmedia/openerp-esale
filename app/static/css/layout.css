@@ -154,6 +154,16 @@ ul.user-add li a:hover{ background: #232323; color: #fff; padding-left: 11px;}
 .msg-warning {padding:10px; color: #9F6000;background-color: #FEEFB3; background-image: url('../images/icons/warning.png') no-repeat}
 .msg-error {padding:10px; color: #D8000C;background-color: #FFBABA; background-image: url('../images/icons/error.png') no-repeat}
 
+/* 404 */
+#notfound-search{ float:right; margin-top:10px; width: 400px; padding:10px; border:1px solid #313131; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px;}
+
+/* Catalog list */
+#catalog-list { margin-top: 10px; font-size: 18px}
+#catalog-list .level1 {padding-top:10px}
+#catalog-list .level2 { margin-left:10px; font-size: 16px}
+#catalog-list .level3 { margin-left:15px; font-size: 14px}
+#catalog-list .level4 { margin-left:20px; font-size: 12px}
+
 /* Content Box */
 #content-box h2 { border-bottom: 1px solid #F2F2F2; margin:10px 0 5px 0}
 #content-box h3 { border-bottom: 1px solid #F2F2F2; margin:10px 0 5px 0}
