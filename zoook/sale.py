@@ -470,6 +470,7 @@ class sale_order(osv.osv):
         'payment_state': fields.selection([
          ('cancel', 'Cancel'),
          ('draft', 'Draft'),
+         ('error', 'Error'),
          ('checking', 'Checking'),
          ('done', 'Done'),
         ], 'Payment State', readonly=True),
