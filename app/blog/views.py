@@ -133,6 +133,7 @@ def blog_form(request, blog_id):
             form = BlogForm(request.POST, instance=blog)
         else:
             form = BlogForm(request.POST)
+
         if form.is_valid():
             blog = form.save(commit=False)
 
@@ -142,10 +143,10 @@ def blog_form(request, blog_id):
 
             blog.save()
 
-            if LOCALE_URI:
-                redirect = "%s/blog/%s" % (context_instance['LOCALE_URI'], blog.slug)
-            else:
-                redirect = "/blog/%s" % (blog.slug)
+        if LOCALE_URI:
+            redirect = "%s/blog/%s" % (context_instance['LOCALE_URI'], blog.slug)
+        else:
+            redirect = "/blog/%s" % (blog.slug)
     else:
         if blog_id:
             blog = get_object_or_404(Blog,id=blog_id)

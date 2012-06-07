@@ -642,10 +642,10 @@ def product_recommended_form(request, recommended_id):
         if form.is_valid():
             recommended = form.save()
 
-            if LOCALE_URI:
-                redirect = "%s/catalogmanage/productrecommended/" % (context_instance['LOCALE_URI'])
-            else:
-                redirect = "catalogmanage/productrecommended/"
+        if LOCALE_URI:
+            redirect = "%s/catalogmanage/productrecommended/" % (context_instance['LOCALE_URI'])
+        else:
+            redirect = "catalogmanage/productrecommended/"
     else:
         if recommended_id:
             recommended = get_object_or_404(ProductRecommended,id=recommended_id)
@@ -749,10 +749,10 @@ def product_offer_form(request, offer_id):
         if form.is_valid():
             offer = form.save()
 
-            if LOCALE_URI:
-                redirect = "%s/catalogmanage/productoffer/" % (context_instance['LOCALE_URI'])
-            else:
-                redirect = "catalogmanage/productoffer/"
+        if LOCALE_URI:
+            redirect = "%s/catalogmanage/productoffer/" % (context_instance['LOCALE_URI'])
+        else:
+            redirect = "/catalogmanage/productoffer/"
     else:
         if offer_id:
             offer = get_object_or_404(ProductOffer,id=offer_id)
@@ -778,7 +778,7 @@ def product_offer_add(request):
     if LOCALE_URI:
         url_form = '%s/catalogmanage/productoffer/add/' % (context_instance['LOCALE_URI'])
     else:
-        url_form = 'catalogmanage/productoffer/add/'
+        url_form = '/catalogmanage/productoffer/add/'
 
     return render_to_response('catalog/form.html', {
                                 'form':form,
@@ -808,7 +808,7 @@ def product_offer_edit(request, offer_id):
     if LOCALE_URI:
         url_form = '%s/catalogmanage/productoffer/edit/%s' % (context_instance['LOCALE_URI'], offer_id)
     else:
-        url_form = 'catalogmanage/productoffer/edit/%s' % (offer_id)
+        url_form = '/catalogmanage/productoffer/edit/%s' % (offer_id)
 
     return render_to_response('catalog/form.html', {
                                 'form':form,
