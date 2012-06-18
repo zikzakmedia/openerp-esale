@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.2\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-05-15 15:15+0000\n"
-"PO-Revision-Date: 2012-05-15 17:19+0100\n"
+"POT-Creation-Date: 2012-06-18 07:03+0000\n"
+"PO-Revision-Date: 2012-06-18 09:13+0100\n"
 "Last-Translator: Raimon Esteve <resteve@zikzakmedia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,11 @@ msgid "Partial Delivery"
 msgstr "Enviament parcial"
 
 #. module: zoook
+#: model:ir.model,name:zoook.model_zoook_sale_shop_payment_type
+msgid "Zoook Sale Shop Payment Type"
+msgstr "Tipus de pagament de la botiga"
+
+#. module: zoook
 #: field:sale.shop,zoook_last_export_products:0
 msgid "Last Export Products"
 msgstr "Últims productes exportats"
@@ -32,14 +37,19 @@ msgid "Not available some e-Sale Products to export"
 msgstr "No es troben productes al canal de e-Sale per publicar"
 
 #. module: zoook
-#: sql_constraint:res.country:0
-msgid "The code of the country must be unique !"
-msgstr "El codi del país ha de ser únic!"
+#: selection:zoook.sale.shop.payment.type,commission_type:0
+msgid "Fix"
+msgstr "Fix"
 
 #. module: zoook
 #: field:zoook.sale.shop.payment.type,order_policy:0
 msgid "Shipping Policy"
 msgstr "Política de facturació"
+
+#. module: zoook
+#: help:product.template,zoook_saleshop_ids:0
+msgid "Select yours Sale Shops available this product"
+msgstr "Selecciona les botigues disponibles en aquest producte"
 
 #. module: zoook
 #: view:product.product:0
@@ -55,15 +65,20 @@ msgid "eSale Logs"
 msgstr "eSale Logs"
 
 #. module: zoook
-#: code:addons/zoook/product.py:237
+#: code:addons/zoook/product.py:240
 #, python-format
 msgid "To Unlink this category, unmark active field"
 msgstr "Per eliminar aquesta categoria desmarqui el camp actiu."
 
 #. module: zoook
+#: help:sale.order.line,commission_line:0
+msgid "Commission line"
+msgstr "Línia de comissió"
+
+#. module: zoook
 #: help:zoook.sale.shop.payment.type,virtual:0
 msgid "Virtual payment. Example: Paypal"
-msgstr "Virtual payment. Example: Paypal"
+msgstr "Pagament virtual. Exemple: Paypal"
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_zoook_sync_product_image_wizard
@@ -128,14 +143,14 @@ msgid "OpenERP Model"
 msgstr "Model OpenERP"
 
 #. module: zoook
-#: selection:sale.shop,zoook_log_clean:0
-msgid "1 Day"
-msgstr "1 Dia"
+#: help:product.template,zoook_exportable:0
+msgid "If check export e-sale, this product are available in your e-sale. If you need not publish this product (despublish), unmark Active field in e-sale tab"
+msgstr "Si selecciona \"Exportar a botiga on-line\", aquest producte estarà disponible a les botigues web. Si necessita despublicar aquest producte, desmarca el camp \"Actiu\" de la pestanya e-sale."
 
 #. module: zoook
-#: field:product.images,base_image:0
-msgid "Base Image"
-msgstr "Imatge base"
+#: field:zoook.sale.shop.payment.type,commission_type:0
+msgid "Commission Type"
+msgstr "Tipus de comissió"
 
 #. module: zoook
 #: code:addons/zoook/wizard/wizard_create_user.py:130
@@ -183,7 +198,7 @@ msgid "Invoice from the Packing"
 msgstr "Facturar des d'albarà"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:103
+#: code:addons/zoook/sale.py:104
 #: code:addons/zoook/wizard/wizard_product_image.py:54
 #: code:addons/zoook/wizard/wizard_product_product.py:54
 #, python-format
@@ -253,13 +268,13 @@ msgid "Select Product Images to export"
 msgstr "Selecciona els productes a exportar"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:99
+#: code:addons/zoook/sale.py:100
 #, python-format
 msgid "Ok!"
 msgstr "Ok!"
 
 #. module: zoook
-#: code:addons/zoook/product.py:363
+#: code:addons/zoook/product.py:367
 #, python-format
 msgid "Not Price List available Partner or Shop."
 msgstr "No hi ha tarifes de preus disponibles a l'empresa o a la botiga."
@@ -329,9 +344,26 @@ msgid "Shipped Quantities"
 msgstr "Quantitats enviades"
 
 #. module: zoook
+#: field:sale.order.line,commission_line:0
+#: view:zoook.sale.shop.payment.type:0
+#: field:zoook.sale.shop.payment.type,commission:0
+msgid "Commission"
+msgstr "Comissió"
+
+#. module: zoook
 #: help:sale.shop,email_sale_order:0
 msgid "Email Template Sale Order"
 msgstr "Plantilla de correu de la comanda de venda"
+
+#. module: zoook
+#: help:zoook.sale.shop.payment.type,commission_product_id:0
+msgid "Product commission in sale order line."
+msgstr "Product commission in sale order line."
+
+#. module: zoook
+#: selection:zoook.sale.shop.payment.type,commission_type:0
+msgid "Percentage"
+msgstr "Percentage"
 
 #. module: zoook
 #: view:zoook.sync.product.image.wizard:0
@@ -395,6 +427,11 @@ msgid "Products to sync..."
 msgstr "Productes a sincronitzar..."
 
 #. module: zoook
+#: help:zoook.sale.shop.payment.type,commission:0
+msgid "Commission Payment. Add extra price in sale order"
+msgstr "Commission Payment. Add extra price in sale order"
+
+#. module: zoook
 #: sql_constraint:res.country:0
 msgid "The name of the country must be unique !"
 msgstr "El nom del país ha de ser únic!"
@@ -430,11 +467,9 @@ msgid "Related Products"
 msgstr "Productes relacionats"
 
 #. module: zoook
-#: model:ir.model,name:zoook.model_res_country
-#: view:sale.shop:0
-#: field:sale.shop,vat_country_ids:0
-msgid "Country"
-msgstr "País"
+#: field:product.category,fslug:0
+msgid "Full Slug"
+msgstr "Slug complert"
 
 #. module: zoook
 #: view:sale.shop:0
@@ -504,9 +539,9 @@ msgid "Exclude"
 msgstr "Excloure"
 
 #. module: zoook
-#: view:res.partner:0
-msgid "Reset User (new password create)"
-msgstr "Reiniciar usuari (es crearà una nova contrasenya)"
+#: view:product.product:0
+msgid "Checkout Description"
+msgstr "Descripció cistella compra"
 
 #. module: zoook
 #: selection:zoook.create.user.wizard,state:0
@@ -542,7 +577,7 @@ msgid "Magento ID"
 msgstr "Magento ID"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:575
+#: code:addons/zoook/sale.py:577
 #, python-format
 msgid "Order %s change status: Cancel"
 msgstr "La comanda de venda %s ha canviat d'estat: Cancel·lat"
@@ -572,9 +607,9 @@ msgid "Automatic Export"
 msgstr "Exportació automàtica"
 
 #. module: zoook
-#: help:product.template,zoook_saleshop_ids:0
-msgid "Select yours Sale Shops available this product"
-msgstr "Selecciona les botigues disponibles en aquest producte"
+#: field:sale.shop,zoook_ip:0
+msgid "IP"
+msgstr "IP"
 
 #. module: zoook
 #: field:res.country,vat_check:0
@@ -588,13 +623,13 @@ msgid "Are you sure to export this product?"
 msgstr "Esteu segurs d'exportar aquest producte?"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:564
+#: code:addons/zoook/sale.py:566
 #, python-format
 msgid "Order %s change status: Done"
 msgstr "La comanda de venda %s ha canviat d'estat: Realitzat"
 
 #. module: zoook
-#: code:addons/zoook/product.py:413
+#: code:addons/zoook/product.py:417
 #, python-format
 msgid "To Unlink this product, unmark active field and select none option in visibility field"
 msgstr "Per eliminar aquest producte, desmarqui el camp actiu i la visibilitat a enlloc."
@@ -628,7 +663,7 @@ msgid "Sale Shop: %s Username: %s. %s"
 msgstr "Botiga: %s Nom d'usuari: %s. %s"
 
 #. module: zoook
-#: code:addons/zoook/product.py:404
+#: code:addons/zoook/product.py:408
 #, python-format
 msgid "-copy"
 msgstr "-copia"
@@ -645,11 +680,6 @@ msgid "Status"
 msgstr "Estat"
 
 #. module: zoook
-#: field:product.category,fslug:0
-msgid "Full Slug"
-msgstr "Slug complert"
-
-#. module: zoook
 #: field:zoook.sale.shop.payment.type,picking_policy:0
 msgid "Packing Policy"
 msgstr "Política d'enviament"
@@ -661,6 +691,7 @@ msgstr "Llista de desitjos"
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_product_product
+#: field:zoook.sale.shop.payment.type,commission_product_id:0
 msgid "Product"
 msgstr "Producte"
 
@@ -668,6 +699,11 @@ msgstr "Producte"
 #: model:ir.model,name:zoook.model_zoook_create_user_wizard
 msgid "zoook.create.user.wizard"
 msgstr "zoook.create.user.wizard"
+
+#. module: zoook
+#: view:res.partner:0
+msgid "Reset User (new password create)"
+msgstr "Reiniciar usuari (es crearà una nova contrasenya)"
 
 #. module: zoook
 #: model:ir.model,name:zoook.model_sale_shop
@@ -678,6 +714,11 @@ msgstr "Botiga"
 #: field:product.template,zoook_status:0
 msgid "Active"
 msgstr "Actiu"
+
+#. module: zoook
+#: sql_constraint:res.country:0
+msgid "The code of the country must be unique !"
+msgstr "El codi del país ha de ser únic!"
 
 #. module: zoook
 #: field:product.template,product_crosssells_ids:0
@@ -705,18 +746,23 @@ msgid "Thumb Image"
 msgstr "Thumb Image"
 
 #. module: zoook
-#: field:sale.shop,zoook_last_export_images:0
-msgid "Last Export Images"
-msgstr "Últimes imatges exportades"
+#: field:product.images,base_image:0
+msgid "Base Image"
+msgstr "Imatge base"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:103
+#: selection:zoook.sale.shop.payment.type,commission_operator:0
+msgid "(+) Add"
+msgstr "(+) Afegir"
+
+#. module: zoook
+#: code:addons/zoook/sale.py:104
 #, python-format
 msgid "Error connection to server."
 msgstr "Error en la connexió amb el servidor."
 
 #. module: zoook
-#: code:addons/zoook/sale.py:99
+#: code:addons/zoook/sale.py:100
 #, python-format
 msgid "Connection to server are successfully."
 msgstr "La connexió amb el servidor s'ha realitzat correctament."
@@ -757,6 +803,7 @@ msgstr "Mostrar configuració"
 
 #. module: zoook
 #: selection:esale.log,status:0
+#: selection:sale.order,payment_state:0
 msgid "Error"
 msgstr "Error"
 
@@ -766,9 +813,9 @@ msgid "Path of Django App. Ex: /var/www/zoook"
 msgstr "Ruta de Django App. Ex: /var/www/zoook"
 
 #. module: zoook
-#: help:product.template,zoook_exportable:0
-msgid "If check export e-sale, this product are available in your e-sale. If you need not publish this product (despublish), unmark Active field in e-sale tab"
-msgstr "Si selecciona \"Exportar a botiga on-line\", aquest producte estarà disponible a les botigues web. Si necessita despublicar aquest producte, desmarca el camp \"Actiu\" de la pestanya e-sale."
+#: selection:sale.shop,zoook_log_clean:0
+msgid "1 Day"
+msgstr "1 Dia"
 
 #. module: zoook
 #: field:delivery.carrier,code:0
@@ -781,7 +828,7 @@ msgid "Atention! If you change slug, you need change manually all full slug chil
 msgstr "Atenció! Si canvia el slug, necessita canviar manualment la ruta completa de les categories filles"
 
 #. module: zoook
-#: code:addons/zoook/sale.py:560
+#: code:addons/zoook/sale.py:562
 #, python-format
 msgid "Order Payment: %s"
 msgstr "Pagament de la comanda: %s"
@@ -862,6 +909,11 @@ msgid "Export e-Sale"
 msgstr "Exporta e-Sale"
 
 #. module: zoook
+#: view:zoook.sync.product.image.wizard:0
+msgid "Images Product to sync..."
+msgstr "Productes a sincronitzar...."
+
+#. module: zoook
 #: selection:sale.shop,zoook_log_clean:0
 msgid "3 Days"
 msgstr "3 Dies"
@@ -907,9 +959,9 @@ msgid "15 Days"
 msgstr "15 Dies"
 
 #. module: zoook
-#: view:zoook.sync.product.image.wizard:0
-msgid "Images Product to sync..."
-msgstr "Productes a sincronitzar...."
+#: field:zoook.sale.shop.payment.type,commission_operator:0
+msgid "Commission Operator"
+msgstr "Operador comissió"
 
 #. module: zoook
 #: view:product.category:0
@@ -925,6 +977,7 @@ msgstr "OpenERP e-sale"
 #. module: zoook
 #: selection:product.category,default_sort_by:0
 #: field:sale.shop,type_special_price:0
+#: field:zoook.sale.shop.payment.type,commission_price:0
 msgid "Price"
 msgstr "Preu"
 
@@ -940,11 +993,11 @@ msgstr "Nom del App de pagament (exemple, paypal, servired, cash_on_delivery,...
 
 #. module: zoook
 #: code:addons/zoook/product.py:173
-#: code:addons/zoook/product.py:199
-#: code:addons/zoook/product.py:237
-#: code:addons/zoook/product.py:282
-#: code:addons/zoook/product.py:318
-#: code:addons/zoook/product.py:413
+#: code:addons/zoook/product.py:202
+#: code:addons/zoook/product.py:240
+#: code:addons/zoook/product.py:286
+#: code:addons/zoook/product.py:322
+#: code:addons/zoook/product.py:417
 #, python-format
 msgid "Alert"
 msgstr "Alerta"
@@ -956,14 +1009,19 @@ msgid "Delivery"
 msgstr "Enviament"
 
 #. module: zoook
+#: help:zoook.sale.shop.payment.type,commission_price:0
+msgid "Fix price or percentatge. Percentat is over 100. 10% is 0.10"
+msgstr "Preu fix o percentatge. Percentatge es sobre 100. 10% es 0.10"
+
+#. module: zoook
 #: help:zoook.create.user.wizard,email_create_user:0
 msgid "Template Email Create User"
 msgstr "Plantilla de creació d'usuari"
 
 #. module: zoook
 #: code:addons/zoook/product.py:173
-#: code:addons/zoook/product.py:199
-#: code:addons/zoook/product.py:282
+#: code:addons/zoook/product.py:202
+#: code:addons/zoook/product.py:286
 #, python-format
 msgid "This Slug exists. Choose another slug"
 msgstr "Aquest slug ja existeix. Utilitza un altre slug"
@@ -1021,9 +1079,11 @@ msgid "Invoice on"
 msgstr "Facturar"
 
 #. module: zoook
-#: field:sale.shop,zoook_ip:0
-msgid "IP"
-msgstr "IP"
+#: model:ir.model,name:zoook.model_res_country
+#: view:sale.shop:0
+#: field:sale.shop,vat_country_ids:0
+msgid "Country"
+msgstr "País"
 
 #. module: zoook
 #: help:zoook.sale.shop.payment.type,confirm:0
@@ -1067,7 +1127,7 @@ msgid "Ssh key"
 msgstr "Clau SSH"
 
 #. module: zoook
-#: code:addons/zoook/product.py:318
+#: code:addons/zoook/product.py:322
 #, python-format
 msgid "Slug %s exists. Choose another slug"
 msgstr "Aquest %s slug ja existeix. Utilitza un altre slug"
@@ -1105,14 +1165,19 @@ msgid "All"
 msgstr "Tot"
 
 #. module: zoook
-#: model:ir.model,name:zoook.model_zoook_sale_shop_payment_type
-msgid "Zoook Sale Shop Payment Type"
-msgstr "Tipus de pagament de la botiga"
+#: selection:zoook.sale.shop.payment.type,commission_operator:0
+msgid "(-) Substract"
+msgstr "(-) Restar"
 
 #. module: zoook
 #: view:product.category:0
 msgid "Meta Information"
 msgstr "Meta Information"
+
+#. module: zoook
+#: field:sale.shop,zoook_last_export_images:0
+msgid "Last Export Images"
+msgstr "Últimes imatges exportades"
 
 #. module: zoook
 #: view:sale.shop:0

@@ -24,11 +24,37 @@
 from osv import osv, fields
 from tools.translate import _
 
+import netsvc
+LOGGER = netsvc.Logger()
+
 class res_partner(osv.osv):
     _inherit = "res.partner"
 
     _columns = {
         'product_whistlist_ids':fields.many2many('product.template','partner_product_whistlist_rel','partner_id', 'product_id', 'Whislist'),
     }
+
+    def dj_export_manufacturers(self, cr, uid, context=None):
+        """
+        Return list all manufacturers
+        :return [
+            {'id':12, 'name':'Zikzakmedia'}
+        ]
+        """
+        results = []
+        partner_obj = self.pool.get('res.partner')
+
+        LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Manufacturers running")
+
+        manufacturers = partner_obj.search(cr, uid, [('manufacturer','=',True)])
+        for partner in partner_obj.browse(cr, uid, manufacturers):
+            results.append({
+                'id': partner.id,
+                'name': partner.name,
+            })
+
+        LOGGER.notifyChannel('e-Sale', netsvc.LOG_INFO, "Manufacturers End")
+
+        return results
 
 res_partner()

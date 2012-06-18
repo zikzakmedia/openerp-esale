@@ -167,7 +167,7 @@
                                 <field name="visibility" attrs="{'required':[('zoook_exportable','==',True)]}"/>
                                 <field name="zoook_sequence"/>
                                 <field name="zoook_status"/>
-                                <field name="cartdescription"/>
+                                <field name="cartdescription" string="Checkout Description"/>
                                 <separator string="Short Description" colspan="4" />
                                 <field name="shortdescription" colspan="4" nolabel="1" attrs="{'required':[('zoook_exportable','==',True)]}"/>
                             </page>
